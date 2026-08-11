@@ -60,8 +60,7 @@ function heroSlideMarkup(slide, index) {
         <div class="hero-slide-mapbg" aria-hidden="true"></div>
         <div class="container-site hero-slide-content hero-slide-content-split">
           <div class="hero-slide-copy">
-            <span class="badge">${slide.badge}</span>
-            <h2 class="text-h1 mt-4 text-white">${slide.title}</h2>
+            <h2 class="text-h1 text-white">${slide.title}</h2>
             <p class="hero-slide-text">${slide.text}</p>
           </div>
           <figure class="hero-slide-mapfig">
@@ -79,8 +78,7 @@ function heroSlideMarkup(slide, index) {
         <div class="hero-slide-overlay" aria-hidden="true"></div>
         <div class="container-site hero-slide-content">
           <div class="hero-slide-copy">
-            <span class="badge">${slide.badge}</span>
-            <h2 class="text-h1 mt-4 text-white">${slide.title}</h2>
+            <h2 class="text-h1 text-white">${slide.title}</h2>
             <p class="hero-slide-text">${slide.text}</p>
             <div class="hero-actions mt-8">
               ${slide.ctaPrimary ? `
@@ -89,7 +87,7 @@ function heroSlideMarkup(slide, index) {
                 ${slide.ctaPrimary.label}
               </a>` : ''}
               ${slide.ctaSecondary ? `
-              <a href="${slide.ctaSecondary.href}" class="btn btn-lg bg-white/10 text-white border-white/20 hover:bg-white/20 hover:border-accent-400/40">
+              <a href="${slide.ctaSecondary.href}" class="btn btn-lg" style="background: rgb(255 255 255 / 0.1); color: #fff; border: 1px solid rgb(255 255 255 / 0.2);">
                 ${icon(slide.ctaSecondary)}
                 ${slide.ctaSecondary.label}
               </a>` : ''}
@@ -108,10 +106,10 @@ export function renderHome() {
       <div class="hero-carousel-track">
         ${HERO_SLIDES.map(heroSlideMarkup).join('')}
       </div>
-      <button type="button" class="hero-carousel-arrow hero-carousel-prev glass-panel" aria-label="Slide sebelumnya">
+      <button type="button" class="hero-carousel-arrow hero-carousel-prev" aria-label="Slide sebelumnya">
         <i class="ph ph-caret-left" aria-hidden="true"></i>
       </button>
-      <button type="button" class="hero-carousel-arrow hero-carousel-next glass-panel" aria-label="Slide berikutnya">
+      <button type="button" class="hero-carousel-arrow hero-carousel-next" aria-label="Slide berikutnya">
         <i class="ph ph-caret-right" aria-hidden="true"></i>
       </button>
       <div class="hero-carousel-dots" aria-label="Pilih slide">
@@ -125,7 +123,7 @@ export function renderHome() {
     <section class="section home-sambutan blur-gradient-bg">
       <div class="container-site">
         <div class="sambutan-grid">
-          <div class="sambutan-media" data-reveal>
+          <div class="sambutan-media" data-reveal="left">
             <figure class="hero-card">
               <img src="https://banjar-connect.lovable.app/assets/ketua-rw-C_cHXzzT.jpg" alt="Potret Bapak Sutrisno, S.Sos., Ketua RW 3 Banjardowo" class="hero-img" loading="lazy" />
               <figcaption class="hero-card-badge">
@@ -134,9 +132,8 @@ export function renderHome() {
               </figcaption>
             </figure>
           </div>
-          <div class="sambutan-text" data-reveal style="--reveal-delay: 120ms">
-            <span class="badge">Sambutan</span>
-            <h2 class="text-h2 mt-3">Sambutan Ketua RW</h2>
+          <div class="sambutan-text" data-reveal style="--reveal-delay: 100ms">
+            <h2 class="text-h2">Sambutan Ketua RW</h2>
             <p class="sambutan-signature">Bapak Sutrisno, S.Sos.</p>
             <p class="sambutan-role">Ketua RW 3 Banjardowo (2024-2029)</p>
             <p class="text-body-lg text-ink-muted sambutan-body">
@@ -155,15 +152,14 @@ export function renderHome() {
 
     <!-- Pengumuman & Agenda -->
     <section class="news-section">
-      <div class="container-site">
+      <div class="container-site" style="position: relative; z-index: 1;">
         <div class="section-header" data-reveal>
-          <span class="badge">Pengumuman & Agenda</span>
           <h2 class="text-h2 section-title">Informasi Terbaru Warga</h2>
           <p class="section-desc">
             Kabar kegiatan, jadwal posyandu, dan pengumuman keamanan lingkungan di wilayah RW 3 Banjardowo.
           </p>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
           <article class="card card-hover news-card" data-reveal>
             <div class="news-badge-wrap">
               <span class="badge badge-accent">Kerja Bakti</span>
@@ -177,7 +173,7 @@ export function renderHome() {
               <a href="#" class="link text-body-sm">Baca Detail</a>
             </div>
           </article>
-          <article class="card card-hover news-card" data-reveal style="--reveal-delay: 90ms">
+          <article class="card card-hover news-card" data-reveal style="--reveal-delay: 80ms">
             <div class="news-badge-wrap">
               <span class="badge">Posyandu</span>
               <span class="text-caption text-ink-muted">28 Juli 2026</span>
@@ -190,7 +186,7 @@ export function renderHome() {
               <a href="#" class="link text-body-sm">Baca Detail</a>
             </div>
           </article>
-          <article class="card card-hover news-card" data-reveal style="--reveal-delay: 180ms">
+          <article class="card card-hover news-card" data-reveal style="--reveal-delay: 160ms">
             <div class="news-badge-wrap">
               <span class="badge badge-neutral">Keamanan</span>
               <span class="text-caption text-ink-muted">21 Juli 2026</span>
@@ -209,15 +205,14 @@ export function renderHome() {
 
     <!-- Peta Wilayah RW 3 -->
     <section class="section home-map-section blur-gradient-bg">
-      <div class="container-site">
+      <div class="container-site" style="position: relative; z-index: 1;">
         <div class="section-header" data-reveal>
-          <span class="badge">Peta Wilayah</span>
           <h2 class="text-h2 section-title">Wilayah RW 3 Kelurahan Banjardowo</h2>
           <p class="section-desc">
             Jelajahi batas wilayah RW 3 di Kecamatan Genuk, Kota Semarang, melalui peta interaktif berikut.
           </p>
         </div>
-        <div class="home-map-card card" id="home-map-card" data-reveal style="--reveal-delay: 100ms">
+        <div class="home-map-card card" id="home-map-card" data-reveal style="--reveal-delay: 80ms">
           <div class="home-map-shell" id="home-map-shell">
             <div id="home-map-loading" class="map-state" role="status" aria-live="polite">
               <div class="map-state-icon">
@@ -237,10 +232,10 @@ export function renderHome() {
             <p class="text-body-sm text-ink-muted">
               Geser dan perbesar untuk menjelajah. Batas wilayah ditampilkan dari data GeoJSON RW 3.
             </p>
-<a href="/peta-desa" class="btn btn-accent">
-                <i class="ph ph-map-trifold" aria-hidden="true"></i>
-                Lihat Peta Selengkapnya
-              </a>
+            <a href="/peta-desa" class="btn btn-accent">
+              <i class="ph ph-map-trifold" aria-hidden="true"></i>
+              Lihat Peta Selengkapnya
+            </a>
           </div>
         </div>
       </div>
@@ -248,17 +243,16 @@ export function renderHome() {
 
     <!-- UMKM RW 3 -->
     <section class="section home-umkm-section">
-      <div class="container-site">
+      <div class="container-site" style="position: relative; z-index: 1;">
         <div class="section-header" data-reveal>
-          <span class="badge">Katalog Usaha</span>
           <h2 class="text-h2 section-title">UMKM RW 3</h2>
           <p class="section-desc">
             Dukung perekonomian lokal dengan berbelanja di usaha mikro, kecil, dan menengah milik warga RW 3 Banjardowo.
           </p>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
           ${UMKM_DATA.slice(0, 3).map((item, i) => `
-            <div class="h-full" data-reveal style="--reveal-delay: ${i * 90}ms">
+            <div class="h-full" data-reveal style="--reveal-delay: ${i * 80}ms">
               ${umkmCardMarkup(item)}
             </div>
           `).join('')}
@@ -267,11 +261,11 @@ export function renderHome() {
     </section>
 
     <!-- CTA Lihat Semua UMKM -->
-    <section class="cta-section bg-primary-800 text-white" data-reveal>
+    <section class="cta-section text-white" data-reveal="scale">
       <div class="container-site cta-container">
         <div class="cta-content text-center max-w-[36rem] mx-auto">
           <h2 class="text-h2 text-white">Dukung usaha warga RW 3 Banjardowo</h2>
-          <p class="text-body-lg text-primary-200 mt-4">
+          <p class="text-body-lg mt-4" style="color: rgb(226 247 241 / 0.8);">
             Temukan kuliner, kerajinan, jasa, dan sembako dari pelaku usaha warga RW 3.
           </p>
           <div class="mt-8">

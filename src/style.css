@@ -6,7 +6,7 @@
    RW 3 BANJARDOWO - DESIGN SYSTEM
    Premium green visual identity.
    Community portal — trust-first, fresh, intentional.
-   Dials: VARIANCE 5 · MOTION 3 · DENSITY 5
+   Dials: VARIANCE 5 · MOTION 4 · DENSITY 4
    ═══════════════════════════════════════════════════════════════ */
 
 @theme {
@@ -139,40 +139,40 @@ p {
 
 /* ── Typography scale ───────────────────────────────────────── */
 .text-display {
-    font-size: clamp(2.25rem, 4.5vw, 3.5rem);
-    line-height: 1.06;
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    line-height: 1.08;
     font-weight: 800;
     letter-spacing: -0.025em;
 }
 
 .text-h1 {
-    font-size: clamp(1.875rem, 3.5vw, 2.5rem);
-    line-height: 1.1;
+    font-size: clamp(1.625rem, 3vw, 2.25rem);
+    line-height: 1.12;
     font-weight: 800;
     letter-spacing: -0.02em;
 }
 
 .text-h2 {
-    font-size: clamp(1.375rem, 2.5vw, 1.875rem);
+    font-size: clamp(1.25rem, 2.2vw, 1.75rem);
     line-height: 1.2;
     font-weight: 700;
     letter-spacing: -0.015em;
 }
 
 .text-h3 {
-    font-size: 1.1875rem;
+    font-size: 1.125rem;
     line-height: 1.3;
     font-weight: 700;
 }
 
 .text-h4 {
-    font-size: 1rem;
+    font-size: 0.9375rem;
     line-height: 1.35;
     font-weight: 600;
 }
 
 .text-body-lg {
-    font-size: 1.0625rem;
+    font-size: 1rem;
     line-height: 1.7;
 }
 
@@ -195,9 +195,23 @@ p {
 /* ── Layout primitives ──────────────────────────────────────── */
 .container-site {
     width: 100%;
-    max-width: 72rem;
+    max-width: 80rem;
     margin-inline: auto;
     padding-inline: var(--spacing-container);
+}
+
+@media (min-width: 1280px) {
+    .container-site {
+        max-width: 90rem;
+        padding-inline: 3rem;
+    }
+}
+
+@media (min-width: 1536px) {
+    .container-site {
+        max-width: 96rem;
+        padding-inline: 4rem;
+    }
 }
 
 .section {
@@ -220,12 +234,12 @@ p {
     border: 1px solid transparent;
     cursor: pointer;
     transition: background-color 0.2s ease, border-color 0.2s ease,
-        transform 0.15s ease, box-shadow 0.2s ease;
+        transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
     white-space: nowrap;
 }
 
 .btn:active {
-    transform: translateY(1px);
+    transform: translateY(1px) scale(0.98);
 }
 
 .btn-primary {
@@ -235,7 +249,7 @@ p {
 
 .btn-primary:hover {
     background-color: var(--color-primary-700);
-    box-shadow: 0 2px 8px rgb(31 75 44 / 0.2);
+    box-shadow: 0 2px 10px rgb(31 75 44 / 0.25);
 }
 
 .btn-accent {
@@ -245,7 +259,7 @@ p {
 
 .btn-accent:hover {
     background-color: var(--color-accent-400);
-    box-shadow: 0 2px 8px rgb(195 233 86 / 0.25);
+    box-shadow: 0 2px 10px rgb(195 233 86 / 0.3);
 }
 
 .btn-secondary {
@@ -287,13 +301,13 @@ p {
 }
 
 .card-hover {
-    transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+    transition: box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
 }
 
 .card-hover:hover {
     box-shadow: var(--shadow-card-hover);
     border-color: var(--color-primary-200);
-    transform: translateY(-2px);
+    transform: translateY(-3px);
 }
 
 /* Badge */
@@ -389,7 +403,7 @@ p {
 
 /* Section header */
 .section-header {
-    max-width: 42rem;
+    max-width: 40rem;
     margin-bottom: 3rem;
 }
 
@@ -400,7 +414,8 @@ p {
 .section-header .section-desc {
     margin-top: 1rem;
     color: var(--color-ink-muted);
-    max-width: 60ch;
+    max-width: 55ch;
+    line-height: 1.7;
 }
 
 /* ── Page banner (profile pages) ───────────────────────────────── */
@@ -762,9 +777,21 @@ p {
 
 .site-footer {
     background-color: var(--color-primary-800);
+    background-image: linear-gradient(to bottom, var(--color-primary-800) 0%, var(--color-primary-900) 100%);
     color: rgb(226 247 241 / 0.8);
     padding-top: 4rem;
     padding-bottom: 0;
+    position: relative;
+}
+
+.site-footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgb(244 255 252 / 0.08) 50%, transparent 100%);
 }
 
 .footer-grid {
@@ -900,7 +927,7 @@ p {
 
 /* Bottom bar */
 .footer-divider {
-    border-color: rgb(226 247 241 / 0.08);
+    border-color: rgb(226 247 241 / 0.06);
     margin-top: 3rem;
     margin-bottom: 0;
 }
@@ -922,7 +949,9 @@ p {
 /* ── Hero Carousel ─────────────────────────────────────────────── */
 .hero-carousel {
     position: relative;
-    height: 32rem;
+    min-height: 28rem;
+    height: 70dvh;
+    max-height: 40rem;
     overflow: hidden;
     background-color: var(--color-primary-900);
     touch-action: pan-y;
@@ -930,13 +959,17 @@ p {
 
 @media (min-width: 768px) {
     .hero-carousel {
-        height: 34rem;
+        min-height: 30rem;
+        height: 72dvh;
+        max-height: 42rem;
     }
 }
 
 @media (min-width: 1024px) {
     .hero-carousel {
-        height: 38rem;
+        min-height: 32rem;
+        height: 75dvh;
+        max-height: 44rem;
     }
 }
 
@@ -949,13 +982,13 @@ p {
 .hero-slide {
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.7s ease, visibility 0s linear 0.7s;
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s linear 0.8s;
 }
 
 .hero-slide.is-active {
     opacity: 1;
     visibility: visible;
-    transition: opacity 0.7s ease, visibility 0s;
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s;
     z-index: 2;
 }
 
@@ -970,7 +1003,8 @@ p {
     pointer-events: none;
     background: linear-gradient(to top,
         var(--color-primary-900) 0%,
-        transparent 55%);
+        var(--color-primary-900) 8%,
+        transparent 60%);
 }
 
 .hero-slide-bg {
@@ -979,8 +1013,8 @@ p {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transform: scale(1.08);
-    transition: transform 6s cubic-bezier(0.22, 1, 0.36, 1);
+    transform: scale(1.06);
+    transition: transform 7s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .hero-slide.is-active .hero-slide-bg {
@@ -991,18 +1025,18 @@ p {
     position: absolute;
     inset: 0;
     background: linear-gradient(78deg,
-            rgb(15 37 32 / 0.92) 0%,
-            rgb(15 37 32 / 0.65) 42%,
-            rgb(15 37 32 / 0.2) 80%,
-            rgb(15 37 32 / 0.45) 100%);
+            rgb(11 28 16 / 0.93) 0%,
+            rgb(15 37 32 / 0.72) 38%,
+            rgb(15 37 32 / 0.25) 75%,
+            rgb(15 37 32 / 0.5) 100%);
 }
 
 @media (max-width: 767px) {
     .hero-slide-overlay {
         background: linear-gradient(0deg,
-                rgb(15 37 32 / 0.95) 0%,
-                rgb(15 37 32 / 0.65) 55%,
-                rgb(15 37 32 / 0.25) 100%);
+                rgb(11 28 16 / 0.96) 0%,
+                rgb(15 37 32 / 0.7) 50%,
+                rgb(15 37 32 / 0.3) 100%);
     }
 }
 
@@ -1010,7 +1044,7 @@ p {
 .hero-slide-mapbg {
     position: absolute;
     inset: 0;
-    background: linear-gradient(115deg, var(--color-primary-950) 0%, var(--color-primary-800) 100%);
+    background: linear-gradient(115deg, var(--color-primary-950) 0%, var(--color-primary-800) 60%, rgb(77 113 17 / 0.15) 100%);
 }
 
 .hero-slide-content {
@@ -1051,7 +1085,7 @@ p {
 }
 
 .hero-slide-copy {
-    max-width: 40rem;
+    max-width: 38rem;
 }
 
 .hero-slide-copy .badge {
@@ -1069,9 +1103,15 @@ p {
 .hero-slide-text {
     margin-top: 1rem;
     max-width: 42ch;
-    color: rgb(226 247 241 / 0.88);
-    font-size: 1rem;
+    color: rgb(226 247 241 / 0.85);
+    font-size: 0.9375rem;
     line-height: 1.7;
+}
+
+@media (min-width: 768px) {
+    .hero-slide-text {
+        font-size: 1rem;
+    }
 }
 
 .hero-actions {
@@ -1083,8 +1123,9 @@ p {
 /* Incoming slide text transition */
 .hero-slide-content>* {
     opacity: 0;
-    transform: translateY(1.25rem);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    transform: translateY(1rem);
+    transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .hero-slide.is-active .hero-slide-content>* {
@@ -1093,7 +1134,11 @@ p {
 }
 
 .hero-slide.is-active .hero-slide-content> :nth-child(2) {
-    transition-delay: 0.12s;
+    transition-delay: 0.1s;
+}
+
+.hero-slide.is-active .hero-slide-content> :nth-child(3) {
+    transition-delay: 0.2s;
 }
 
 /* Split (map) slide */
@@ -1127,20 +1172,21 @@ p {
 
 .hero-slide-mapimg {
     width: 100%;
-    max-width: 15rem;
+    max-width: 14rem;
     height: auto;
-    padding: 0.625rem;
+    padding: 0.5rem;
     background-color: var(--color-surface);
-    border: 1px solid rgb(255 255 255 / 0.16);
+    border: 1px solid rgb(255 255 255 / 0.12);
     border-radius: var(--radius-card);
-    box-shadow: var(--shadow-card-hover);
+    box-shadow: 0 8px 28px rgb(11 28 16 / 0.3);
 }
 
 .hero-slide-mapcaption {
     font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.01em;
-    color: rgb(255 255 255 / 0.75);
+    color: rgb(255 255 255 / 0.65);
+    margin-top: 0.5rem;
 }
 
 /* Carousel controls */
@@ -1154,14 +1200,16 @@ p {
     justify-content: center;
     width: 2.75rem;
     height: 2.75rem;
-    border: 1px solid rgb(255 255 255 / 0.22);
+    border: 1px solid rgb(255 255 255 / 0.18);
     border-radius: var(--radius-pill);
-    background-color: rgb(255 255 255 / 0.12);
+    background-color: rgb(11 28 16 / 0.35);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     color: #fff;
     font-size: 1.125rem;
     cursor: pointer;
     opacity: 0;
-    transition: opacity 0.25s ease, background-color 0.2s ease;
+    transition: opacity 0.3s ease, background-color 0.2s ease, transform 0.15s ease;
 }
 
 .hero-carousel:hover .hero-carousel-arrow,
@@ -1170,7 +1218,12 @@ p {
 }
 
 .hero-carousel-arrow:hover {
-    background-color: rgb(255 255 255 / 0.22);
+    background-color: rgb(11 28 16 / 0.55);
+    border-color: rgb(255 255 255 / 0.3);
+}
+
+.hero-carousel-arrow:active {
+    transform: translateY(-50%) scale(0.95);
 }
 
 @media (hover: none) {
@@ -1204,30 +1257,42 @@ p {
     padding: 0;
     border: none;
     border-radius: var(--radius-pill);
-    background-color: rgb(255 255 255 / 0.4);
+    background-color: rgb(255 255 255 / 0.35);
     cursor: pointer;
-    transition: width 0.3s ease, background-color 0.3s ease;
+    transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease;
 }
 
 .hero-carousel-dot:hover {
-    background-color: rgb(255 255 255 / 0.7);
+    background-color: rgb(255 255 255 / 0.65);
 }
 
 .hero-carousel-dot.is-active {
-    width: 1.5rem;
-    background-color: #fff;
+    width: 1.75rem;
+    background-color: var(--color-accent-500);
 }
 
 /* ── Sambutan Ketua RW ─────────────────────────────────────────── */
 .home-sambutan {
-    background-color: var(--color-primary-950);
+    background-color: var(--color-primary-900);
     background-image:
-        linear-gradient(var(--color-primary-900) 0%, rgb(11 28 16 / 0.78) 100%),
+        linear-gradient(var(--color-primary-900) 0%, rgb(11 28 16 / 0.82) 100%),
         url('/assets/rumput-bg.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     color: rgb(226 247 241 / 0.85);
+    position: relative;
+}
+
+.home-sambutan::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 6rem;
+    background: linear-gradient(to bottom, transparent, var(--color-primary-900));
+    pointer-events: none;
 }
 
 .home-sambutan .sambutan-signature {
@@ -1249,22 +1314,36 @@ p {
     align-items: center;
 }
 
+@media (min-width: 768px) {
+    .sambutan-grid {
+        grid-template-columns: 0.7fr 1.3fr;
+        gap: 3rem;
+    }
+}
+
 @media (min-width: 1024px) {
     .sambutan-grid {
-        grid-template-columns: 0.8fr 1.2fr;
+        grid-template-columns: 0.75fr 1.25fr;
         gap: 4rem;
     }
 }
 
 .sambutan-media {
     width: 100%;
-    max-width: 22rem;
+    max-width: 20rem;
     margin-inline: auto;
+}
+
+@media (min-width: 768px) {
+    .sambutan-media {
+        max-width: 22rem;
+        margin-inline: 0;
+    }
 }
 
 @media (min-width: 1024px) {
     .sambutan-media {
-        margin-inline: 0;
+        max-width: 24rem;
     }
 }
 
@@ -1275,8 +1354,8 @@ p {
     max-width: 24rem;
     border-radius: var(--radius-card);
     overflow: hidden;
-    box-shadow: var(--shadow-card-hover);
-    border: 1px solid var(--color-line);
+    box-shadow: 0 8px 32px rgb(11 28 16 / 0.25), 0 2px 8px rgb(11 28 16 / 0.15);
+    border: 1px solid rgb(244 255 252 / 0.12);
 }
 
 .hero-img {
@@ -1291,25 +1370,25 @@ p {
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(to top, rgb(11 28 16 / 0.9) 0%, rgb(11 28 16 / 0.45) 70%, transparent 100%);
+    background: linear-gradient(to top, rgb(11 28 16 / 0.92) 0%, rgb(11 28 16 / 0.5) 65%, transparent 100%);
     padding: 1.5rem;
     color: #fff;
 }
 
 .hero-card-title {
-    font-size: 1.125rem;
+    font-size: 1.0625rem;
     font-weight: 700;
 }
 
 .hero-card-subtitle {
-    font-size: 0.8125rem;
-    color: rgb(255 255 255 / 0.8);
+    font-size: 0.75rem;
+    color: rgb(255 255 255 / 0.75);
     margin-top: 0.25rem;
 }
 
 .sambutan-signature {
     margin-top: 1.25rem;
-    font-size: 1.375rem;
+    font-size: 1.25rem;
     font-weight: 800;
     letter-spacing: -0.01em;
     color: var(--color-ink);
@@ -1317,20 +1396,32 @@ p {
 
 .sambutan-role {
     margin-top: 0.25rem;
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
     font-weight: 600;
-    color: var(--color-primary-700);
+    color: var(--color-primary-500);
 }
 
 .sambutan-body {
     margin-top: 1.25rem;
+    max-width: 55ch;
 }
 
 /* ── Pengumuman & Agenda ───────────────────────────────────────── */
 .news-section {
     padding-block: 5rem;
     background-color: var(--color-primary-900);
-    border-top: 1px solid rgb(244 255 252 / 0.05);
+    position: relative;
+}
+
+.news-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5rem;
+    background: linear-gradient(to bottom, var(--color-primary-900), transparent);
+    pointer-events: none;
 }
 
 .news-section .section-title {
@@ -1342,11 +1433,18 @@ p {
 }
 
 .news-section .news-card {
-    background: rgb(244 255 252 / 0.05);
-    border-color: rgb(244 255 252 / 0.12);
-    box-shadow: none;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background: rgb(244 255 252 / 0.06);
+    border-color: rgb(244 255 252 / 0.1);
+    box-shadow: 0 1px 2px rgb(0 0 0 / 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+
+.news-section .news-card:hover {
+    background: rgb(244 255 252 / 0.09);
+    border-color: rgb(244 255 252 / 0.18);
+    transform: translateY(-2px);
 }
 
 .news-section .news-card h3 {
@@ -1363,7 +1461,8 @@ p {
 
 .news-section .news-card .link {
     color: var(--color-accent-400);
-    text-decoration-color: rgb(195 233 86 / 0.45);
+    text-decoration-color: rgb(195 233 86 / 0.35);
+    transition: text-decoration-color 0.2s ease;
 }
 
 .news-section .news-card .link:hover {
@@ -1398,7 +1497,18 @@ p {
 /* ── Peta Wilayah preview ──────────────────────────────────────── */
 .home-map-section {
     background-color: var(--color-primary-950);
-    border-top: 1px solid rgb(244 255 252 / 0.05);
+    position: relative;
+}
+
+.home-map-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5rem;
+    background: linear-gradient(to bottom, var(--color-primary-900), transparent);
+    pointer-events: none;
 }
 
 .home-map-section .section-title {
@@ -1411,15 +1521,29 @@ p {
 
 .home-map-card {
     overflow: hidden;
-    background-color: rgb(11 28 16 / 0.45);
-    border-color: rgb(244 255 252 / 0.12);
+    background-color: rgb(11 28 16 / 0.5);
+    border-color: rgb(244 255 252 / 0.1);
+    border: 1px solid rgb(244 255 252 / 0.1);
+    box-shadow: 0 4px 20px rgb(11 28 16 / 0.2);
 }
 
 .home-map-shell {
     position: relative;
-    height: clamp(300px, 60vw, 420px);
+    height: clamp(280px, 55vw, 400px);
     overflow: hidden;
     background-color: var(--color-surface-muted);
+}
+
+@media (min-width: 768px) {
+    .home-map-shell {
+        height: clamp(300px, 50vw, 420px);
+    }
+}
+
+@media (min-width: 1024px) {
+    .home-map-shell {
+        height: clamp(320px, 45vw, 440px);
+    }
 }
 
 .home-map-footer {
@@ -1446,7 +1570,18 @@ p {
 /* ── UMKM preview ──────────────────────────────────────────────── */
 .home-umkm-section {
     background-color: var(--color-primary-900);
-    border-top: 1px solid rgb(244 255 252 / 0.05);
+    position: relative;
+}
+
+.home-umkm-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5rem;
+    background: linear-gradient(to bottom, var(--color-primary-950), transparent);
+    pointer-events: none;
 }
 
 .home-umkm-section .section-title {
@@ -1459,6 +1594,14 @@ p {
 
 .home-umkm-section .umkm-card {
     background-color: var(--color-surface);
+    border: 1px solid rgb(244 255 252 / 0.12);
+    transition: box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+
+.home-umkm-section .umkm-card:hover {
+    box-shadow: 0 8px 28px rgb(11 28 16 / 0.15);
+    border-color: var(--color-primary-200);
+    transform: translateY(-3px);
 }
 
 /* ── CTA ───────────────────────────────────────────────────────── */
@@ -1466,18 +1609,30 @@ p {
     padding-block: 5rem;
     position: relative;
     overflow: hidden;
-    border-top: 1px solid rgb(244 255 252 / 0.05);
+    background: linear-gradient(135deg, var(--color-primary-800) 0%, var(--color-primary-600) 100%);
 }
 
 .cta-section::before {
     content: "";
     position: absolute;
-    top: -20%;
-    right: -10%;
-    width: 50%;
-    height: 80%;
-    background: radial-gradient(circle, rgb(145 234 175 / 0.08) 0%, rgb(195 233 86 / 0.04) 50%, transparent 100%);
+    top: -25%;
+    right: -12%;
+    width: 55%;
+    height: 90%;
+    background: radial-gradient(circle, rgb(195 233 86 / 0.1) 0%, rgb(145 234 175 / 0.05) 50%, transparent 100%);
     filter: blur(60px);
+    pointer-events: none;
+}
+
+.cta-section::after {
+    content: "";
+    position: absolute;
+    bottom: -30%;
+    left: -8%;
+    width: 40%;
+    height: 70%;
+    background: radial-gradient(circle, rgb(77 113 17 / 0.12) 0%, transparent 70%);
+    filter: blur(50px);
     pointer-events: none;
 }
 
@@ -2253,11 +2408,11 @@ p {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s ease;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .umkm-card:hover .umkm-img {
-    transform: scale(1.03);
+    transform: scale(1.04);
 }
 
 .umkm-card-badge {
@@ -2698,10 +2853,10 @@ p {
 
 .glass-panel {
     background: rgb(255 255 255 / 0.7);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgb(255 255 255 / 0.3);
-    box-shadow: 0 4px 16px rgb(31 75 44 / 0.06);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgb(255 255 255 / 0.25);
+    box-shadow: 0 4px 20px rgb(31 75 44 / 0.06);
 }
 
 .blur-gradient-bg {
@@ -2712,11 +2867,11 @@ p {
 .blur-gradient-bg::before {
     content: "";
     position: absolute;
-    top: -15%;
-    right: -10%;
-    width: 35%;
-    height: 45%;
-    background: radial-gradient(circle, rgb(145 234 175 / 0.1) 0%, rgb(195 233 86 / 0.06) 50%, transparent 100%);
+    top: -20%;
+    right: -12%;
+    width: 40%;
+    height: 50%;
+    background: radial-gradient(circle, rgb(145 234 175 / 0.08) 0%, rgb(195 233 86 / 0.04) 50%, transparent 100%);
     filter: blur(60px);
     pointer-events: none;
     z-index: 0;
@@ -2725,11 +2880,11 @@ p {
 .blur-gradient-bg::after {
     content: "";
     position: absolute;
-    bottom: -15%;
+    bottom: -20%;
     left: -10%;
-    width: 35%;
-    height: 45%;
-    background: radial-gradient(circle, rgb(31 75 44 / 0.05) 0%, rgb(145 234 175 / 0.03) 50%, transparent 100%);
+    width: 38%;
+    height: 48%;
+    background: radial-gradient(circle, rgb(31 75 44 / 0.04) 0%, rgb(145 234 175 / 0.02) 50%, transparent 100%);
     filter: blur(60px);
     pointer-events: none;
     z-index: 0;
@@ -2739,13 +2894,38 @@ p {
 @media (prefers-reduced-motion: no-preference) {
     [data-reveal] {
         opacity: 0;
-        transform: translateY(1rem);
-        transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        transform: translateY(1.5rem);
+        transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+                    transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
         transition-delay: var(--reveal-delay, 0ms);
     }
 
     [data-reveal].is-revealed {
         opacity: 1;
+        transform: none;
+    }
+
+    [data-reveal="left"] {
+        transform: translateX(-1.5rem);
+    }
+
+    [data-reveal="left"].is-revealed {
+        transform: none;
+    }
+
+    [data-reveal="right"] {
+        transform: translateX(1.5rem);
+    }
+
+    [data-reveal="right"].is-revealed {
+        transform: none;
+    }
+
+    [data-reveal="scale"] {
+        transform: scale(0.97);
+    }
+
+    [data-reveal="scale"].is-revealed {
         transform: none;
     }
 }
@@ -2786,7 +2966,8 @@ p {
     }
 
     .hero-carousel {
-        height: 28rem;
+        min-height: 24rem;
+        height: 65dvh;
     }
 
     .btn-lg {
@@ -2813,7 +2994,11 @@ p {
 
     .hero-slide-copy h1,
     .hero-slide-copy h2 {
-        font-size: clamp(1.5rem, 6vw, 2rem);
+        font-size: clamp(1.375rem, 5.5vw, 1.875rem);
+    }
+
+    .hero-slide-text {
+        font-size: 0.875rem;
     }
 
     .visi-card {
@@ -2822,6 +3007,13 @@ p {
 
     .lembaga-panel {
         padding: 1.25rem;
+    }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+    .hero-slide-copy h1,
+    .hero-slide-copy h2 {
+        font-size: clamp(1.5rem, 5vw, 2rem);
     }
 }
 
