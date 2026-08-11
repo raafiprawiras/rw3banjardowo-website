@@ -10,45 +10,52 @@
 
 @theme {
     /* ── Color system ─────────────────────────────────────────── */
-    /* Primary: civic green (community, trust, growth) */
-    --color-primary-50: #f0f7f2;
-    --color-primary-100: #dceee1;
-    --color-primary-200: #b9dcc5;
-    --color-primary-300: #8cc3a1;
-    --color-primary-400: #5aa37a;
-    --color-primary-500: #3a855d;
-    --color-primary-600: #2c6b4b;
-    --color-primary-700: #25563e;
-    --color-primary-800: #1f4533;
-    --color-primary-900: #1a392b;
-    --color-primary-950: #0d2018;
+    /* Primary: Deep Forest Green (#1F4B2C) and Deep Olive Green (#4D7111) */
+    --color-primary-50: #f4fffc;
+    --color-primary-100: #e2f7f1;
+    --color-primary-200: #c5eedf;
+    --color-primary-300: #91eaaf;
+    /* Mint Green */
+    --color-primary-400: #68c88b;
+    --color-primary-500: #4d7111;
+    /* Deep Olive Green */
+    --color-primary-600: #1f4b2c;
+    /* Deep Forest Green (Primary Dark) */
+    --color-primary-700: #163720;
+    --color-primary-800: #0f2516;
+    --color-primary-900: #0b1c10;
+    --color-primary-950: #050e08;
 
-    /* Accent: warm amber (highlights, badges, attention) */
-    --color-accent-50: #fdf8ec;
-    --color-accent-100: #f9ecc9;
-    --color-accent-200: #f2d88e;
-    --color-accent-300: #ebc054;
-    --color-accent-400: #e5a92e;
-    --color-accent-500: #d98f1f;
-    --color-accent-600: #c06f18;
-    --color-accent-700: #a05217;
-    --color-accent-800: #834119;
-    --color-accent-900: #6c3618;
+    /* Accent: Lime Yellow Green (#C3E956) and Mint Green (#91EAAF) */
+    --color-accent-50: #fbfef2;
+    --color-accent-100: #f4fad9;
+    --color-accent-200: #e9f5b3;
+    --color-accent-300: #91eaaf;
+    /* Mint Green (Secondary Accent) */
+    --color-accent-400: #d2e966;
+    --color-accent-500: #c3e956;
+    /* Lime Yellow Green (Primary Accent) */
+    --color-accent-600: #a9cc43;
+    --color-accent-700: #8fae32;
+    --color-accent-800: #759023;
+    --color-accent-900: #5c7217;
 
-    /* Neutrals: warm stone base (warmth, human, civic) */
+    /* Neutrals: Soft White base (#F4FFFC) */
     --color-surface: #ffffff;
-    --color-surface-muted: #f7f5f2;
+    --color-surface-muted: #f4fffc;
+    /* Soft White */
     --color-surface-elev: #ffffff;
-    --color-ink: #1c1a17;
-    --color-ink-muted: #5c5852;
-    --color-ink-faint: #8a857d;
-    --color-line: #e6e2db;
-    --color-line-strong: #d4cfc6;
+    --color-ink: #0b1c10;
+    /* Very dark forest green-black */
+    --color-ink-muted: #3b4d42;
+    --color-ink-faint: #6c8074;
+    --color-line: #e2f2ed;
+    --color-line-strong: #c5e5db;
 
     /* Semantic */
-    --color-success: #2c6b4b;
-    --color-warning: #b45309;
-    --color-error: #b3261e;
+    --color-success: #1f4b2c;
+    --color-warning: #d97706;
+    --color-error: #dc2626;
 
     /* ── Typography ───────────────────────────────────────────── */
     --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
@@ -900,18 +907,18 @@ p {
     position: absolute;
     inset: 0;
     background: linear-gradient(78deg,
-        rgb(13 32 24 / 0.86) 0%,
-        rgb(13 32 24 / 0.58) 42%,
-        rgb(13 32 24 / 0.18) 80%,
-        rgb(13 32 24 / 0.4) 100%);
+            rgb(13 32 24 / 0.86) 0%,
+            rgb(13 32 24 / 0.58) 42%,
+            rgb(13 32 24 / 0.18) 80%,
+            rgb(13 32 24 / 0.4) 100%);
 }
 
 @media (max-width: 767px) {
     .hero-slide-overlay {
         background: linear-gradient(0deg,
-            rgb(13 32 24 / 0.9) 0%,
-            rgb(13 32 24 / 0.58) 55%,
-            rgb(13 32 24 / 0.2) 100%);
+                rgb(13 32 24 / 0.9) 0%,
+                rgb(13 32 24 / 0.58) 55%,
+                rgb(13 32 24 / 0.2) 100%);
     }
 }
 
@@ -990,18 +997,18 @@ p {
 }
 
 /* Incoming slide text transition */
-.hero-slide-content > * {
+.hero-slide-content>* {
     opacity: 0;
     transform: translateY(1.25rem);
     transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-.hero-slide.is-active .hero-slide-content > * {
+.hero-slide.is-active .hero-slide-content>* {
     opacity: 1;
     transform: none;
 }
 
-.hero-slide.is-active .hero-slide-content > :nth-child(2) {
+.hero-slide.is-active .hero-slide-content> :nth-child(2) {
     transition-delay: 0.12s;
 }
 
@@ -2439,4 +2446,84 @@ p {
 .hero-carousel-dot:focus-visible {
     outline: 2px solid var(--color-primary-600);
     outline-offset: 2px;
+}
+
+/* ── Premium Visual Accents (Milestone 11/12) ────────────────── */
+
+/* Asterisk / Starburst Accent */
+.asterisk-accent {
+    display: inline-block;
+    width: 2.5rem;
+    height: 2.5rem;
+    color: var(--color-accent-500);
+    background: linear-gradient(135deg, var(--color-primary-300) 0%, var(--color-accent-500) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 2.5rem;
+    line-height: 1;
+    font-family: system-ui, sans-serif;
+    user-select: none;
+    pointer-events: none;
+}
+
+/* Glassmorphism Panel */
+.glass-panel {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 32px 0 rgba(31, 75, 44, 0.06);
+}
+
+.dark .glass-panel {
+    background: rgba(11, 28, 16, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+/* Subtle Blur Gradient Background */
+.blur-gradient-bg {
+    position: relative;
+    overflow: hidden;
+}
+
+.blur-gradient-bg::before {
+    content: "";
+    position: absolute;
+    top: -10%;
+    right: -10%;
+    width: 40%;
+    height: 40%;
+    background: radial-gradient(circle, rgba(145, 234, 175, 0.15) 0%, rgba(195, 233, 86, 0.1) 50%, transparent 100%);
+    filter: blur(80px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.blur-gradient-bg::after {
+    content: "";
+    position: absolute;
+    bottom: -10%;
+    left: -10%;
+    width: 40%;
+    height: 40%;
+    background: radial-gradient(circle, rgba(31, 75, 44, 0.08) 0%, rgba(145, 234, 175, 0.05) 50%, transparent 100%);
+    filter: blur(80px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Scroll Reveal Animations */
+@media (prefers-reduced-motion: no-preference) {
+    [data-reveal] {
+        opacity: 0;
+        transform: translateY(1.5rem);
+        transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        transition-delay: var(--reveal-delay, 0ms);
+    }
+
+    [data-reveal].is-revealed {
+        opacity: 1;
+        transform: none;
+    }
 }

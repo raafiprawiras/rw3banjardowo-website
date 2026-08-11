@@ -6,62 +6,65 @@ import { loadRw3GeoJson, createMap, createGeoJsonLayer, addRw3PolygonLabel } fro
    across Galeri & UMKM) and the local RW 3 map asset for the map slide.
    ──────────────────────────────────────────────────────────────────── */
 const HERO_SLIDES = [
-    {
-        variant: 'photo',
-        image: 'https://picsum.photos/seed/kerja-bakti/1600/900',
-        alt: 'Warga RW 3 bergotong royong membersihkan lingkungan',
-        badge: 'Portal Resmi Warga',
-        title: 'Selamat Datang di Website Resmi RW 3',
-        text: 'Portal informasi resmi warga RW 3 Kelurahan Banjardowo, Kecamatan Genuk, Kota Semarang.',
-        ctaPrimary: {
-            label: 'Layanan Surat WA',
-            href: 'https://wa.me/6281234567890?text=Halo%20Pengurus%20RW%203%20Banjardowo%2C%20saya%20ingin%20mengajukan%20layanan%20surat.%20Nama%3A%20%0ANIK%3A%20%0AAlamat%2FRT%3A%20%0AJenis%20surat%3A%20',
-            icon: 'ph-whatsapp-logo',
-        },
-        ctaSecondary: {
-            label: 'Jelajahi Peta',
-            href: '/peta',
-            icon: 'ph-map-trifold',
-        },
+  {
+    variant: 'photo',
+    image: 'https://picsum.photos/seed/kerja-bakti/1600/900',
+    alt: 'Warga RW 3 bergotong royong membersihkan lingkungan',
+    badge: 'Portal Resmi Warga',
+    title: 'Selamat Datang di Website Resmi RW 3',
+    text: 'Portal informasi resmi warga RW 3 Kelurahan Banjardowo, Kecamatan Genuk, Kota Semarang.',
+    ctaPrimary: {
+      label: 'Layanan Surat WA',
+      href: 'https://wa.me/6281234567890?text=Halo%20Pengurus%20RW%203%20Banjardowo%2C%20saya%20ingin%20mengajukan%20layanan%20surat.%20Nama%3A%20%0ANIK%3A%20%0AAlamat%2FRT%3A%20%0AJenis%20surat%3A%20',
+      icon: 'ph-whatsapp-logo',
     },
-    {
-        variant: 'photo',
-        image: 'https://picsum.photos/seed/posyandu/1600/900',
-        alt: 'Kegiatan posyandu balita di RW 3',
-        badge: 'Kegiatan Warga',
-        title: 'Kegiatan & Kabar Warga RW 3',
-        text: 'Dari posyandu, kerja bakti, hingga agenda bersama, semua informasi warga terpusat di sini.',
-        ctaPrimary: {
-            label: 'Lihat Galeri Kegiatan',
-            href: '/galeri',
-            icon: 'ph-images',
-        },
-        ctaSecondary: null,
+    ctaSecondary: {
+      label: 'Jelajahi Peta',
+      href: '/peta',
+      icon: 'ph-map-trifold',
     },
-    {
-        variant: 'map',
-        image: '/assets/maps/rw3-peta.png',
-        alt: 'Peta wilayah RW 3 Kelurahan Banjardowo',
-        badge: 'Peta Wilayah',
-        title: 'Kenali Wilayah RW 3',
-        text: 'Jelajahi batas wilayah RW 3 Kelurahan Banjardowo pada peta interaktif.',
+  },
+  {
+    variant: 'photo',
+    image: 'https://picsum.photos/seed/posyandu/1600/900',
+    alt: 'Kegiatan posyandu balita di RW 3',
+    badge: 'Kegiatan Warga',
+    title: 'Kegiatan & Kabar Warga RW 3',
+    text: 'Dari posyandu, kerja bakti, hingga agenda bersama, semua informasi warga terpusat di sini.',
+    ctaPrimary: {
+      label: 'Lihat Galeri Kegiatan',
+      href: '/galeri',
+      icon: 'ph-images',
     },
+    ctaSecondary: null,
+  },
+  {
+    variant: 'map',
+    image: '/assets/maps/rw-3-banjardowo.png',
+    alt: 'Peta wilayah RW 3 Kelurahan Banjardowo',
+    badge: 'Peta Wilayah',
+    title: 'Kenali Wilayah RW 3',
+    text: 'Jelajahi batas wilayah RW 3 Kelurahan Banjardowo pada peta interaktif.',
+  },
 ];
 
 const icon = (c) => (c && c.icon ? `<i class="ph ${c.icon}" aria-hidden="true"></i>` : '');
 
 function heroSlideMarkup(slide, index) {
-    const total = HERO_SLIDES.length;
-    const slideLabel = `Slide ${index + 1} dari ${total}`;
+  const total = HERO_SLIDES.length;
+  const slideLabel = `Slide ${index + 1} dari ${total}`;
 
-    if (slide.variant === 'map') {
-        return `
+  if (slide.variant === 'map') {
+    return `
       <div class="hero-slide hero-slide-map" role="group" aria-roledescription="slide" aria-label="${slideLabel}" aria-hidden="true">
         <div class="hero-slide-mapbg" aria-hidden="true"></div>
         <div class="container-site hero-slide-content hero-slide-content-split">
           <div class="hero-slide-copy">
-            <span class="badge">${slide.badge}</span>
-            <h2 class="text-h1 mt-4">${slide.title}</h2>
+            <div class="flex items-center gap-2">
+              <span class="badge">${slide.badge}</span>
+              <span class="asterisk-accent">✦</span>
+            </div>
+            <h2 class="text-h1 mt-4 text-white">${slide.title}</h2>
             <p class="hero-slide-text">${slide.text}</p>
           </div>
           <figure class="hero-slide-mapfig">
@@ -71,16 +74,19 @@ function heroSlideMarkup(slide, index) {
         </div>
       </div>
     `;
-    }
+  }
 
-    return `
+  return `
       <div class="hero-slide" role="group" aria-roledescription="slide" aria-label="${slideLabel}" aria-hidden="true">
         <img src="${slide.image}" alt="${slide.alt}" class="hero-slide-bg" ${index === 0 ? 'fetchpriority="high"' : 'loading="lazy"'} />
         <div class="hero-slide-overlay" aria-hidden="true"></div>
         <div class="container-site hero-slide-content">
           <div class="hero-slide-copy">
-            <span class="badge">${slide.badge}</span>
-            <h2 class="text-h1 mt-4">${slide.title}</h2>
+            <div class="flex items-center gap-2">
+              <span class="badge">${slide.badge}</span>
+              <span class="asterisk-accent">✦</span>
+            </div>
+            <h2 class="text-h1 mt-4 text-white">${slide.title}</h2>
             <p class="hero-slide-text">${slide.text}</p>
             <div class="hero-actions mt-8">
               ${slide.ctaPrimary ? `
@@ -89,7 +95,7 @@ function heroSlideMarkup(slide, index) {
                 ${slide.ctaPrimary.label}
               </a>` : ''}
               ${slide.ctaSecondary ? `
-              <a href="${slide.ctaSecondary.href}" class="btn btn-secondary btn-lg">
+              <a href="${slide.ctaSecondary.href}" class="btn btn-secondary btn-lg bg-white/10 text-white border-white/20 hover:bg-white/20">
                 ${icon(slide.ctaSecondary)}
                 ${slide.ctaSecondary.label}
               </a>` : ''}
@@ -101,17 +107,17 @@ function heroSlideMarkup(slide, index) {
 }
 
 export function renderHome() {
-    return `
+  return `
     <!-- Hero Carousel -->
     <section class="hero-carousel" id="home-hero" aria-roledescription="carousel" aria-label="Sorotan utama RW 3 Banjardowo">
       <h1 class="sr-only">RW 3 Banjardowo - Portal Warga</h1>
       <div class="hero-carousel-track">
         ${HERO_SLIDES.map(heroSlideMarkup).join('')}
       </div>
-      <button type="button" class="hero-carousel-arrow hero-carousel-prev" aria-label="Slide sebelumnya">
+      <button type="button" class="hero-carousel-arrow hero-carousel-prev glass-panel" aria-label="Slide sebelumnya">
         <i class="ph ph-caret-left" aria-hidden="true"></i>
       </button>
-      <button type="button" class="hero-carousel-arrow hero-carousel-next" aria-label="Slide berikutnya">
+      <button type="button" class="hero-carousel-arrow hero-carousel-next glass-panel" aria-label="Slide berikutnya">
         <i class="ph ph-caret-right" aria-hidden="true"></i>
       </button>
       <div class="hero-carousel-dots" aria-label="Pilih slide">
@@ -122,7 +128,7 @@ export function renderHome() {
     </section>
 
     <!-- Sambutan Ketua RW -->
-    <section class="section home-sambutan">
+    <section class="section home-sambutan blur-gradient-bg">
       <div class="container-site">
         <div class="sambutan-grid">
           <div class="sambutan-media" data-reveal>
@@ -135,7 +141,10 @@ export function renderHome() {
             </figure>
           </div>
           <div class="sambutan-text" data-reveal style="--reveal-delay: 120ms">
-            <span class="badge">Sambutan</span>
+            <div class="flex items-center gap-2">
+              <span class="badge">Sambutan</span>
+              <span class="asterisk-accent">✦</span>
+            </div>
             <h2 class="text-h2 mt-3">Sambutan Ketua RW</h2>
             <p class="sambutan-signature">Bapak Sutrisno, S.Sos.</p>
             <p class="sambutan-role">Ketua RW 3 Banjardowo (2024-2029)</p>
@@ -208,7 +217,7 @@ export function renderHome() {
     </section>
 
     <!-- Peta Wilayah RW 3 -->
-    <section class="section home-map-section">
+    <section class="section home-map-section blur-gradient-bg">
       <div class="container-site">
         <div class="section-header" data-reveal>
           <span class="badge">Peta Wilayah</span>
@@ -270,6 +279,9 @@ export function renderHome() {
     <section class="cta-section bg-primary-900 text-white" data-reveal>
       <div class="container-site cta-container">
         <div class="cta-content text-center max-w-[36rem] mx-auto">
+          <div class="flex justify-center mb-4">
+            <span class="asterisk-accent">✦</span>
+          </div>
           <h2 class="text-h2 text-white">Dukung usaha warga RW 3 Banjardowo</h2>
           <p class="text-body-lg text-primary-100 mt-4">
             Temukan kuliner, kerajinan, jasa, dan sembako dari pelaku usaha warga RW 3.
@@ -294,283 +306,283 @@ let revealObserver = null;
 let lazyMapObserver = null;
 
 export function initHome() {
-    heroCleanup = initHeroCarousel();
-    initReveals();
-    setupLazyMap();
+  heroCleanup = initHeroCarousel();
+  initReveals();
+  setupLazyMap();
 }
 
 export function cleanupHome() {
-    if (heroCleanup) {
-        heroCleanup();
-        heroCleanup = null;
+  if (heroCleanup) {
+    heroCleanup();
+    heroCleanup = null;
+  }
+  if (revealObserver) {
+    revealObserver.disconnect();
+    revealObserver = null;
+  }
+  if (lazyMapObserver) {
+    lazyMapObserver.disconnect();
+    lazyMapObserver = null;
+  }
+  if (homeMapResizeHandler) {
+    window.removeEventListener('resize', homeMapResizeHandler);
+    homeMapResizeHandler = null;
+  }
+  if (homeMap) {
+    try {
+      homeMap.remove();
+    } catch (_) {
+      /* noop */
     }
-    if (revealObserver) {
-        revealObserver.disconnect();
-        revealObserver = null;
-    }
-    if (lazyMapObserver) {
-        lazyMapObserver.disconnect();
-        lazyMapObserver = null;
-    }
-    if (homeMapResizeHandler) {
-        window.removeEventListener('resize', homeMapResizeHandler);
-        homeMapResizeHandler = null;
-    }
-    if (homeMap) {
-        try {
-            homeMap.remove();
-        } catch (_) {
-            /* noop */
-        }
-        homeMap = null;
-    }
+    homeMap = null;
+  }
 }
 
 /* ── Hero carousel ────────────────────────────────────────────────── */
 function initHeroCarousel() {
-    const root = document.getElementById('home-hero');
-    if (!root) return null;
+  const root = document.getElementById('home-hero');
+  if (!root) return null;
 
-    const slides = Array.from(root.querySelectorAll('.hero-slide'));
-    const dots = Array.from(root.querySelectorAll('.hero-carousel-dot'));
-    const prevBtn = root.querySelector('.hero-carousel-prev');
-    const nextBtn = root.querySelector('.hero-carousel-next');
-    const count = slides.length;
-    if (!count) return null;
+  const slides = Array.from(root.querySelectorAll('.hero-slide'));
+  const dots = Array.from(root.querySelectorAll('.hero-carousel-dot'));
+  const prevBtn = root.querySelector('.hero-carousel-prev');
+  const nextBtn = root.querySelector('.hero-carousel-next');
+  const count = slides.length;
+  if (!count) return null;
 
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const AUTOPLAY_MS = 6000;
-    let index = 0;
-    let timer = null;
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const AUTOPLAY_MS = 6000;
+  let index = 0;
+  let timer = null;
 
-    function updateAria() {
-        slides.forEach((slide, i) => {
-            const active = i === index;
-            slide.classList.toggle('is-active', active);
-            slide.setAttribute('aria-hidden', active ? 'false' : 'true');
-        });
-        dots.forEach((dot, i) => {
-            dot.classList.toggle('is-active', i === index);
-            if (i === index) dot.setAttribute('aria-current', 'true');
-            else dot.removeAttribute('aria-current');
-        });
-    }
-
-    function go(i) {
-        index = (i + count) % count;
-        updateAria();
-    }
-
-    function next() {
-        go(index + 1);
-    }
-
-    function prev() {
-        go(index - 1);
-    }
-
-    function start() {
-        if (reducedMotion) return;
-        stop();
-        timer = window.setInterval(next, AUTOPLAY_MS);
-    }
-
-    function stop() {
-        if (timer) {
-            window.clearInterval(timer);
-            timer = null;
-        }
-    }
-
-    if (prevBtn) {
-        prevBtn.addEventListener('click', () => {
-            stop();
-            prev();
-            start();
-        });
-    }
-    if (nextBtn) {
-        nextBtn.addEventListener('click', () => {
-            stop();
-            next();
-            start();
-        });
-    }
-    dots.forEach((dot) => {
-        dot.addEventListener('click', () => {
-            const i = Number(dot.getAttribute('data-hero-dot'));
-            stop();
-            go(i);
-            start();
-        });
+  function updateAria() {
+    slides.forEach((slide, i) => {
+      const active = i === index;
+      slide.classList.toggle('is-active', active);
+      slide.setAttribute('aria-hidden', active ? 'false' : 'true');
     });
-
-    // Pause on hover / focus, resume after
-    root.addEventListener('mouseenter', stop);
-    root.addEventListener('mouseleave', start);
-    root.addEventListener('focusin', stop);
-    root.addEventListener('focusout', () => {
-        if (!root.contains(document.activeElement)) start();
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('is-active', i === index);
+      if (i === index) dot.setAttribute('aria-current', 'true');
+      else dot.removeAttribute('aria-current');
     });
+  }
 
-    // Touch swipe
-    let pointerDown = false;
-    let startX = 0;
-    let startY = 0;
-    let swipeLock = false;
-
-    root.addEventListener('pointerdown', (e) => {
-        if (e.pointerType !== 'touch') return;
-        pointerDown = true;
-        startX = e.clientX;
-        startY = e.clientY;
-        stop();
-    });
-
-    root.addEventListener('pointermove', (e) => {
-        if (!pointerDown || e.pointerType !== 'touch') return;
-        const dx = e.clientX - startX;
-        const dy = e.clientY - startY;
-        if (Math.abs(dx) > 20 && Math.abs(dx) > Math.abs(dy)) {
-            swipeLock = true;
-        }
-    });
-
-    root.addEventListener('pointerup', (e) => {
-        if (!pointerDown || e.pointerType !== 'touch') {
-            pointerDown = false;
-            return;
-        }
-        pointerDown = false;
-        const dx = e.clientX - startX;
-        const dy = e.clientY - startY;
-        if (Math.abs(dx) > 48 && Math.abs(dx) > Math.abs(dy)) {
-            if (dx < 0) next();
-            else prev();
-        }
-        // Suppress the click that follows a swipe, then release the lock.
-        setTimeout(() => {
-            swipeLock = false;
-        }, 0);
-        start();
-    });
-
-    root.addEventListener('pointercancel', () => {
-        pointerDown = false;
-    });
-
-    root.addEventListener('click', (e) => {
-        if (swipeLock) {
-            e.preventDefault();
-            e.stopPropagation();
-        }
-    }, true);
-
+  function go(i) {
+    index = (i + count) % count;
     updateAria();
-    start();
+  }
 
-    return () => stop();
+  function next() {
+    go(index + 1);
+  }
+
+  function prev() {
+    go(index - 1);
+  }
+
+  function start() {
+    if (reducedMotion) return;
+    stop();
+    timer = window.setInterval(next, AUTOPLAY_MS);
+  }
+
+  function stop() {
+    if (timer) {
+      window.clearInterval(timer);
+      timer = null;
+    }
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      stop();
+      prev();
+      start();
+    });
+  }
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      stop();
+      next();
+      start();
+    });
+  }
+  dots.forEach((dot) => {
+    dot.addEventListener('click', () => {
+      const i = Number(dot.getAttribute('data-hero-dot'));
+      stop();
+      go(i);
+      start();
+    });
+  });
+
+  // Pause on hover / focus, resume after
+  root.addEventListener('mouseenter', stop);
+  root.addEventListener('mouseleave', start);
+  root.addEventListener('focusin', stop);
+  root.addEventListener('focusout', () => {
+    if (!root.contains(document.activeElement)) start();
+  });
+
+  // Touch swipe
+  let pointerDown = false;
+  let startX = 0;
+  let startY = 0;
+  let swipeLock = false;
+
+  root.addEventListener('pointerdown', (e) => {
+    if (e.pointerType !== 'touch') return;
+    pointerDown = true;
+    startX = e.clientX;
+    startY = e.clientY;
+    stop();
+  });
+
+  root.addEventListener('pointermove', (e) => {
+    if (!pointerDown || e.pointerType !== 'touch') return;
+    const dx = e.clientX - startX;
+    const dy = e.clientY - startY;
+    if (Math.abs(dx) > 20 && Math.abs(dx) > Math.abs(dy)) {
+      swipeLock = true;
+    }
+  });
+
+  root.addEventListener('pointerup', (e) => {
+    if (!pointerDown || e.pointerType !== 'touch') {
+      pointerDown = false;
+      return;
+    }
+    pointerDown = false;
+    const dx = e.clientX - startX;
+    const dy = e.clientY - startY;
+    if (Math.abs(dx) > 48 && Math.abs(dx) > Math.abs(dy)) {
+      if (dx < 0) next();
+      else prev();
+    }
+    // Suppress the click that follows a swipe, then release the lock.
+    setTimeout(() => {
+      swipeLock = false;
+    }, 0);
+    start();
+  });
+
+  root.addEventListener('pointercancel', () => {
+    pointerDown = false;
+  });
+
+  root.addEventListener('click', (e) => {
+    if (swipeLock) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+  }, true);
+
+  updateAria();
+  start();
+
+  return () => stop();
 }
 
 /* ── Scroll reveal ────────────────────────────────────────────────── */
 function initReveals() {
-    const items = document.querySelectorAll('[data-reveal]');
-    if (!items.length) return;
+  const items = document.querySelectorAll('[data-reveal]');
+  if (!items.length) return;
 
-    if (!('IntersectionObserver' in window)) {
-        items.forEach((el) => el.classList.add('is-revealed'));
-        return;
-    }
+  if (!('IntersectionObserver' in window)) {
+    items.forEach((el) => el.classList.add('is-revealed'));
+    return;
+  }
 
-    revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-revealed');
-                revealObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+  revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-revealed');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
 
-    items.forEach((el) => revealObserver.observe(el));
+  items.forEach((el) => revealObserver.observe(el));
 }
 
 /* ── Lazy map preview ─────────────────────────────────────────────── */
 function setupLazyMap() {
-    const target = document.getElementById('home-map-shell');
-    if (!target) return;
+  const target = document.getElementById('home-map-shell');
+  if (!target) return;
 
-    if (!('IntersectionObserver' in window)) {
+  if (!('IntersectionObserver' in window)) {
+    initHomeMap();
+    return;
+  }
+
+  lazyMapObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
         initHomeMap();
-        return;
-    }
+        if (lazyMapObserver) {
+          lazyMapObserver.disconnect();
+          lazyMapObserver = null;
+        }
+      }
+    });
+  }, { rootMargin: '240px 0px' });
 
-    lazyMapObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                initHomeMap();
-                if (lazyMapObserver) {
-                    lazyMapObserver.disconnect();
-                    lazyMapObserver = null;
-                }
-            }
-        });
-    }, { rootMargin: '240px 0px' });
-
-    lazyMapObserver.observe(target);
+  lazyMapObserver.observe(target);
 }
 
 async function initHomeMap() {
-    const mapEl = document.getElementById('home-map');
-    const loadingEl = document.getElementById('home-map-loading');
-    const errorEl = document.getElementById('home-map-error');
-    if (!mapEl || homeMap) return;
+  const mapEl = document.getElementById('home-map');
+  const loadingEl = document.getElementById('home-map-loading');
+  const errorEl = document.getElementById('home-map-error');
+  if (!mapEl || homeMap) return;
 
-    setMapState('loading', loadingEl, errorEl, mapEl);
+  setMapState('loading', loadingEl, errorEl, mapEl);
 
-    try {
-        const geojson = await loadRw3GeoJson();
-        homeMap = createMap(mapEl, { scrollWheelZoom: false });
-        const layer = createGeoJsonLayer(geojson).addTo(homeMap);
-        const bounds = layer.getBounds();
-        homeMap.fitBounds(bounds, { padding: [20, 20] });
-        addRw3PolygonLabel(homeMap, bounds);
+  try {
+    const geojson = await loadRw3GeoJson();
+    homeMap = createMap(mapEl, { scrollWheelZoom: false });
+    const layer = createGeoJsonLayer(geojson).addTo(homeMap);
+    const bounds = layer.getBounds();
+    homeMap.fitBounds(bounds, { padding: [20, 20] });
+    addRw3PolygonLabel(homeMap, bounds);
 
-        window.requestAnimationFrame(() => {
-            if (homeMap) homeMap.invalidateSize();
-        });
-        window.setTimeout(() => {
-            if (homeMap) homeMap.invalidateSize();
-        }, 700);
+    window.requestAnimationFrame(() => {
+      if (homeMap) homeMap.invalidateSize();
+    });
+    window.setTimeout(() => {
+      if (homeMap) homeMap.invalidateSize();
+    }, 700);
 
-        // Re-measure once the section reveal transition has finished
-        const card = document.getElementById('home-map-card');
-        if (card) {
-            card.addEventListener('transitionend', function onRevealEnd(e) {
-                if (e.propertyName !== 'opacity') return;
-                card.removeEventListener('transitionend', onRevealEnd);
-                if (homeMap) homeMap.invalidateSize();
-            });
-        }
-
-        if (!homeMapResizeHandler) {
-            homeMapResizeHandler = () => {
-                if (homeMap) {
-                    window.requestAnimationFrame(() => homeMap.invalidateSize());
-                }
-            };
-            window.addEventListener('resize', homeMapResizeHandler);
-        }
-
-        setMapState('ready', loadingEl, errorEl, mapEl);
-    } catch (error) {
-        console.error('Failed to initialize homepage RW 3 map:', error);
-        setMapState('error', loadingEl, errorEl, mapEl);
+    // Re-measure once the section reveal transition has finished
+    const card = document.getElementById('home-map-card');
+    if (card) {
+      card.addEventListener('transitionend', function onRevealEnd(e) {
+        if (e.propertyName !== 'opacity') return;
+        card.removeEventListener('transitionend', onRevealEnd);
+        if (homeMap) homeMap.invalidateSize();
+      });
     }
+
+    if (!homeMapResizeHandler) {
+      homeMapResizeHandler = () => {
+        if (homeMap) {
+          window.requestAnimationFrame(() => homeMap.invalidateSize());
+        }
+      };
+      window.addEventListener('resize', homeMapResizeHandler);
+    }
+
+    setMapState('ready', loadingEl, errorEl, mapEl);
+  } catch (error) {
+    console.error('Failed to initialize homepage RW 3 map:', error);
+    setMapState('error', loadingEl, errorEl, mapEl);
+  }
 }
 
 function setMapState(state, loadingEl, errorEl, mapEl) {
-    if (!loadingEl || !errorEl || !mapEl) return;
-    loadingEl.classList.toggle('hidden', state !== 'loading');
-    errorEl.classList.toggle('hidden', state !== 'error');
-    mapEl.classList.toggle('is-hidden', state !== 'ready');
+  if (!loadingEl || !errorEl || !mapEl) return;
+  loadingEl.classList.toggle('hidden', state !== 'loading');
+  errorEl.classList.toggle('hidden', state !== 'error');
+  mapEl.classList.toggle('is-hidden', state !== 'ready');
 }
