@@ -95,7 +95,7 @@ function heroSlideMarkup(slide, index) {
                 ${slide.ctaPrimary.label}
               </a>` : ''}
               ${slide.ctaSecondary ? `
-              <a href="${slide.ctaSecondary.href}" class="btn btn-secondary btn-lg bg-white/10 text-white border-white/20 hover:bg-white/20">
+              <a href="${slide.ctaSecondary.href}" class="btn btn-lg bg-white/10 text-white border-white/20 hover:bg-white/20 hover:border-accent-400/40">
                 ${icon(slide.ctaSecondary)}
                 ${slide.ctaSecondary.label}
               </a>` : ''}
@@ -276,20 +276,20 @@ export function renderHome() {
     </section>
 
     <!-- CTA Lihat Semua UMKM -->
-    <section class="cta-section bg-primary-900 text-white" data-reveal>
+    <section class="cta-section bg-primary-800 text-white" data-reveal>
       <div class="container-site cta-container">
         <div class="cta-content text-center max-w-[36rem] mx-auto">
           <div class="flex justify-center mb-4">
             <span class="asterisk-accent">✦</span>
           </div>
           <h2 class="text-h2 text-white">Dukung usaha warga RW 3 Banjardowo</h2>
-          <p class="text-body-lg text-primary-100 mt-4">
+          <p class="text-body-lg text-primary-200 mt-4">
             Temukan kuliner, kerajinan, jasa, dan sembako dari pelaku usaha warga RW 3.
           </p>
           <div class="mt-8">
-            <a href="/umkm" class="btn btn-primary btn-lg bg-white text-primary-900 hover:bg-primary-50">
+            <a href="/umkm" class="btn btn-accent btn-lg">
               <i class="ph ph-storefront" aria-hidden="true"></i>
-              Lihat Semua UMKM RW 3
+              Lihat Semua UMKM
             </a>
           </div>
         </div>

@@ -96,7 +96,7 @@ export function renderLembaga() {
                     <i class="ph ${lem.icon}" aria-hidden="true"></i>
                   </div>
                   <div>
-                    <h2 class="text-h2 text-primary-800">${lem.name}</h2>
+                    <h2 class="text-h2 text-primary-700">${lem.name}</h2>
                     <p class="text-body-sm text-ink-muted mt-2">Ketua: <strong class="text-ink">${lem.leader}</strong></p>
                   </div>
                 </div>

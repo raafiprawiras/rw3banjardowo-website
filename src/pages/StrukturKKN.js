@@ -15,12 +15,12 @@ export function renderStrukturKKN() {
           <!-- Leader: Kormades -->
           <div class="text-center mb-12">
             <span class="badge badge-accent mb-4">Koordinator Mahasiswa Desa</span>
-            <div class="card p-6 max-w-sm mx-auto text-center">
+            <div class="card p-5 max-w-sm mx-auto text-center card-hover">
               <div class="kkn-avatar mx-auto">
                 <i class="ph ph-student" aria-hidden="true"></i>
               </div>
               <h3 class="text-h3 mt-4">Muhammad Alif</h3>
-              <p class="text-body-sm text-primary-700 font-semibold mt-1">S1 Teknik Elektro</p>
+              <p class="text-body-sm text-primary-600 font-semibold mt-1">S1 Teknik Elektro</p>
               <p class="text-caption text-ink-muted mt-1">Koordinator Utama Tim KKN</p>
             </div>
           </div>
@@ -29,37 +29,37 @@ export function renderStrukturKKN() {
           <div class="text-center mb-8">
             <span class="badge badge-neutral">Anggota Tim KKN</span>
           </div>
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="card p-6 text-center">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <div class="card p-5 text-center card-hover">
               <div class="kkn-avatar mx-auto">
                 <i class="ph ph-student" aria-hidden="true"></i>
               </div>
               <h3 class="text-h4 mt-4">Sarah Amelia</h3>
-              <p class="text-body-sm text-primary-700 font-semibold mt-1">S1 Kedokteran</p>
+              <p class="text-body-sm text-primary-600 font-semibold mt-1">S1 Kedokteran</p>
               <p class="text-caption text-ink-muted mt-1">Program Kesehatan & Posyandu</p>
             </div>
-            <div class="card p-6 text-center">
+            <div class="card p-5 text-center card-hover">
               <div class="kkn-avatar mx-auto">
                 <i class="ph ph-student" aria-hidden="true"></i>
               </div>
               <h3 class="text-h4 mt-4">Rian Hidayat</h3>
-              <p class="text-body-sm text-primary-700 font-semibold mt-1">S1 Informatika</p>
+              <p class="text-body-sm text-primary-600 font-semibold mt-1">S1 Informatika</p>
               <p class="text-caption text-ink-muted mt-1">Pengembangan Website & Sistem</p>
             </div>
-            <div class="card p-6 text-center">
+            <div class="card p-5 text-center card-hover">
               <div class="kkn-avatar mx-auto">
                 <i class="ph ph-student" aria-hidden="true"></i>
               </div>
               <h3 class="text-h4 mt-4">Nabila Putri</h3>
-              <p class="text-body-sm text-primary-700 font-semibold mt-1">S1 Ilmu Komunikasi</p>
+              <p class="text-body-sm text-primary-600 font-semibold mt-1">S1 Ilmu Komunikasi</p>
               <p class="text-caption text-ink-muted mt-1">Publikasi & Hubungan Warga</p>
             </div>
-            <div class="card p-6 text-center">
+            <div class="card p-5 text-center card-hover">
               <div class="kkn-avatar mx-auto">
                 <i class="ph ph-student" aria-hidden="true"></i>
               </div>
               <h3 class="text-h4 mt-4">Fajar Ramadhan</h3>
-              <p class="text-body-sm text-primary-700 font-semibold mt-1">S1 Arsitektur</p>
+              <p class="text-body-sm text-primary-600 font-semibold mt-1">S1 Arsitektur</p>
               <p class="text-caption text-ink-muted mt-1">Pemetaan Wilayah & Infrastruktur</p>
             </div>
           </div>

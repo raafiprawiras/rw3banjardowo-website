@@ -27,13 +27,13 @@ export function renderVisiMisi() {
         <div class="misi-section mt-20">
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             <div class="lg:col-span-4">
-              <h2 class="text-h2 text-primary-800">Misi Pembangunan</h2>
+              <h2 class="text-h2 text-primary-700">Misi Pembangunan</h2>
               <p class="text-body text-ink-muted mt-4">
                 Langkah nyata yang dijalankan secara konsisten oleh pengurus bersama seluruh elemen warga RW 3 Banjardowo.
               </p>
             </div>
-            <div class="lg:col-span-8 space-y-6">
-              <div class="card p-6 flex gap-4 items-start">
+            <div class="lg:col-span-8 space-y-5">
+              <div class="card p-5 flex gap-4 items-start card-hover">
                 <div class="misi-num">1</div>
                 <div>
                   <h3 class="text-h3 text-ink">Meningkatkan Kerukunan dan Gotong Royong</h3>
@@ -42,7 +42,7 @@ export function renderVisiMisi() {
                   </p>
                 </div>
               </div>
-              <div class="card p-6 flex gap-4 items-start">
+              <div class="card p-5 flex gap-4 items-start card-hover">
                 <div class="misi-num">2</div>
                 <div>
                   <h3 class="text-h3 text-ink">Menjaga Keamanan dan Ketertiban Lingkungan</h3>
@@ -51,7 +51,7 @@ export function renderVisiMisi() {
                   </p>
                 </div>
               </div>
-              <div class="card p-6 flex gap-4 items-start">
+              <div class="card p-5 flex gap-4 items-start card-hover">
                 <div class="misi-num">3</div>
                 <div>
                   <h3 class="text-h3 text-ink">Mewujudkan Lingkungan Bersih dan Sehat</h3>
@@ -60,7 +60,7 @@ export function renderVisiMisi() {
                   </p>
                 </div>
               </div>
-              <div class="card p-6 flex gap-4 items-start">
+              <div class="card p-5 flex gap-4 items-start card-hover">
                 <div class="misi-num">4</div>
                 <div>
                   <h3 class="text-h3 text-ink">Mendorong Kesejahteraan dan Kemandirian Ekonomi</h3>
