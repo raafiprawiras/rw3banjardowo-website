@@ -1,3 +1,5 @@
+import { initReveals } from '../utils/reveal.js';
+
 const GALLERY_DATA = [
     {
         id: 1,
@@ -130,7 +132,7 @@ export function initGaleri() {
         });
 
         grid.innerHTML = currentFilteredItems.map((item, idx) => `
-      <article class="gallery-item card card-hover" data-idx="${idx}">
+      <article class="gallery-item card card-hover" data-idx="${idx}" data-reveal style="--reveal-delay: ${(idx % 3) * 80}ms">
         <div class="gallery-img-wrap">
           <img src="${item.image}" alt="Foto ${item.title}" class="gallery-img" loading="lazy" />
           <div class="gallery-overlay">
@@ -141,6 +143,8 @@ export function initGaleri() {
         </div>
       </article>
     `).join('');
+
+        initReveals();
 
         // Add click listeners to items
         grid.querySelectorAll('.gallery-item').forEach(item => {

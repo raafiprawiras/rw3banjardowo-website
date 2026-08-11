@@ -1,3 +1,5 @@
+import { initReveals } from '../utils/reveal.js';
+
 const UMKM_DATA = [
     {
         name: 'Warung Makan Bu Sutrisno',
@@ -57,7 +59,7 @@ export { UMKM_DATA, CATEGORIES };
 
 export function umkmCardMarkup(item) {
     return `
-        <article class="card card-hover umkm-card">
+        <article class="card card-hover umkm-card" data-reveal>
           <div class="umkm-img-wrap">
             <img src="${item.image}" alt="Foto ${item.name}" class="umkm-img" loading="lazy" />
             <span class="badge umkm-card-badge">${item.category}</span>
@@ -166,6 +168,8 @@ export function initUMKM() {
             emptyState.classList.add('hidden');
             grid.innerHTML = filtered.map(umkmCardMarkup).join('');
         }
+
+        initReveals();
     }
 
     // Search listener

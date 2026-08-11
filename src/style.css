@@ -47,7 +47,7 @@
     --color-error: #dc2626;
 
     --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
-    --font-display: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'Fraunces', 'Plus Jakarta Sans', Georgia, serif;
 
     --spacing-section: 6rem;
     --spacing-container: 2rem;
@@ -112,11 +112,25 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     line-height: 1.12;
     font-weight: 700;
     letter-spacing: -0.015em;
     margin: 0;
+}
+
+.text-display,
+.text-h1,
+.text-h2,
+h1,
+h2 {
+    font-family: var(--font-display);
+}
+
+.text-display,
+.text-h1,
+.text-h2 {
+    font-weight: 700;
 }
 
 p {
@@ -389,6 +403,62 @@ p {
     max-width: 60ch;
 }
 
+/* ── Page banner (profile pages) ───────────────────────────────── */
+.page-banner {
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+    background: linear-gradient(118deg,
+            var(--color-primary-900) 0%,
+            var(--color-primary-800) 52%,
+            var(--color-primary-600) 100%);
+    padding-block: clamp(3.25rem, 8vw, 5rem);
+}
+
+.page-banner::before {
+    content: "";
+    position: absolute;
+    top: -45%;
+    right: -8%;
+    width: 48%;
+    height: 100%;
+    background: radial-gradient(circle, rgb(145 234 175 / 0.18) 0%, rgb(195 233 86 / 0.08) 45%, transparent 100%);
+    filter: blur(44px);
+    pointer-events: none;
+}
+
+.page-banner::after {
+    content: "";
+    position: absolute;
+    bottom: -55%;
+    left: -6%;
+    width: 40%;
+    height: 90%;
+    background: radial-gradient(circle, rgb(91 234 175 / 0.1) 0%, transparent 70%);
+    filter: blur(50px);
+    pointer-events: none;
+}
+
+.page-banner-inner {
+    position: relative;
+    z-index: 1;
+}
+
+.page-banner .badge {
+    background-color: rgb(195 233 86 / 0.16);
+    color: var(--color-accent-400);
+    border-color: rgb(195 233 86 / 0.3);
+}
+
+.page-banner .page-title {
+    color: #fff;
+    text-shadow: 0 1px 3px rgb(5 14 8 / 0.4);
+}
+
+.page-banner .page-desc {
+    color: rgb(226 247 241 / 0.82);
+}
+
 /* Stat card */
 .stat-card {
     padding: 1.5rem;
@@ -400,6 +470,7 @@ p {
     line-height: 1;
     letter-spacing: -0.02em;
     color: var(--color-primary-700);
+    font-variant-numeric: tabular-nums;
 }
 
 .stat-card .stat-label {
@@ -438,10 +509,11 @@ p {
     position: sticky;
     top: 0;
     z-index: 40;
-    background-color: rgb(255 255 255 / 0.92);
+    background-color: rgb(244 255 252 / 0.85);
     border-bottom: 1px solid var(--color-line);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 1px 0 rgb(31 75 44 / 0.03);
 }
 
 .navbar-inner {
@@ -1186,7 +1258,7 @@ p {
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(to top, rgb(28 26 23 / 0.9) 0%, rgb(28 26 23 / 0.4) 70%, transparent 100%);
+    background: linear-gradient(to top, rgb(11 28 16 / 0.9) 0%, rgb(11 28 16 / 0.45) 70%, transparent 100%);
     padding: 1.5rem;
     color: #fff;
 }
@@ -1525,12 +1597,37 @@ p {
     font-weight: 800;
     color: var(--color-primary-700);
     margin-top: 0.5rem;
+    font-variant-numeric: tabular-nums;
+    font-family: var(--font-sans);
 }
 
 .data-primary-desc {
     font-size: 0.9375rem;
     color: var(--color-ink-muted);
     margin-top: 0.75rem;
+}
+
+/* Primary stat card — deep forest anchor */
+.data-primary-stat {
+    background: linear-gradient(135deg, var(--color-primary-800) 0%, var(--color-primary-600) 100%);
+    border-color: transparent;
+    color: rgb(226 247 241 / 0.85);
+}
+
+.data-primary-stat .data-stat-icon {
+    color: var(--color-accent-400);
+}
+
+.data-primary-stat .data-kicker {
+    color: rgb(226 247 241 / 0.6);
+}
+
+.data-primary-stat .data-primary-value {
+    color: #fff;
+}
+
+.data-primary-stat .data-primary-desc {
+    color: rgb(226 247 241 / 0.82);
 }
 
 .data-supporting-grid {
@@ -1546,6 +1643,7 @@ p {
     font-weight: 800;
     color: var(--color-ink);
     margin-top: 0.5rem;
+    font-variant-numeric: tabular-nums;
 }
 
 .data-supporting-desc {
@@ -1644,6 +1742,22 @@ p {
 .data-table tbody tr:last-child th,
 .data-table tbody tr:last-child td {
     border-bottom: 0;
+}
+
+.data-table tbody tr {
+    transition: background-color 0.15s ease;
+}
+
+.data-table tbody tr:hover {
+    background-color: var(--color-primary-50);
+}
+
+.data-mobile-card {
+    transition: background-color 0.15s ease;
+}
+
+.data-mobile-card:hover {
+    background-color: var(--color-primary-50);
 }
 
 .data-mobile-list {
@@ -1794,7 +1908,7 @@ p {
     gap: 0.75rem;
     padding: 2rem;
     text-align: center;
-    background-color: rgb(247 245 242 / 0.92);
+    background-color: rgb(244 255 252 / 0.92);
 }
 
 .map-state-icon {
@@ -1934,8 +2048,8 @@ p {
 }
 
 .map-polygon-label {
-    background: rgb(255 255 255 / 0.92) !important;
-    border: 1px solid #DC2626 !important;
+    background: rgb(244 255 252 / 0.95) !important;
+    border: 1px solid var(--color-primary-600) !important;
     border-radius: var(--radius-control) !important;
     box-shadow: var(--shadow-control) !important;
     display: flex;
@@ -1949,7 +2063,7 @@ p {
 .map-label-name {
     font-size: 0.875rem;
     font-weight: 700;
-    color: #991B1B;
+    color: var(--color-primary-700);
     line-height: 1.2;
     white-space: nowrap;
 }
@@ -2370,13 +2484,13 @@ p {
     position: fixed;
     inset: 0;
     z-index: 50;
-    background-color: rgb(28 26 23 / 0.98);
+    background-color: rgb(11 28 16 / 0.96);
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 2rem;
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
 }
 
 .lightbox-close {
@@ -2474,24 +2588,6 @@ p {
 }
 
 /* ── Premium Visual Accents ────────────────────────────────────── */
-
-.asterisk-accent {
-    display: inline-block;
-    width: 1.75rem;
-    height: 1.75rem;
-    color: var(--color-accent-500);
-    font-size: 1.75rem;
-    line-height: 1;
-    font-family: system-ui, sans-serif;
-    user-select: none;
-    pointer-events: none;
-    flex-shrink: 0;
-}
-
-.hero-slide-copy .asterisk-accent {
-    color: var(--color-accent-400);
-    opacity: 0.7;
-}
 
 .glass-panel {
     background: rgb(255 255 255 / 0.7);

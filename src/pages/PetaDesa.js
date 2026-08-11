@@ -21,7 +21,7 @@ export function renderPetaDesa() {
         </div>
 
         <div class="map-layout mt-12">
-          <div class="map-stage card">
+          <div class="map-stage card" data-reveal>
             <div class="map-toolbar">
               <p class="map-caption">
                 Wilayah RW 3 merupakan salah satu bagian wilayah Kelurahan Banjardowo, Kecamatan Genuk, Kota Semarang.
@@ -51,7 +51,7 @@ export function renderPetaDesa() {
             </div>
           </div>
 
-          <aside class="map-sidebar card">
+          <aside class="map-sidebar card" data-reveal style="--reveal-delay: 120ms">
             <h2 class="text-h3 mb-4">Informasi Wilayah</h2>
             <div class="map-location-list">
               <div class="map-location-btn no-pointer">
@@ -168,10 +168,10 @@ function createMap(mapEl, options = {}) {
 function createGeoJsonLayer(geojson) {
     return L.geoJSON(geojson, {
         style: () => ({
-            color: '#DC2626',
+            color: '#1f4b2c',
             weight: 2.5,
-            fillColor: '#DC2626',
-            fillOpacity: 0.12,
+            fillColor: '#91eaaf',
+            fillOpacity: 0.22,
         }),
         onEachFeature: (feature, layer) => {
             const name = feature?.properties?.name || 'RW 3';
@@ -189,13 +189,13 @@ function createGeoJsonLayer(geojson) {
                 mouseover: () => {
                     layer.setStyle({
                         weight: 3.5,
-                        fillOpacity: 0.18,
+                        fillOpacity: 0.32,
                     });
                 },
                 mouseout: () => {
                     layer.setStyle({
                         weight: 2.5,
-                        fillOpacity: 0.12,
+                        fillOpacity: 0.22,
                     });
                 },
             });

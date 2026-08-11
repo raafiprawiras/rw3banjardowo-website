@@ -20,7 +20,7 @@ export function renderDataDesa() {
         </div>
 
         <section class="data-hero-grid" aria-label="Statistik utama kependudukan">
-          <article class="card data-primary-stat">
+          <article class="card data-primary-stat" data-reveal>
             <div class="data-stat-head">
               <span class="badge badge-accent">Statistik Utama</span>
               <i class="ph ph-users-three data-stat-icon" aria-hidden="true"></i>
@@ -31,22 +31,22 @@ export function renderDataDesa() {
           </article>
 
           <div class="data-supporting-grid">
-            <article class="card data-supporting-stat">
+            <article class="card data-supporting-stat" data-reveal style="--reveal-delay: 80ms">
               <p class="data-kicker">Kepala Keluarga</p>
               <p class="data-supporting-value">812</p>
               <p class="data-supporting-desc">kartu keluarga aktif</p>
             </article>
-            <article class="card data-supporting-stat">
+            <article class="card data-supporting-stat" data-reveal style="--reveal-delay: 140ms">
               <p class="data-kicker">Jumlah RT</p>
               <p class="data-supporting-value">6</p>
               <p class="data-supporting-desc">RT 01 sampai RT 06</p>
             </article>
-            <article class="card data-supporting-stat">
+            <article class="card data-supporting-stat" data-reveal style="--reveal-delay: 200ms">
               <p class="data-kicker">Laki-laki</p>
               <p class="data-supporting-value">1.452</p>
               <p class="data-supporting-desc">51 persen dari total warga</p>
             </article>
-            <article class="card data-supporting-stat">
+            <article class="card data-supporting-stat" data-reveal style="--reveal-delay: 260ms">
               <p class="data-kicker">Perempuan</p>
               <p class="data-supporting-value">1.395</p>
               <p class="data-supporting-desc">49 persen dari total warga</p>
@@ -55,7 +55,7 @@ export function renderDataDesa() {
         </section>
 
         <section class="data-context-grid" aria-label="Konteks data kependudukan">
-          <article class="card data-note-card">
+          <article class="card data-note-card" data-reveal>
             <div class="data-note-icon">
               <i class="ph ph-file-text" aria-hidden="true"></i>
             </div>
@@ -67,7 +67,7 @@ export function renderDataDesa() {
             </div>
           </article>
 
-          <article class="card data-note-card">
+          <article class="card data-note-card" data-reveal style="--reveal-delay: 100ms">
             <div class="data-note-icon">
               <i class="ph ph-shield-check" aria-hidden="true"></i>
             </div>
@@ -88,7 +88,7 @@ export function renderDataDesa() {
             </p>
           </div>
 
-          <div class="card data-table-card">
+          <div class="card data-table-card" data-reveal>
             <div class="data-table-wrap" role="region" aria-label="Tabel data kependudukan per RT">
               <table class="data-table">
                 <thead>

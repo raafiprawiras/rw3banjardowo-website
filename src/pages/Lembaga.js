@@ -59,23 +59,26 @@ const LEMBAGA_DATA = [
 
 export function renderLembaga() {
     return `
+    <section class="page-banner">
+      <div class="container-site page-banner-inner">
+        <span class="badge">Lembaga Kemasyarakatan</span>
+        <h1 class="text-h1 page-title mt-4">Lembaga Desa</h1>
+        <p class="page-desc mt-4 max-w-2xl">
+          Organisasi kemasyarakatan di RW 3 Banjardowo yang aktif bergerak dalam pelayanan sosial, kepemudaan, kesehatan, dan keamanan.
+        </p>
+      </div>
+    </section>
+
     <section class="section lembaga-page">
       <div class="container-site">
-        <div class="section-header lembaga-header">
-          <span class="badge">Lembaga Kemasyarakatan</span>
-          <h1 class="text-h1 section-title">Lembaga Desa</h1>
-          <p class="section-desc">
-            Organisasi kemasyarakatan di RW 3 Banjardowo yang aktif bergerak dalam pelayanan sosial, kepemudaan, kesehatan, dan keamanan.
-          </p>
-        </div>
 
         <!-- Interactive Tabs Layout -->
-        <div class="lembaga-layout mt-12">
+        <div class="lembaga-layout mt-0">
           <!-- Tabs Navigation -->
           <nav class="lembaga-tabs-nav" aria-label="Daftar lembaga">
             <ul class="lembaga-tabs-list">
               ${LEMBAGA_DATA.map((lem, idx) => `
-                <li>
+                <li data-reveal style="--reveal-delay: ${idx * 70}ms">
                   <button class="lembaga-tab-btn ${idx === 0 ? 'is-active' : ''}" data-target="${lem.id}" role="tab" aria-selected="${idx === 0 ? 'true' : 'false'}" aria-controls="panel-${lem.id}">
                     <span class="lembaga-tab-icon-wrap">
                       <i class="ph ${lem.icon}" aria-hidden="true"></i>
@@ -90,7 +93,7 @@ export function renderLembaga() {
           <!-- Panels Container -->
           <div class="lembaga-panels">
             ${LEMBAGA_DATA.map((lem, idx) => `
-              <article id="panel-${lem.id}" class="card lembaga-panel ${idx === 0 ? '' : 'hidden'}" role="tabpanel" aria-labelledby="tab-${lem.id}">
+              <article id="panel-${lem.id}" class="card lembaga-panel ${idx === 0 ? '' : 'hidden'}" role="tabpanel" aria-labelledby="tab-${lem.id}" data-reveal style="--reveal-delay: 120ms">
                 <div class="lembaga-panel-header">
                   <div class="lembaga-panel-icon-wrap">
                     <i class="ph ${lem.icon}" aria-hidden="true"></i>

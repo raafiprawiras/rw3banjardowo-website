@@ -1,4 +1,5 @@
 import './style.css';
+import { initReveals, cleanupReveals } from './utils/reveal.js';
 import { createNavbar } from './components/Navbar.js';
 import { createFooter } from './components/Footer.js';
 import { renderHome, initHome, cleanupHome } from './pages/Home.js';
@@ -52,10 +53,12 @@ function resolveRoute() {
     if (route.cleanup) {
         route.cleanup();
     }
+    cleanupReveals();
     main.innerHTML = route.render();
     if (route.init) {
         route.init();
     }
+    initReveals();
     window.scrollTo(0, 0);
     updateActiveNavLink(path);
 }

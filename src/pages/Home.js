@@ -60,10 +60,7 @@ function heroSlideMarkup(slide, index) {
         <div class="hero-slide-mapbg" aria-hidden="true"></div>
         <div class="container-site hero-slide-content hero-slide-content-split">
           <div class="hero-slide-copy">
-            <div class="flex items-center gap-2">
-              <span class="badge">${slide.badge}</span>
-              <span class="asterisk-accent">✦</span>
-            </div>
+            <span class="badge">${slide.badge}</span>
             <h2 class="text-h1 mt-4 text-white">${slide.title}</h2>
             <p class="hero-slide-text">${slide.text}</p>
           </div>
@@ -82,10 +79,7 @@ function heroSlideMarkup(slide, index) {
         <div class="hero-slide-overlay" aria-hidden="true"></div>
         <div class="container-site hero-slide-content">
           <div class="hero-slide-copy">
-            <div class="flex items-center gap-2">
-              <span class="badge">${slide.badge}</span>
-              <span class="asterisk-accent">✦</span>
-            </div>
+            <span class="badge">${slide.badge}</span>
             <h2 class="text-h1 mt-4 text-white">${slide.title}</h2>
             <p class="hero-slide-text">${slide.text}</p>
             <div class="hero-actions mt-8">
@@ -141,10 +135,7 @@ export function renderHome() {
             </figure>
           </div>
           <div class="sambutan-text" data-reveal style="--reveal-delay: 120ms">
-            <div class="flex items-center gap-2">
-              <span class="badge">Sambutan</span>
-              <span class="asterisk-accent">✦</span>
-            </div>
+            <span class="badge">Sambutan</span>
             <h2 class="text-h2 mt-3">Sambutan Ketua RW</h2>
             <p class="sambutan-signature">Bapak Sutrisno, S.Sos.</p>
             <p class="sambutan-role">Ketua RW 3 Banjardowo (2024-2029)</p>
@@ -279,9 +270,6 @@ export function renderHome() {
     <section class="cta-section bg-primary-800 text-white" data-reveal>
       <div class="container-site cta-container">
         <div class="cta-content text-center max-w-[36rem] mx-auto">
-          <div class="flex justify-center mb-4">
-            <span class="asterisk-accent">✦</span>
-          </div>
           <h2 class="text-h2 text-white">Dukung usaha warga RW 3 Banjardowo</h2>
           <p class="text-body-lg text-primary-200 mt-4">
             Temukan kuliner, kerajinan, jasa, dan sembako dari pelaku usaha warga RW 3.
@@ -302,12 +290,10 @@ export function renderHome() {
 let heroCleanup = null;
 let homeMap = null;
 let homeMapResizeHandler = null;
-let revealObserver = null;
 let lazyMapObserver = null;
 
 export function initHome() {
   heroCleanup = initHeroCarousel();
-  initReveals();
   setupLazyMap();
 }
 
@@ -315,10 +301,6 @@ export function cleanupHome() {
   if (heroCleanup) {
     heroCleanup();
     heroCleanup = null;
-  }
-  if (revealObserver) {
-    revealObserver.disconnect();
-    revealObserver = null;
   }
   if (lazyMapObserver) {
     lazyMapObserver.disconnect();
@@ -482,28 +464,6 @@ function initHeroCarousel() {
   start();
 
   return () => stop();
-}
-
-/* ── Scroll reveal ────────────────────────────────────────────────── */
-function initReveals() {
-  const items = document.querySelectorAll('[data-reveal]');
-  if (!items.length) return;
-
-  if (!('IntersectionObserver' in window)) {
-    items.forEach((el) => el.classList.add('is-revealed'));
-    return;
-  }
-
-  revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-revealed');
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
-
-  items.forEach((el) => revealObserver.observe(el));
 }
 
 /* ── Lazy map preview ─────────────────────────────────────────────── */
