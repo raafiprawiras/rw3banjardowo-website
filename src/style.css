@@ -1206,7 +1206,21 @@ p {
 
 /* ── Sambutan Ketua RW ─────────────────────────────────────────── */
 .home-sambutan {
-    background-color: var(--color-surface-muted);
+    background-color: var(--color-primary-950);
+    color: rgb(226 247 241 / 0.85);
+    border-top: 1px solid rgb(244 255 252 / 0.05);
+}
+
+.home-sambutan .sambutan-signature {
+    color: #fff;
+}
+
+.home-sambutan .sambutan-role {
+    color: var(--color-accent-400);
+}
+
+.home-sambutan .sambutan-body {
+    color: rgb(226 247 241 / 0.85);
 }
 
 .sambutan-grid {
@@ -1296,6 +1310,51 @@ p {
 /* ── Pengumuman & Agenda ───────────────────────────────────────── */
 .news-section {
     padding-block: 5rem;
+    background-color: var(--color-primary-900);
+    border-top: 1px solid rgb(244 255 252 / 0.05);
+}
+
+.news-section .section-title {
+    color: #fff;
+}
+
+.news-section .section-desc {
+    color: rgb(226 247 241 / 0.7);
+}
+
+.news-section .news-card {
+    background: rgb(244 255 252 / 0.05);
+    border-color: rgb(244 255 252 / 0.12);
+    box-shadow: none;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.news-section .news-card h3 {
+    color: #fff;
+}
+
+.news-section .news-card .text-ink-muted {
+    color: rgb(226 247 241 / 0.72);
+}
+
+.news-section .news-card .text-caption {
+    color: rgb(226 247 241 / 0.55);
+}
+
+.news-section .news-card .link {
+    color: var(--color-accent-400);
+    text-decoration-color: rgb(195 233 86 / 0.45);
+}
+
+.news-section .news-card .link:hover {
+    text-decoration-color: var(--color-accent-400);
+}
+
+.news-section .news-card .badge-neutral {
+    background-color: rgb(244 255 252 / 0.08);
+    color: rgb(226 247 241 / 0.75);
+    border-color: rgb(244 255 252 / 0.14);
 }
 
 .news-card {
@@ -1319,11 +1378,22 @@ p {
 
 /* ── Peta Wilayah preview ──────────────────────────────────────── */
 .home-map-section {
-    background-color: var(--color-surface-muted);
+    background-color: var(--color-primary-950);
+    border-top: 1px solid rgb(244 255 252 / 0.05);
+}
+
+.home-map-section .section-title {
+    color: #fff;
+}
+
+.home-map-section .section-desc {
+    color: rgb(226 247 241 / 0.7);
 }
 
 .home-map-card {
     overflow: hidden;
+    background-color: rgb(11 28 16 / 0.45);
+    border-color: rgb(244 255 252 / 0.12);
 }
 
 .home-map-shell {
@@ -1339,7 +1409,11 @@ p {
     align-items: flex-start;
     gap: 1.25rem;
     padding: 1.5rem;
-    border-top: 1px solid var(--color-line);
+    border-top: 1px solid rgb(244 255 252 / 0.1);
+}
+
+.home-map-footer .text-ink-muted {
+    color: rgb(226 247 241 / 0.72);
 }
 
 @media (min-width: 768px) {
@@ -1352,6 +1426,19 @@ p {
 
 /* ── UMKM preview ──────────────────────────────────────────────── */
 .home-umkm-section {
+    background-color: var(--color-primary-900);
+    border-top: 1px solid rgb(244 255 252 / 0.05);
+}
+
+.home-umkm-section .section-title {
+    color: #fff;
+}
+
+.home-umkm-section .section-desc {
+    color: rgb(226 247 241 / 0.7);
+}
+
+.home-umkm-section .umkm-card {
     background-color: var(--color-surface);
 }
 
@@ -1360,6 +1447,7 @@ p {
     padding-block: 5rem;
     position: relative;
     overflow: hidden;
+    border-top: 1px solid rgb(244 255 252 / 0.05);
 }
 
 .cta-section::before {

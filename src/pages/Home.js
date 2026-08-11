@@ -237,10 +237,10 @@ export function renderHome() {
             <p class="text-body-sm text-ink-muted">
               Geser dan perbesar untuk menjelajah. Batas wilayah ditampilkan dari data GeoJSON RW 3.
             </p>
-            <a href="/peta-desa" class="btn btn-primary">
-              <i class="ph ph-map-trifold" aria-hidden="true"></i>
-              Lihat Peta Selengkapnya
-            </a>
+<a href="/peta-desa" class="btn btn-accent">
+                <i class="ph ph-map-trifold" aria-hidden="true"></i>
+                Lihat Peta Selengkapnya
+              </a>
           </div>
         </div>
       </div>
