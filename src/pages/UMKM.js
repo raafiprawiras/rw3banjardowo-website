@@ -53,6 +53,45 @@ const UMKM_DATA = [
 
 const CATEGORIES = ['Semua', 'Kuliner', 'Kerajinan', 'Jasa', 'Sembako'];
 
+export { UMKM_DATA, CATEGORIES };
+
+export function umkmCardMarkup(item) {
+    return `
+        <article class="card card-hover umkm-card">
+          <div class="umkm-img-wrap">
+            <img src="${item.image}" alt="Foto ${item.name}" class="umkm-img" loading="lazy" />
+            <span class="badge umkm-card-badge">${item.category}</span>
+          </div>
+          <div class="umkm-card-body">
+            <h3 class="text-h3 umkm-card-title">${item.name}</h3>
+            <p class="text-body-sm text-ink-muted mt-2 line-clamp-3">${item.desc}</p>
+
+            <div class="umkm-meta-list mt-4">
+              <div class="umkm-meta-item">
+                <i class="ph ph-user" aria-hidden="true"></i>
+                <span>${item.owner}</span>
+              </div>
+              <div class="umkm-meta-item">
+                <i class="ph ph-map-pin" aria-hidden="true"></i>
+                <span>${item.location}</span>
+              </div>
+              <div class="umkm-meta-item">
+                <i class="ph ph-tag" aria-hidden="true"></i>
+                <span class="font-semibold text-primary-700">${item.price}</span>
+              </div>
+            </div>
+
+            <div class="umkm-card-footer mt-6">
+              <a href="https://wa.me/${item.phone}?text=Halo%20${encodeURIComponent(item.name)}%2C%20saya%20tertarik%20dengan%20produk%2Fjasa%20Anda." class="btn btn-primary w-full" target="_blank" rel="noopener noreferrer">
+                <i class="ph ph-whatsapp-logo" aria-hidden="true"></i>
+                Hubungi Penjual
+              </a>
+            </div>
+          </div>
+        </article>
+      `;
+}
+
 export function renderUMKM() {
     return `
     <section class="section umkm-page">
@@ -125,40 +164,7 @@ export function initUMKM() {
             emptyState.classList.remove('hidden');
         } else {
             emptyState.classList.add('hidden');
-            grid.innerHTML = filtered.map(item => `
-        <article class="card card-hover umkm-card">
-          <div class="umkm-img-wrap">
-            <img src="${item.image}" alt="Foto ${item.name}" class="umkm-img" loading="lazy" />
-            <span class="badge umkm-card-badge">${item.category}</span>
-          </div>
-          <div class="umkm-card-body">
-            <h3 class="text-h3 umkm-card-title">${item.name}</h3>
-            <p class="text-body-sm text-ink-muted mt-2 line-clamp-3">${item.desc}</p>
-            
-            <div class="umkm-meta-list mt-4">
-              <div class="umkm-meta-item">
-                <i class="ph ph-user" aria-hidden="true"></i>
-                <span>${item.owner}</span>
-              </div>
-              <div class="umkm-meta-item">
-                <i class="ph ph-map-pin" aria-hidden="true"></i>
-                <span>${item.location}</span>
-              </div>
-              <div class="umkm-meta-item">
-                <i class="ph ph-tag" aria-hidden="true"></i>
-                <span class="font-semibold text-primary-700">${item.price}</span>
-              </div>
-            </div>
-
-            <div class="umkm-card-footer mt-6">
-              <a href="https://wa.me/${item.phone}?text=Halo%20${encodeURIComponent(item.name)}%2C%20saya%20tertarik%20dengan%20produk%2Fjasa%20Anda." class="btn btn-primary w-full" target="_blank" rel="noopener noreferrer">
-                <i class="ph ph-whatsapp-logo" aria-hidden="true"></i>
-                Hubungi Penjual
-              </a>
-            </div>
-          </div>
-        </article>
-      `).join('');
+            grid.innerHTML = filtered.map(umkmCardMarkup).join('');
         }
     }
 

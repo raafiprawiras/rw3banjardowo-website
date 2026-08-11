@@ -1,7 +1,7 @@
 import './style.css';
 import { createNavbar } from './components/Navbar.js';
 import { createFooter } from './components/Footer.js';
-import { renderHome } from './pages/Home.js';
+import { renderHome, initHome, cleanupHome } from './pages/Home.js';
 import { renderVisiMisi } from './pages/VisiMisi.js';
 import { renderStrukturKepengurusan } from './pages/StrukturKepengurusan.js';
 import { renderStrukturKKN } from './pages/StrukturKKN.js';
@@ -25,7 +25,7 @@ app.appendChild(createFooter());
 
 // Router mapping
 const routes = {
-    '/': { render: renderHome },
+    '/': { render: renderHome, init: initHome, cleanup: cleanupHome },
     '/profil/visi-misi': { render: renderVisiMisi },
     '/visi-misi': { render: renderVisiMisi },
     '/profil/struktur': { render: renderStrukturKepengurusan },
@@ -49,6 +49,9 @@ function navigate(path) {
 function resolveRoute() {
     const path = window.location.pathname;
     const route = routes[path] || routes['/'];
+    if (route.cleanup) {
+        route.cleanup();
+    }
     main.innerHTML = route.render();
     if (route.init) {
         route.init();

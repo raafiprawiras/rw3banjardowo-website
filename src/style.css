@@ -842,34 +842,145 @@ p {
    HOMEPAGE SECTIONS
    ═══════════════════════════════════════════════════════════════ */
 
-/* Hero Section */
-.hero-section {
-    padding-block: 4rem;
-    background-color: var(--color-surface);
+/* ── Hero Carousel ─────────────────────────────────────────────── */
+.hero-carousel {
+    position: relative;
+    height: 30rem;
+    overflow: hidden;
+    background-color: var(--color-primary-950);
+    touch-action: pan-y;
 }
 
-@media (min-width: 1024px) {
-    .hero-section {
-        padding-block: 6rem;
+@media (min-width: 768px) {
+    .hero-carousel {
+        height: 32rem;
     }
 }
 
-.hero-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 3rem;
-    align-items: center;
-}
-
 @media (min-width: 1024px) {
-    .hero-grid {
-        grid-template-columns: 1.2fr 0.8fr;
-        gap: 4rem;
+    .hero-carousel {
+        height: 36rem;
     }
 }
 
-.hero-content {
-    max-width: 38rem;
+.hero-carousel-track,
+.hero-slide {
+    position: absolute;
+    inset: 0;
+}
+
+.hero-slide {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.7s ease, visibility 0s linear 0.7s;
+}
+
+.hero-slide.is-active {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.7s ease, visibility 0s;
+    z-index: 2;
+}
+
+.hero-slide-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.08);
+    transition: transform 6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero-slide.is-active .hero-slide-bg {
+    transform: scale(1);
+}
+
+.hero-slide-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(78deg,
+        rgb(13 32 24 / 0.86) 0%,
+        rgb(13 32 24 / 0.58) 42%,
+        rgb(13 32 24 / 0.18) 80%,
+        rgb(13 32 24 / 0.4) 100%);
+}
+
+@media (max-width: 767px) {
+    .hero-slide-overlay {
+        background: linear-gradient(0deg,
+            rgb(13 32 24 / 0.9) 0%,
+            rgb(13 32 24 / 0.58) 55%,
+            rgb(13 32 24 / 0.2) 100%);
+    }
+}
+
+/* Map slide background (deep brand green, no photo) */
+.hero-slide-mapbg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(115deg, var(--color-primary-950) 0%, var(--color-primary-800) 100%);
+}
+
+.hero-slide-content {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media (max-width: 767px) {
+    .hero-slide-content {
+        justify-content: flex-end;
+        padding-bottom: 4.5rem;
+    }
+
+    .hero-slide-copy h1,
+    .hero-slide-copy h2 {
+        font-size: clamp(1.625rem, 6.5vw, 2.375rem);
+    }
+
+    .hero-slide-text {
+        font-size: 1rem;
+    }
+
+    .hero-slide-content .hero-actions {
+        flex-direction: column;
+    }
+
+    .hero-slide-content .hero-actions .btn {
+        width: 100%;
+    }
+
+    .hero-slide-content-split {
+        align-content: flex-end;
+    }
+}
+
+.hero-slide-copy {
+    max-width: 40rem;
+}
+
+.hero-slide-copy .badge {
+    background-color: rgb(255 255 255 / 0.14);
+    color: #fff;
+    border-color: rgb(255 255 255 / 0.24);
+}
+
+.hero-slide-copy h1,
+.hero-slide-copy h2 {
+    color: #fff;
+    text-shadow: 0 1px 2px rgb(13 32 24 / 0.35);
+}
+
+.hero-slide-text {
+    margin-top: 1rem;
+    max-width: 42ch;
+    color: rgb(255 255 255 / 0.86);
+    font-size: 1.0625rem;
+    line-height: 1.7;
 }
 
 .hero-actions {
@@ -878,11 +989,176 @@ p {
     gap: 1rem;
 }
 
-.hero-image-container {
-    display: flex;
-    justify-content: center;
+/* Incoming slide text transition */
+.hero-slide-content > * {
+    opacity: 0;
+    transform: translateY(1.25rem);
+    transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
+.hero-slide.is-active .hero-slide-content > * {
+    opacity: 1;
+    transform: none;
+}
+
+.hero-slide.is-active .hero-slide-content > :nth-child(2) {
+    transition-delay: 0.12s;
+}
+
+/* Split (map) slide */
+.hero-slide-content-split {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    align-content: center;
+}
+
+@media (min-width: 1024px) {
+    .hero-slide-content-split {
+        grid-template-columns: 1.1fr 0.9fr;
+        align-items: center;
+        gap: 3rem;
+    }
+}
+
+.hero-slide-mapfig {
+    display: none;
+}
+
+@media (min-width: 1024px) {
+    .hero-slide-mapfig {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.875rem;
+    }
+}
+
+.hero-slide-mapimg {
+    width: 100%;
+    max-width: 15rem;
+    height: auto;
+    padding: 0.625rem;
+    background-color: var(--color-surface);
+    border: 1px solid rgb(255 255 255 / 0.16);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card-hover);
+}
+
+.hero-slide-mapcaption {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    color: rgb(255 255 255 / 0.75);
+}
+
+/* Carousel controls */
+.hero-carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border: 1px solid rgb(255 255 255 / 0.22);
+    border-radius: var(--radius-pill);
+    background-color: rgb(255 255 255 / 0.12);
+    color: #fff;
+    font-size: 1.125rem;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.25s ease, background-color 0.2s ease;
+}
+
+.hero-carousel:hover .hero-carousel-arrow,
+.hero-carousel-arrow:focus-visible {
+    opacity: 1;
+}
+
+.hero-carousel-arrow:hover {
+    background-color: rgb(255 255 255 / 0.22);
+}
+
+@media (hover: none) {
+    .hero-carousel-arrow {
+        opacity: 0.85;
+    }
+}
+
+.hero-carousel-prev {
+    left: 1rem;
+}
+
+.hero-carousel-next {
+    right: 1rem;
+}
+
+.hero-carousel-dots {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 1.25rem;
+    z-index: 6;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.hero-carousel-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    padding: 0;
+    border: none;
+    border-radius: var(--radius-pill);
+    background-color: rgb(255 255 255 / 0.4);
+    cursor: pointer;
+    transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.hero-carousel-dot:hover {
+    background-color: rgb(255 255 255 / 0.7);
+}
+
+.hero-carousel-dot.is-active {
+    width: 1.5rem;
+    background-color: #fff;
+}
+
+/* ── Sambutan Ketua RW ─────────────────────────────────────────── */
+.home-sambutan {
+    background-color: var(--color-surface-muted);
+}
+
+.sambutan-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    align-items: center;
+}
+
+@media (min-width: 1024px) {
+    .sambutan-grid {
+        grid-template-columns: 0.8fr 1.2fr;
+        gap: 4rem;
+    }
+}
+
+.sambutan-media {
+    width: 100%;
+    max-width: 22rem;
+    margin-inline: auto;
+}
+
+@media (min-width: 1024px) {
+    .sambutan-media {
+        margin-inline: 0;
+    }
+}
+
+/* Portrait photo card (reused from the original hero) */
 .hero-card {
     position: relative;
     width: 100%;
@@ -921,25 +1197,26 @@ p {
     margin-top: 0.25rem;
 }
 
-/* Statistics Section */
-.stats-section {
-    padding-block: 5rem;
+.sambutan-signature {
+    margin-top: 1.25rem;
+    font-size: 1.375rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    color: var(--color-ink);
 }
 
-.stat-icon-wrap {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 3rem;
-    height: 3rem;
-    background-color: var(--color-primary-50);
-    color: var(--color-primary-600);
-    border-radius: var(--radius-control);
-    font-size: 1.5rem;
-    margin-bottom: 1.25rem;
+.sambutan-role {
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-primary-700);
 }
 
-/* News Section */
+.sambutan-body {
+    margin-top: 1.25rem;
+}
+
+/* ── Pengumuman & Agenda ───────────────────────────────────────── */
 .news-section {
     padding-block: 5rem;
 }
@@ -963,7 +1240,45 @@ p {
     padding-top: 1.5rem;
 }
 
-/* CTA Section */
+/* ── Peta Wilayah preview ──────────────────────────────────────── */
+.home-map-section {
+    background-color: var(--color-surface-muted);
+}
+
+.home-map-card {
+    overflow: hidden;
+}
+
+.home-map-shell {
+    position: relative;
+    height: clamp(300px, 60vw, 420px);
+    overflow: hidden;
+    background-color: var(--color-surface-muted);
+}
+
+.home-map-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+    padding: 1.5rem;
+    border-top: 1px solid var(--color-line);
+}
+
+@media (min-width: 768px) {
+    .home-map-footer {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+/* ── UMKM preview ──────────────────────────────────────────────── */
+.home-umkm-section {
+    background-color: var(--color-surface);
+}
+
+/* ── CTA ───────────────────────────────────────────────────────── */
 .cta-section {
     padding-block: 5rem;
 }
@@ -971,6 +1286,21 @@ p {
 .cta-container {
     display: flex;
     justify-content: center;
+}
+
+/* ── Scroll reveal ─────────────────────────────────────────────── */
+@media (prefers-reduced-motion: no-preference) {
+    [data-reveal] {
+        opacity: 0;
+        transform: translateY(1.25rem);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+        transition-delay: var(--reveal-delay, 0ms);
+    }
+
+    [data-reveal].is-revealed {
+        opacity: 1;
+        transform: none;
+    }
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -2088,6 +2418,12 @@ p {
     max-width: 40rem;
 }
 
+.hero-carousel-arrow:focus-visible,
+.hero-carousel-dot:focus-visible {
+    outline: 2px solid rgb(255 255 255 / 0.9);
+    outline-offset: 2px;
+}
+
 /* ── Focus visible states for accessibility ─────────────────── */
 .btn:focus-visible,
 .link:focus-visible,
@@ -2098,7 +2434,9 @@ p {
 .map-location-btn:focus-visible,
 .umkm-filter-btn:focus-visible,
 .gallery-filter-btn:focus-visible,
-.lembaga-tab-btn:focus-visible {
+.lembaga-tab-btn:focus-visible,
+.hero-carousel-arrow:focus-visible,
+.hero-carousel-dot:focus-visible {
     outline: 2px solid var(--color-primary-600);
     outline-offset: 2px;
 }

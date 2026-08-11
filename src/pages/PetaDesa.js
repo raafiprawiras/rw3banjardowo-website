@@ -100,15 +100,7 @@ export async function initPetaDesa() {
         mapInstance.fitBounds(initialBounds, { padding: [24, 24] });
 
         // Add polygon center label
-        L.marker(initialBounds.getCenter(), {
-            icon: L.divIcon({
-                className: 'map-polygon-label',
-                html: '<span class="map-label-name">RW 3 Banjardowo</span>',
-                iconSize: [160, 30],
-                iconAnchor: [80, 15],
-            }),
-            interactive: false,
-        }).addTo(mapInstance);
+        addRw3PolygonLabel(mapInstance, initialBounds);
 
         window.requestAnimationFrame(() => mapInstance.invalidateSize());
 
@@ -153,10 +145,10 @@ async function loadRw3GeoJson() {
     return geoJsonCache;
 }
 
-function createMap(mapEl) {
+function createMap(mapEl, options = {}) {
     const map = L.map(mapEl, {
         zoomControl: true,
-        scrollWheelZoom: true,
+        scrollWheelZoom: options.scrollWheelZoom ?? true,
         dragging: true,
         doubleClickZoom: true,
         touchZoom: true,
@@ -218,4 +210,18 @@ function showState(state, loadingEl, errorEl, mapEl) {
     errorEl.classList.toggle('hidden', state !== 'error');
     mapEl.classList.toggle('is-hidden', state !== 'ready');
 }
+
+function addRw3PolygonLabel(map, bounds) {
+    return L.marker(bounds.getCenter(), {
+        icon: L.divIcon({
+            className: 'map-polygon-label',
+            html: '<span class="map-label-name">RW 3 Banjardowo</span>',
+            iconSize: [160, 30],
+            iconAnchor: [80, 15],
+        }),
+        interactive: false,
+    }).addTo(map);
+}
+
+export { loadRw3GeoJson, createMap, createGeoJsonLayer, addRw3PolygonLabel, GEOJSON_URL };
 
