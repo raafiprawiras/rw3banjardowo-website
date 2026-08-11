@@ -98,6 +98,18 @@ export async function initPetaDesa() {
 
         initialBounds = geoJsonLayer.getBounds();
         mapInstance.fitBounds(initialBounds, { padding: [24, 24] });
+
+        // Add polygon center label
+        L.marker(initialBounds.getCenter(), {
+            icon: L.divIcon({
+                className: 'map-polygon-label',
+                html: '<span class="map-label-name">RW 3 Banjardowo</span>',
+                iconSize: [160, 30],
+                iconAnchor: [80, 15],
+            }),
+            interactive: false,
+        }).addTo(mapInstance);
+
         window.requestAnimationFrame(() => mapInstance.invalidateSize());
 
         if (resetBtn) {
@@ -153,9 +165,9 @@ function createMap(mapEl) {
         attributionControl: true,
     });
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
         maxZoom: 20,
-        attribution: '&copy; OpenStreetMap contributors',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
     }).addTo(map);
 
     return map;
@@ -164,10 +176,10 @@ function createMap(mapEl) {
 function createGeoJsonLayer(geojson) {
     return L.geoJSON(geojson, {
         style: () => ({
-            color: '#25563e',
-            weight: 2,
-            fillColor: '#5aa37a',
-            fillOpacity: 0.18,
+            color: '#DC2626',
+            weight: 2.5,
+            fillColor: '#DC2626',
+            fillOpacity: 0.12,
         }),
         onEachFeature: (feature, layer) => {
             const name = feature?.properties?.name || 'RW 3';
@@ -184,14 +196,14 @@ function createGeoJsonLayer(geojson) {
             layer.on({
                 mouseover: () => {
                     layer.setStyle({
-                        weight: 3,
-                        fillOpacity: 0.24,
+                        weight: 3.5,
+                        fillOpacity: 0.18,
                     });
                 },
                 mouseout: () => {
                     layer.setStyle({
-                        weight: 2,
-                        fillOpacity: 0.18,
+                        weight: 2.5,
+                        fillOpacity: 0.12,
                     });
                 },
             });
