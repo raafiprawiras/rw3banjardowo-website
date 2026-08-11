@@ -959,6 +959,20 @@ p {
     z-index: 2;
 }
 
+/* Bottom fade: melts the Hero into the Sambutan's dark-green canvas so
+   the two sections read as one continuous surface instead of a hard seam
+   under any slide (photo or map). */
+.hero-slide::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background: linear-gradient(to top,
+        var(--color-primary-900) 0%,
+        transparent 55%);
+}
+
 .hero-slide-bg {
     position: absolute;
     inset: 0;
@@ -1208,13 +1222,12 @@ p {
 .home-sambutan {
     background-color: var(--color-primary-950);
     background-image:
-        linear-gradient(rgb(11 28 16 / 0.9) 0%, rgb(11 28 16 / 0.78) 100%),
+        linear-gradient(var(--color-primary-900) 0%, rgb(11 28 16 / 0.78) 100%),
         url('/assets/rumput-bg.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     color: rgb(226 247 241 / 0.85);
-    border-top: 1px solid rgb(244 255 252 / 0.05);
 }
 
 .home-sambutan .sambutan-signature {
