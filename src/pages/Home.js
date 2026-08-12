@@ -2,14 +2,13 @@ import { UMKM_DATA, umkmCardMarkup } from './UMKM.js';
 import { loadRw3GeoJson, createMap, createGeoJsonLayer, addRw3PolygonLabel } from './PetaDesa.js';
 
 /* ── Hero carousel slides ────────────────────────────────────────────
-   Images follow the site's existing asset convention (picsum seeds used
-   across Galeri & UMKM) and the local RW 3 map asset for the map slide.
+   Local assets from public/assets/beranda/ for premium visual quality.
    ──────────────────────────────────────────────────────────────────── */
 const HERO_SLIDES = [
   {
     variant: 'photo',
-    image: 'https://picsum.photos/seed/kerja-bakti/1600/900',
-    alt: 'Warga RW 3 bergotong royong membersihkan lingkungan',
+    image: '/assets/beranda/asset_beranda1.jpg',
+    alt: 'Suasana lingkungan RW 3 Banjardowo',
     badge: 'Portal Resmi Warga',
     title: 'Selamat Datang di Website Resmi RW 3',
     text: 'Portal informasi resmi warga RW 3 Kelurahan Banjardowo, Kecamatan Genuk, Kota Semarang.',
@@ -26,8 +25,8 @@ const HERO_SLIDES = [
   },
   {
     variant: 'photo',
-    image: 'https://picsum.photos/seed/posyandu/1600/900',
-    alt: 'Kegiatan posyandu balita di RW 3',
+    image: '/assets/beranda/asset_beranda2.jpg',
+    alt: 'Kegiatan warga RW 3 Banjardowo',
     badge: 'Kegiatan Warga',
     title: 'Kegiatan & Kabar Warga RW 3',
     text: 'Dari posyandu, kerja bakti, hingga agenda bersama, semua informasi warga terpusat di sini.',
@@ -39,12 +38,18 @@ const HERO_SLIDES = [
     ctaSecondary: null,
   },
   {
-    variant: 'map',
-    image: '/assets/maps/rw-3-banjardowo.png',
-    alt: 'Peta wilayah RW 3 Kelurahan Banjardowo',
+    variant: 'photo',
+    image: '/assets/beranda/asset_beranda3.jpg',
+    alt: 'Wilayah RW 3 Banjardowo',
     badge: 'Peta Wilayah',
     title: 'Kenali Wilayah RW 3',
     text: 'Jelajahi batas wilayah RW 3 Kelurahan Banjardowo pada peta interaktif.',
+    ctaPrimary: {
+      label: 'Lihat Peta',
+      href: '/peta',
+      icon: 'ph-map-trifold',
+    },
+    ctaSecondary: null,
   },
 ];
 
@@ -53,24 +58,6 @@ const icon = (c) => (c && c.icon ? `<i class="ph ${c.icon}" aria-hidden="true"><
 function heroSlideMarkup(slide, index) {
   const total = HERO_SLIDES.length;
   const slideLabel = `Slide ${index + 1} dari ${total}`;
-
-  if (slide.variant === 'map') {
-    return `
-      <div class="hero-slide hero-slide-map" role="group" aria-roledescription="slide" aria-label="${slideLabel}" aria-hidden="true">
-        <div class="hero-slide-mapbg" aria-hidden="true"></div>
-        <div class="container-site hero-slide-content hero-slide-content-split">
-          <div class="hero-slide-copy">
-            <h2 class="text-h1 text-white">${slide.title}</h2>
-            <p class="hero-slide-text">${slide.text}</p>
-          </div>
-          <figure class="hero-slide-mapfig">
-            <img src="${slide.image}" alt="${slide.alt}" class="hero-slide-mapimg" loading="lazy" />
-            <figcaption class="hero-slide-mapcaption">RW 3 Kelurahan Banjardowo, Kec. Genuk</figcaption>
-          </figure>
-        </div>
-      </div>
-    `;
-  }
 
   return `
       <div class="hero-slide" role="group" aria-roledescription="slide" aria-label="${slideLabel}" aria-hidden="true">
