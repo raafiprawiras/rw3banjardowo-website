@@ -17,7 +17,15 @@ const NAV_ITEMS = [
     { label: 'Data Desa', href: '/data' },
     { label: 'Peta Desa', href: '/peta' },
     { label: 'UMKM Desa', href: '/umkm' },
-    { label: 'Lembaga Desa', href: '/lembaga' },
+    {
+        label: 'Lembaga Desa',
+        children: [
+            { label: 'PKK', href: '/lembaga/pkk' },
+            { label: 'Karang Taruna', href: '/lembaga/karang-taruna' },
+            { label: 'Posyandu', href: '/lembaga/posyandu' },
+            { label: 'Linmas', href: '/lembaga/linmas' },
+        ],
+    },
     { label: 'Galeri', href: '/galeri' },
 ];
 
@@ -95,44 +103,47 @@ export function createNavbar() {
 }
 
 function initNavbarInteractions(nav) {
-    // Desktop dropdown
-    const dropdownWrap = nav.querySelector('.navbar-dropdown-wrap');
-    const trigger = nav.querySelector('.navbar-dropdown-trigger');
-    const dropdown = nav.querySelector('.navbar-dropdown');
+    // Desktop dropdowns
+    const dropdownWraps = nav.querySelectorAll('.navbar-dropdown-wrap');
+    dropdownWraps.forEach(dropdownWrap => {
+        const trigger = dropdownWrap.querySelector('.navbar-dropdown-trigger');
+        const dropdown = dropdownWrap.querySelector('.navbar-dropdown');
 
-    if (trigger && dropdown && dropdownWrap) {
-        // Hover open/close for desktop
-        let hoverTimeout;
-        dropdownWrap.addEventListener('mouseenter', () => {
-            clearTimeout(hoverTimeout);
-            openDesktopDropdown(trigger, dropdown);
-        });
-        dropdownWrap.addEventListener('mouseleave', () => {
-            hoverTimeout = setTimeout(() => closeDesktopDropdown(trigger, dropdown), 150);
-        });
+        if (trigger && dropdown) {
+            let hoverTimeout;
+            dropdownWrap.addEventListener('mouseenter', () => {
+                clearTimeout(hoverTimeout);
+                openDesktopDropdown(trigger, dropdown);
+            });
+            dropdownWrap.addEventListener('mouseleave', () => {
+                hoverTimeout = setTimeout(() => closeDesktopDropdown(trigger, dropdown), 150);
+            });
 
-        // Click toggle for accessibility
-        trigger.addEventListener('click', (e) => {
-            e.preventDefault();
-            const open = trigger.getAttribute('aria-expanded') === 'true';
-            if (open) closeDesktopDropdown(trigger, dropdown);
-            else openDesktopDropdown(trigger, dropdown);
-        });
+            trigger.addEventListener('click', (e) => {
+                e.preventDefault();
+                const open = trigger.getAttribute('aria-expanded') === 'true';
+                if (open) closeDesktopDropdown(trigger, dropdown);
+                else openDesktopDropdown(trigger, dropdown);
+            });
 
-        // Keyboard: Escape closes
-        dropdown.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
+            dropdown.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    closeDesktopDropdown(trigger, dropdown);
+                    trigger.focus();
+                }
+            });
+        }
+    });
+
+    // Close desktop dropdowns on outside click
+    document.addEventListener('click', (e) => {
+        dropdownWraps.forEach(dropdownWrap => {
+            const trigger = dropdownWrap.querySelector('.navbar-dropdown-trigger');
+            const dropdown = dropdownWrap.querySelector('.navbar-dropdown');
+            if (trigger && dropdown && !dropdownWrap.contains(e.target)) {
                 closeDesktopDropdown(trigger, dropdown);
-                trigger.focus();
             }
         });
-    }
-
-    // Close desktop dropdown on outside click
-    document.addEventListener('click', (e) => {
-        if (trigger && dropdown && !dropdownWrap.contains(e.target)) {
-            closeDesktopDropdown(trigger, dropdown);
-        }
     });
 
     // Mobile hamburger
@@ -153,26 +164,36 @@ function initNavbarInteractions(nav) {
             }
         });
 
-        // Mobile dropdown
-        const mobileTrigger = mobilePanel.querySelector('.navbar-mobile-dropdown-trigger');
-        const mobileDropdown = mobilePanel.querySelector('.navbar-mobile-dropdown');
-
-        if (mobileTrigger && mobileDropdown) {
-            mobileTrigger.addEventListener('click', () => {
-                const open = mobileTrigger.getAttribute('aria-expanded') === 'true';
-                if (open) {
-                    mobileTrigger.setAttribute('aria-expanded', 'false');
-                    mobileDropdown.setAttribute('aria-hidden', 'true');
-                    mobileDropdown.style.maxHeight = '0';
-                    mobileTrigger.querySelector('.navbar-mobile-caret').style.transform = '';
-                } else {
-                    mobileTrigger.setAttribute('aria-expanded', 'true');
-                    mobileDropdown.setAttribute('aria-hidden', 'false');
-                    mobileDropdown.style.maxHeight = mobileDropdown.scrollHeight + 'px';
-                    mobileTrigger.querySelector('.navbar-mobile-caret').style.transform = 'rotate(180deg)';
-                }
+        // Auto close mobile menu when clicking links
+        mobilePanel.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                closeMobileMenu(hamburger, mobilePanel);
             });
-        }
+        });
+
+        // Mobile dropdowns
+        const mobileItems = mobilePanel.querySelectorAll('.navbar-mobile-item');
+        mobileItems.forEach(item => {
+            const mobileTrigger = item.querySelector('.navbar-mobile-dropdown-trigger');
+            const mobileDropdown = item.querySelector('.navbar-mobile-dropdown');
+
+            if (mobileTrigger && mobileDropdown) {
+                mobileTrigger.addEventListener('click', () => {
+                    const open = mobileTrigger.getAttribute('aria-expanded') === 'true';
+                    if (open) {
+                        mobileTrigger.setAttribute('aria-expanded', 'false');
+                        mobileDropdown.setAttribute('aria-hidden', 'true');
+                        mobileDropdown.style.maxHeight = '0';
+                        mobileTrigger.querySelector('.navbar-mobile-caret').style.transform = '';
+                    } else {
+                        mobileTrigger.setAttribute('aria-expanded', 'true');
+                        mobileDropdown.setAttribute('aria-hidden', 'false');
+                        mobileDropdown.style.maxHeight = mobileDropdown.scrollHeight + 'px';
+                        mobileTrigger.querySelector('.navbar-mobile-caret').style.transform = 'rotate(180deg)';
+                    }
+                });
+            }
+        });
     }
 }
 

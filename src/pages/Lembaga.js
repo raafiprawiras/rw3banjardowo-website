@@ -1,9 +1,13 @@
+/**
+ * Halaman Lembaga Desa - Hub Overview (RW 03 Banjardowo)
+ */
+
 const LEMBAGA_DATA = [
     {
         id: 'pkk',
         name: 'PKK (Pemberdayaan Kesejahteraan Keluarga)',
         leader: 'Ibu Sutrisno',
-        desc: 'Wadah partisipasi perempuan dalam pembangunan kesejahteraan keluarga dan masyarakat di wilayah RW 3.',
+        desc: 'Wadah partisipasi perempuan dalam pembangunan kesejahteraan keluarga dan masyarakat di wilayah RW 03.',
         activities: [
             'Pertemuan rutin bulanan dan arisan warga',
             'Penyuluhan kesehatan keluarga dan gizi balita',
@@ -12,12 +16,13 @@ const LEMBAGA_DATA = [
         ],
         schedule: 'Hari Minggu pertama setiap bulan, pukul 09.00 WIB',
         icon: 'ph-users-three',
+        href: '/lembaga/pkk',
     },
     {
         id: 'karang-taruna',
         name: 'Karang Taruna',
         leader: 'Mas Aditya',
-        desc: 'Organisasi kepemudaan sebagai wadah pengembangan diri, kreativitas, dan kepedulian sosial generasi muda RW 3.',
+        desc: 'Organisasi kepemudaan sebagai wadah pengembangan diri, kreativitas, dan kepedulian sosial generasi muda RW 03.',
         activities: [
             'Penyelenggaraan turnamen olahraga antar RT',
             'Koordinasi kerja bakti pemuda dan penghijauan',
@@ -26,6 +31,7 @@ const LEMBAGA_DATA = [
         ],
         schedule: 'Hari Sabtu malam minggu kedua, pukul 19.30 WIB',
         icon: 'ph-soccer-ball',
+        href: '/lembaga/karang-taruna',
     },
     {
         id: 'posyandu',
@@ -40,6 +46,7 @@ const LEMBAGA_DATA = [
         ],
         schedule: 'Tanggal 15 setiap bulan, pukul 08.00 - 11.00 WIB',
         icon: 'ph-heart-beat',
+        href: '/lembaga/posyandu',
     },
     {
         id: 'linmas',
@@ -54,6 +61,7 @@ const LEMBAGA_DATA = [
         ],
         schedule: 'Setiap malam sesuai jadwal piket ronda RT',
         icon: 'ph-shield',
+        href: '/lembaga/linmas',
     },
 ];
 
@@ -62,79 +70,65 @@ export function renderLembaga() {
     <section class="page-banner">
       <div class="container-site page-banner-inner">
         <span class="badge">Lembaga Kemasyarakatan</span>
-        <h1 class="text-h1 page-title mt-4">Lembaga Desa</h1>
-        <p class="page-desc mt-4 max-w-2xl">
-          Organisasi kemasyarakatan di RW 3 Banjardowo yang aktif bergerak dalam pelayanan sosial, kepemudaan, kesehatan, dan keamanan.
+        <h1 class="text-h1 page-title mt-3">Lembaga Desa RW 03</h1>
+        <p class="page-desc mt-3 max-w-2xl">
+          Organisasi kemasyarakatan di RW 03 Banjardowo yang aktif bergerak dalam pelayanan sosial, kepemudaan, kesehatan, dan keamanan.
         </p>
       </div>
     </section>
 
-    <section class="section lembaga-page">
+    <section class="section">
       <div class="container-site">
+        <div class="section-header text-center mb-8" data-reveal>
+          <span class="badge">Daftar Lembaga</span>
+          <h2 class="text-h2 section-title mt-2">Pilih Lembaga untuk Melihat Detail</h2>
+          <p class="section-desc max-w-2xl mx-auto mt-2">
+            Klik salah satu kartu lembaga di bawah untuk melihat informasi lengkap mengenai Tugas Pokok & Fungsi (Tupoksi) beserta Struktur Kepengurusan.
+          </p>
+        </div>
 
-        <!-- Interactive Tabs Layout -->
-        <div class="lembaga-layout mt-0">
-          <!-- Tabs Navigation -->
-          <nav class="lembaga-tabs-nav" aria-label="Daftar lembaga">
-            <ul class="lembaga-tabs-list">
-              ${LEMBAGA_DATA.map((lem, idx) => `
-                <li data-reveal style="--reveal-delay: ${idx * 70}ms">
-                  <button class="lembaga-tab-btn ${idx === 0 ? 'is-active' : ''}" data-target="${lem.id}" role="tab" aria-selected="${idx === 0 ? 'true' : 'false'}" aria-controls="panel-${lem.id}">
-                    <span class="lembaga-tab-icon-wrap">
-                      <i class="ph ${lem.icon}" aria-hidden="true"></i>
-                    </span>
-                    <span class="lembaga-tab-name">${lem.name.split(' (')[0]}</span>
-                  </button>
-                </li>
-              `).join('')}
-            </ul>
-          </nav>
-
-          <!-- Panels Container -->
-          <div class="lembaga-panels">
-            ${LEMBAGA_DATA.map((lem, idx) => `
-              <article id="panel-${lem.id}" class="card lembaga-panel ${idx === 0 ? '' : 'hidden'}" role="tabpanel" aria-labelledby="tab-${lem.id}" data-reveal style="--reveal-delay: 120ms">
-                <div class="lembaga-panel-header">
-                  <div class="lembaga-panel-icon-wrap">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          ${LEMBAGA_DATA.map((lem, idx) => `
+            <a href="${lem.href}" class="card card-hover lembaga-hub-card p-0 overflow-hidden group" data-reveal style="--reveal-delay: ${idx * 80}ms">
+              <div class="p-6 md:p-8">
+                <div class="flex items-center gap-4 mb-4">
+                  <div class="w-14 h-14 rounded-xl bg-primary-600 text-accent-400 flex items-center justify-center text-2xl shrink-0 transition-transform group-hover:scale-110">
                     <i class="ph ${lem.icon}" aria-hidden="true"></i>
                   </div>
                   <div>
-                    <h2 class="text-h2 text-primary-700">${lem.name}</h2>
-                    <p class="text-body-sm text-ink-muted mt-2">Ketua: <strong class="text-ink">${lem.leader}</strong></p>
+                    <h3 class="text-h3 text-primary-800 group-hover:text-primary-600 transition-colors">${lem.name}</h3>
+                    <p class="text-body-sm text-ink-muted mt-0.5">Ketua: <strong class="text-ink">${lem.leader}</strong></p>
                   </div>
                 </div>
 
-                <hr class="divider my-6" />
+                <p class="text-body text-ink-muted leading-relaxed">${lem.desc}</p>
 
-                <div class="lembaga-panel-body">
-                  <div class="lembaga-info-block">
-                    <h3 class="text-h4 text-ink">Tentang Lembaga</h3>
-                    <p class="text-body text-ink-muted mt-2">${lem.desc}</p>
-                  </div>
+                <hr class="divider my-4" />
 
-                  <div class="lembaga-info-block mt-6">
-                    <h3 class="text-h4 text-ink">Kegiatan Utama</h3>
-                    <ul class="lembaga-activity-list mt-3">
-                      ${lem.activities.map(act => `
-                        <li>
-                          <i class="ph ph-check-circle" aria-hidden="true"></i>
-                          <span>${act}</span>
-                        </li>
-                      `).join('')}
-                    </ul>
-                  </div>
-
-                  <div class="lembaga-info-block mt-6">
-                    <h3 class="text-h4 text-ink">Jadwal Kegiatan</h3>
-                    <div class="lembaga-schedule-card mt-3">
-                      <i class="ph ph-calendar-blank" aria-hidden="true"></i>
-                      <span>${lem.schedule}</span>
-                    </div>
-                  </div>
+                <div>
+                  <h4 class="text-body-sm font-semibold text-ink mb-2">Kegiatan Utama</h4>
+                  <ul class="space-y-1.5">
+                    ${lem.activities.map(act => `
+                      <li class="flex items-start gap-2 text-body-sm text-ink-muted">
+                        <i class="ph ph-check-circle text-primary-600 mt-0.5 shrink-0" aria-hidden="true"></i>
+                        <span>${act}</span>
+                      </li>
+                    `).join('')}
+                  </ul>
                 </div>
-              </article>
-            `).join('')}
-          </div>
+
+                <div class="flex items-center justify-between mt-6 pt-4 border-t border-line">
+                  <div class="lembaga-schedule-card">
+                    <i class="ph ph-calendar-blank" aria-hidden="true"></i>
+                    <span>${lem.schedule}</span>
+                  </div>
+                  <span class="inline-flex items-center gap-1 text-body-sm text-primary-600 font-semibold group-hover:gap-2 transition-all">
+                    Selengkapnya <i class="ph ph-arrow-right" aria-hidden="true"></i>
+                  </span>
+                </div>
+              </div>
+            </a>
+          `).join('')}
         </div>
       </div>
     </section>
@@ -142,26 +136,5 @@ export function renderLembaga() {
 }
 
 export function initLembaga() {
-    const tabBtns = document.querySelectorAll('.lembaga-tab-btn');
-    const panels = document.querySelectorAll('.lembaga-panel');
-
-    tabBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Reset active states
-            tabBtns.forEach(b => {
-                b.classList.remove('is-active');
-                b.setAttribute('aria-selected', 'false');
-            });
-            panels.forEach(p => p.classList.add('hidden'));
-
-            // Set active state
-            btn.classList.add('is-active');
-            btn.setAttribute('aria-selected', 'true');
-            const targetId = btn.getAttribute('data-target');
-            const targetPanel = document.getElementById(`panel-${targetId}`);
-            if (targetPanel) {
-                targetPanel.classList.remove('hidden');
-            }
-        });
-    });
+    // Hub page — no special init required
 }
