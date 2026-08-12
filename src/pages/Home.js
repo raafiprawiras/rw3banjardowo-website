@@ -1,5 +1,6 @@
 import { UMKM_DATA, umkmCardMarkup } from './UMKM.js';
 import { loadRw3GeoJson, createMap, createGeoJsonLayer, addRw3PolygonLabel } from './PetaDesa.js';
+import { initHomeMotion, cleanupHomeMotion } from '../utils/homeMotion.js';
 
 /* ── Hero carousel slides ────────────────────────────────────────────
    Local assets from public/assets/beranda/ for premium visual quality.
@@ -147,7 +148,7 @@ export function renderHome() {
           </p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
-          <article class="card card-hover news-card" data-reveal>
+          <article class="card card-hover news-card home-news-item">
             <div class="news-badge-wrap">
               <span class="badge badge-accent">Kerja Bakti</span>
               <span class="text-caption text-ink-muted">3 Agustus 2026</span>
@@ -160,7 +161,7 @@ export function renderHome() {
               <a href="#" class="link text-body-sm">Baca Detail</a>
             </div>
           </article>
-          <article class="card card-hover news-card" data-reveal style="--reveal-delay: 80ms">
+          <article class="card card-hover news-card home-news-item">
             <div class="news-badge-wrap">
               <span class="badge">Posyandu</span>
               <span class="text-caption text-ink-muted">28 Juli 2026</span>
@@ -173,7 +174,7 @@ export function renderHome() {
               <a href="#" class="link text-body-sm">Baca Detail</a>
             </div>
           </article>
-          <article class="card card-hover news-card" data-reveal style="--reveal-delay: 160ms">
+          <article class="card card-hover news-card home-news-item">
             <div class="news-badge-wrap">
               <span class="badge badge-neutral">Keamanan</span>
               <span class="text-caption text-ink-muted">21 Juli 2026</span>
@@ -248,7 +249,7 @@ export function renderHome() {
     </section>
 
     <!-- CTA Lihat Semua UMKM -->
-    <section class="cta-section text-bone" data-reveal="scale">
+    <section class="cta-section text-bone">
       <div class="container-site cta-container">
         <div class="cta-content text-center max-w-[36rem] mx-auto">
           <span class="cta-ornament" aria-hidden="true">✦</span>
@@ -277,9 +278,11 @@ let lazyMapObserver = null;
 export function initHome() {
   heroCleanup = initHeroCarousel();
   setupLazyMap();
+  initHomeMotion();
 }
 
 export function cleanupHome() {
+  cleanupHomeMotion();
   if (heroCleanup) {
     heroCleanup();
     heroCleanup = null;

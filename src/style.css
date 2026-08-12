@@ -3133,6 +3133,20 @@ p {
     }
 }
 
+/* GSAP-composited Beranda motion — hint the compositor so tweens run on
+   their own layer and never reflow surrounding layout. */
+@media (prefers-reduced-motion: no-preference) {
+    .home-news-item,
+    .cta-content {
+        will-change: transform, opacity;
+    }
+
+    .sambutan-media .hero-card,
+    .cta-ornament {
+        will-change: transform;
+    }
+}
+
 /* ── Utility Classes ───────────────────────────────────────────── */
 
 .sr-only {
