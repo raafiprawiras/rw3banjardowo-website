@@ -3,55 +3,55 @@ import { initReveals } from '../utils/reveal.js';
 const GALLERY_DATA = [
     {
         id: 1,
-        title: 'Kerja Bakti Bersih Saluran Air',
+        title: 'Kerja Bakti Warga RW 03',
         category: 'Kerja Bakti',
         date: '3 Agustus 2026',
-        image: 'https://picsum.photos/seed/kerja-bakti/800/600',
-        desc: 'Warga RT 01-06 bergotong royong membersihkan saluran air untuk mengantisipasi musim hujan.',
+        image: '/assets/galeri/galeri1.jpg',
+        desc: 'Warga RW 03 Banjardowo bergotong royong dalam kegiatan kerja bakti membersihkan lingkungan.',
     },
     {
         id: 2,
-        title: 'Posyandu Balita Melati',
+        title: 'Posyandu Balita RW 03',
         category: 'Posyandu',
         date: '28 Juli 2026',
-        image: 'https://picsum.photos/seed/posyandu/800/600',
+        image: '/assets/galeri/galeri2.jpg',
         desc: 'Pemeriksaan kesehatan rutin dan pemberian makanan tambahan bergizi untuk balita di Balai RW.',
     },
     {
         id: 3,
-        title: 'Persiapan Lomba HUT RI',
-        category: 'HUT RI',
+        title: 'Gotong Royong Bersihkan Lingkungan',
+        category: 'Kerja Bakti',
         date: '10 Agustus 2026',
-        image: 'https://picsum.photos/seed/hut-ri/800/600',
-        desc: 'Rapat koordinasi pemuda Karang Taruna mempersiapkan perlombaan memperingati hari kemerdekaan.',
+        image: '/assets/galeri/galeri3.jpg',
+        desc: 'Kegiatan gotong royong warga membersihkan selokan dan pekarangan di kawasan RW 03.',
     },
     {
         id: 4,
-        title: 'Sosialisasi Website oleh Tim KKN',
+        title: 'Pembinaan oleh Tim KKN',
         category: 'Kegiatan KKN',
         date: '5 Agustus 2026',
-        image: 'https://picsum.photos/seed/kkn-sosialisasi/800/600',
-        desc: 'Tim KKN UNDIP memaparkan panduan penggunaan portal warga kepada pengurus RW dan RT.',
+        image: '/assets/galeri/galeri4.jpg',
+        desc: 'Tim KKN memberikan pembinaan dan pendampingan kepada warga RW 03 Banjardowo.',
     },
     {
         id: 5,
-        title: 'Senam Sehat Lansia',
-        category: 'Posyandu',
+        title: 'Pertemuan Warga RW 03',
+        category: 'Kegiatan Warga',
         date: '20 Juli 2026',
-        image: 'https://picsum.photos/seed/senam-lansia/800/600',
-        desc: 'Kegiatan senam bersama lansia untuk menjaga kebugaran dan kesehatan warga usia lanjut.',
+        image: '/assets/galeri/galeri5.jpg',
+        desc: 'Pertemuan rutin warga untuk membahas program kerja dan kegiatan kemasyarakatan.',
     },
     {
         id: 6,
-        title: 'Pengecatan Pos Ronda',
+        title: 'Pengecatan Fasilitas Umum',
         category: 'Kerja Bakti',
         date: '1 Agustus 2026',
-        image: 'https://picsum.photos/seed/pos-ronda/800/600',
-        desc: 'Pengecatan ulang pos keamanan RT 01 agar terlihat bersih, rapi, dan nyaman digunakan.',
+        image: '/assets/galeri/galeri6.jpg',
+        desc: 'Pengecatan ulang fasilitas umum agar terlihat bersih, rapi, dan nyaman untuk warga.',
     },
 ];
 
-const CATEGORIES = ['Semua', 'Kerja Bakti', 'Posyandu', 'HUT RI', 'Kegiatan KKN'];
+const CATEGORIES = ['Semua', 'Kerja Bakti', 'Posyandu', 'Kegiatan KKN', 'Kegiatan Warga'];
 
 export function renderGaleri() {
     return `
