@@ -17,7 +17,7 @@ export function renderVisiMisi() {
         <div class="visi-container mt-4">
           <div class="visi-card text-center" data-reveal>
             <span class="badge badge-accent">Visi Utama</span>
-            <blockquote class="text-display text-primary-700 mt-6">
+            <blockquote class="text-display text-bone mt-6">
               "Mewujudkan RW 3 Banjardowo yang Guyub Rukun, Aman, Sehat, Sejahtera, dan Mandiri Berbasis Gotong Royong."
             </blockquote>
             <p class="text-body-lg text-ink-muted mt-6 max-w-[65ch] mx-auto">
@@ -30,7 +30,7 @@ export function renderVisiMisi() {
         <div class="misi-section mt-20">
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             <div class="lg:col-span-4" data-reveal>
-              <h2 class="text-h2 text-primary-700">Misi Pembangunan</h2>
+              <h2 class="text-h2 text-bone">Misi Pembangunan</h2>
               <p class="text-body text-ink-muted mt-4">
                 Langkah nyata yang dijalankan secara konsisten oleh pengurus bersama seluruh elemen warga RW 3 Banjardowo.
               </p>

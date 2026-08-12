@@ -98,7 +98,7 @@ export function renderGaleri() {
         <img id="lightbox-img" src="" alt="" class="lightbox-image" />
         <div class="lightbox-caption">
           <span id="lightbox-category" class="badge badge-accent"></span>
-          <h2 id="lightbox-title" class="text-h3 text-white mt-2"></h2>
+          <h2 id="lightbox-title" class="text-h3 text-bone mt-2"></h2>
           <p id="lightbox-desc" class="text-body-sm text-primary-100 mt-1"></p>
           <p id="lightbox-date" class="text-caption text-primary-200 mt-2"></p>
         </div>
@@ -137,7 +137,7 @@ export function initGaleri() {
           <img src="${item.image}" alt="Foto ${item.title}" class="gallery-img" loading="lazy" />
           <div class="gallery-overlay">
             <span class="badge gallery-item-badge">${item.category}</span>
-            <h3 class="text-h4 text-white mt-2">${item.title}</h3>
+            <h3 class="text-h4 text-bone mt-2">${item.title}</h3>
             <p class="text-caption text-primary-100 mt-1">${item.date}</p>
           </div>
         </div>

@@ -7,7 +7,7 @@ export function renderLembagaKarangTaruna() {
     <section class="page-banner">
       <div class="container-site page-banner-inner">
         <div class="flex items-center gap-2 mb-2">
-          <a href="/lembaga" class="inline-flex items-center gap-1 text-body-sm text-accent-300 hover:text-white font-medium transition-colors">
+          <a href="/lembaga" class="inline-flex items-center gap-1 text-body-sm text-tan hover:text-bone font-medium transition-colors">
             <i class="ph ph-arrow-left" aria-hidden="true"></i> Lembaga Desa
           </a>
         </div>
@@ -25,22 +25,22 @@ export function renderLembagaKarangTaruna() {
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
           <div class="stat-card" data-reveal>
             <div class="stat-label">Ketua Karang Taruna</div>
-            <div class="stat-value text-h3 text-primary-700 mt-1">Mas Aditya P.</div>
+            <div class="stat-value text-h3 text-bone mt-1">Mas Aditya P.</div>
             <div class="stat-desc mt-1">Periode 2024–2027</div>
           </div>
           <div class="stat-card" data-reveal style="--reveal-delay: 80ms">
             <div class="stat-label">Jadwal Pertemuan</div>
-            <div class="stat-value text-h3 text-primary-700 mt-1">Sabtu Malam</div>
+            <div class="stat-value text-h3 text-bone mt-1">Sabtu Malam</div>
             <div class="stat-desc mt-1">Minggu II / Pkl 19.30 WIB</div>
           </div>
           <div class="stat-card" data-reveal style="--reveal-delay: 160ms">
             <div class="stat-label">Jumlah Anggota</div>
-            <div class="stat-value text-h3 text-primary-700 mt-1">35 Pemuda</div>
+            <div class="stat-value text-h3 text-bone mt-1">35 Pemuda</div>
             <div class="stat-desc mt-1">Dari RT 01–06</div>
           </div>
           <div class="stat-card" data-reveal style="--reveal-delay: 240ms">
             <div class="stat-label">Basecamp</div>
-            <div class="stat-value text-h3 text-primary-700 mt-1">Balai RW 03</div>
+            <div class="stat-value text-h3 text-bone mt-1">Balai RW 03</div>
             <div class="stat-desc mt-1">Pos Pemuda Banjardowo</div>
           </div>
         </div>
@@ -62,10 +62,10 @@ export function renderLembagaKarangTaruna() {
           <!-- Card Tugas Pokok -->
           <div class="card p-6 card-hover" data-reveal>
             <div class="flex items-center gap-3 mb-4">
-              <div class="w-10 h-10 rounded-lg bg-primary-100 text-primary-600 flex items-center justify-center text-xl font-bold">
+              <div class="w-10 h-10 rounded-lg bg-primary-800 text-tan flex items-center justify-center text-xl font-bold">
                 <i class="ph ph-clipboard-text" aria-hidden="true"></i>
               </div>
-              <h3 class="text-h3 text-primary-800">Tugas Pokok</h3>
+              <h3 class="text-h3 text-bone">Tugas Pokok</h3>
             </div>
             <ul class="lembaga-activity-list">
               <li>
@@ -90,10 +90,10 @@ export function renderLembagaKarangTaruna() {
           <!-- Card Fungsi Utama -->
           <div class="card p-6 card-hover" data-reveal style="--reveal-delay: 100ms">
             <div class="flex items-center gap-3 mb-4">
-              <div class="w-10 h-10 rounded-lg bg-accent-100 text-accent-700 flex items-center justify-center text-xl font-bold">
+              <div class="w-10 h-10 rounded-lg bg-cafe-noir text-tan flex items-center justify-center text-xl font-bold">
                 <i class="ph ph-target" aria-hidden="true"></i>
               </div>
-              <h3 class="text-h3 text-primary-800">Fungsi Utama</h3>
+              <h3 class="text-h3 text-bone">Fungsi Utama</h3>
             </div>
             <ul class="lembaga-activity-list">
               <li>
@@ -120,38 +120,38 @@ export function renderLembagaKarangTaruna() {
         <div class="mt-12">
           <div class="text-center mb-6" data-reveal>
             <span class="badge badge-neutral">Fokus Bidang</span>
-            <h3 class="text-h3 text-primary-800 mt-2">Fokus Pilar Kegiatan Pemuda</h3>
+            <h3 class="text-h3 text-bone mt-2">Fokus Pilar Kegiatan Pemuda</h3>
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5">
             <div class="card p-5 card-hover text-center" data-reveal>
-              <div class="w-12 h-12 mx-auto rounded-xl bg-primary-100 text-primary-600 flex items-center justify-center text-2xl mb-3">
+              <div class="w-12 h-12 mx-auto rounded-xl bg-primary-800 text-tan flex items-center justify-center text-2xl mb-3">
                 <i class="ph ph-trophy" aria-hidden="true"></i>
               </div>
-              <h4 class="text-h4 text-primary-800">Olahraga & Rekreasi</h4>
+              <h4 class="text-h4 text-bone">Olahraga & Rekreasi</h4>
               <p class="text-body-sm text-ink-muted mt-2">Penyelenggaraan turnamen voli, futsal, dan badminton antar-RT secara berkala.</p>
             </div>
 
             <div class="card p-5 card-hover text-center" data-reveal style="--reveal-delay: 80ms">
-              <div class="w-12 h-12 mx-auto rounded-xl bg-primary-100 text-primary-600 flex items-center justify-center text-2xl mb-3">
+              <div class="w-12 h-12 mx-auto rounded-xl bg-primary-800 text-tan flex items-center justify-center text-2xl mb-3">
                 <i class="ph ph-palette" aria-hidden="true"></i>
               </div>
-              <h4 class="text-h4 text-primary-800">Seni & Kebudayaan</h4>
+              <h4 class="text-h4 text-bone">Seni & Kebudayaan</h4>
               <p class="text-body-sm text-ink-muted mt-2">Pengembangan kesenian lokal, musik, serta pertunjukan panggung hiburan HUT RI.</p>
             </div>
 
             <div class="card p-5 card-hover text-center" data-reveal style="--reveal-delay: 160ms">
-              <div class="w-12 h-12 mx-auto rounded-xl bg-primary-100 text-primary-600 flex items-center justify-center text-2xl mb-3">
+              <div class="w-12 h-12 mx-auto rounded-xl bg-primary-800 text-tan flex items-center justify-center text-2xl mb-3">
                 <i class="ph ph-hand-heart" aria-hidden="true"></i>
               </div>
-              <h4 class="text-h4 text-primary-800">Sosial & Kebencanaan</h4>
+              <h4 class="text-h4 text-bone">Sosial & Kebencanaan</h4>
               <p class="text-body-sm text-ink-muted mt-2">Bakti sosial, penanganan darurat genangan air, serta santunan warga membutuhkan.</p>
             </div>
 
             <div class="card p-5 card-hover text-center" data-reveal style="--reveal-delay: 240ms">
-              <div class="w-12 h-12 mx-auto rounded-xl bg-primary-100 text-primary-600 flex items-center justify-center text-2xl mb-3">
+              <div class="w-12 h-12 mx-auto rounded-xl bg-primary-800 text-tan flex items-center justify-center text-2xl mb-3">
                 <i class="ph ph-rocket-launch" aria-hidden="true"></i>
               </div>
-              <h4 class="text-h4 text-primary-800">Kewirausahaan Pemuda</h4>
+              <h4 class="text-h4 text-bone">Kewirausahaan Pemuda</h4>
               <p class="text-body-sm text-ink-muted mt-2">Pelatihan usaha kreatif digital, pembuatan konten media sosial, dan bazar UMKM.</p>
             </div>
           </div>
@@ -180,7 +180,7 @@ export function renderLembagaKarangTaruna() {
                 </div>
                 <div class="org-info">
                   <h3 class="text-h3">Mas Aditya Pratama</h3>
-                  <p class="text-body-sm text-primary-600 font-semibold mt-1">Ketua Karang Taruna</p>
+                  <p class="text-body-sm text-tan font-semibold mt-1">Ketua Karang Taruna</p>
                   <p class="text-caption text-ink-muted mt-1">Penanggung Jawab Utama Organisasi</p>
                 </div>
               </div>
@@ -197,7 +197,7 @@ export function renderLembagaKarangTaruna() {
               </div>
               <div class="org-info">
                 <h3 class="text-h4">Mas Rizky Kurniawan</h3>
-                <p class="text-body-sm text-primary-600 font-semibold mt-1">Wakil Ketua</p>
+                <p class="text-body-sm text-tan font-semibold mt-1">Wakil Ketua</p>
                 <p class="text-caption text-ink-muted mt-1">Koordinator Program Kerja</p>
               </div>
             </div>
@@ -207,7 +207,7 @@ export function renderLembagaKarangTaruna() {
               </div>
               <div class="org-info">
                 <h3 class="text-h4">Mbak Annisa Rahma</h3>
-                <p class="text-body-sm text-primary-600 font-semibold mt-1">Sekretaris</p>
+                <p class="text-body-sm text-tan font-semibold mt-1">Sekretaris</p>
                 <p class="text-caption text-ink-muted mt-1">Surat Menyurat & Arsip</p>
               </div>
             </div>
@@ -217,7 +217,7 @@ export function renderLembagaKarangTaruna() {
               </div>
               <div class="org-info">
                 <h3 class="text-h4">Mas Dimas Setiawan</h3>
-                <p class="text-body-sm text-primary-600 font-semibold mt-1">Bendahara</p>
+                <p class="text-body-sm text-tan font-semibold mt-1">Bendahara</p>
                 <p class="text-caption text-ink-muted mt-1">Keuangan & Dana Usaha</p>
               </div>
             </div>
@@ -236,7 +236,7 @@ export function renderLembagaKarangTaruna() {
               </div>
               <div class="org-info">
                 <h3 class="text-h4">Mas Farhan</h3>
-                <p class="text-body-sm text-primary-600 font-semibold mt-1">Bid. Olahraga</p>
+                <p class="text-body-sm text-tan font-semibold mt-1">Bid. Olahraga</p>
                 <p class="text-caption text-ink-muted mt-1">Penanggung Jawab Turnamen</p>
               </div>
             </div>
@@ -246,7 +246,7 @@ export function renderLembagaKarangTaruna() {
               </div>
               <div class="org-info">
                 <h3 class="text-h4">Mbak Dian</h3>
-                <p class="text-body-sm text-primary-600 font-semibold mt-1">Bid. Seni & Budaya</p>
+                <p class="text-body-sm text-tan font-semibold mt-1">Bid. Seni & Budaya</p>
                 <p class="text-caption text-ink-muted mt-1">Kepanitiaan Pentas Seni</p>
               </div>
             </div>
@@ -256,7 +256,7 @@ export function renderLembagaKarangTaruna() {
               </div>
               <div class="org-info">
                 <h3 class="text-h4">Mas Bayu</h3>
-                <p class="text-body-sm text-primary-600 font-semibold mt-1">Bid. Humas & Social</p>
+                <p class="text-body-sm text-tan font-semibold mt-1">Bid. Humas & Social</p>
                 <p class="text-caption text-ink-muted mt-1">Publikasi & Bakti Sosial</p>
               </div>
             </div>
@@ -266,7 +266,7 @@ export function renderLembagaKarangTaruna() {
               </div>
               <div class="org-info">
                 <h3 class="text-h4">Mas Teguh</h3>
-                <p class="text-body-sm text-primary-600 font-semibold mt-1">Bid. Kewirausahaan</p>
+                <p class="text-body-sm text-tan font-semibold mt-1">Bid. Kewirausahaan</p>
                 <p class="text-caption text-ink-muted mt-1">Usaha Kreatif Pemuda</p>
               </div>
             </div>
@@ -284,7 +284,7 @@ export function renderLembagaKarangTaruna() {
               <i class="ph ph-calendar-check" aria-hidden="true"></i>
             </div>
             <div>
-              <h3 class="text-h3 text-primary-800">Agenda Kerja Pemuda RW 03</h3>
+              <h3 class="text-h3 text-bone">Agenda Kerja Pemuda RW 03</h3>
               <p class="text-body-sm text-ink-muted">Kegiatan rutin dan tahunan Karang Taruna Tunas Muda</p>
             </div>
           </div>

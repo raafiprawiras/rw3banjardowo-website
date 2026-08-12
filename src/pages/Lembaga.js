@@ -96,7 +96,7 @@ export function renderLembaga() {
                     <i class="ph ${lem.icon}" aria-hidden="true"></i>
                   </div>
                   <div>
-                    <h3 class="text-h3 text-primary-800 group-hover:text-primary-600 transition-colors">${lem.name}</h3>
+                    <h3 class="text-h3 text-bone group-hover:text-tan transition-colors">${lem.name}</h3>
                     <p class="text-body-sm text-ink-muted mt-0.5">Ketua: <strong class="text-ink">${lem.leader}</strong></p>
                   </div>
                 </div>
@@ -110,7 +110,7 @@ export function renderLembaga() {
                   <ul class="space-y-1.5">
                     ${lem.activities.map(act => `
                       <li class="flex items-start gap-2 text-body-sm text-ink-muted">
-                        <i class="ph ph-check-circle text-primary-600 mt-0.5 shrink-0" aria-hidden="true"></i>
+                        <i class="ph ph-check-circle text-moss-300 mt-0.5 shrink-0" aria-hidden="true"></i>
                         <span>${act}</span>
                       </li>
                     `).join('')}
@@ -122,7 +122,7 @@ export function renderLembaga() {
                     <i class="ph ph-calendar-blank" aria-hidden="true"></i>
                     <span>${lem.schedule}</span>
                   </div>
-                  <span class="inline-flex items-center gap-1 text-body-sm text-primary-600 font-semibold group-hover:gap-2 transition-all">
+                  <span class="inline-flex items-center gap-1 text-body-sm text-tan font-semibold group-hover:gap-2 transition-all">
                     Selengkapnya <i class="ph ph-arrow-right" aria-hidden="true"></i>
                   </span>
                 </div>

@@ -19,6 +19,7 @@ app.appendChild(createNavbar());
 
 // Main content container
 const main = document.createElement('main');
+main.id = 'main';
 app.appendChild(main);
 
 // Footer

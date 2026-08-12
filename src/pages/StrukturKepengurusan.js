@@ -24,7 +24,7 @@ export function renderStrukturKepengurusan() {
                 </div>
                 <div class="org-info">
                   <h3 class="text-h3">Bapak Sutrisno, S.Sos.</h3>
-                  <p class="text-body-sm text-primary-600 font-semibold mt-1">Ketua RW 3</p>
+                  <p class="text-body-sm text-tan font-semibold mt-1">Ketua RW 3</p>
                   <p class="text-caption text-ink-muted mt-1">Penanggung Jawab Utama</p>
                 </div>
               </div>
@@ -41,7 +41,7 @@ export function renderStrukturKepengurusan() {
               </div>
               <div class="org-info">
                 <h3 class="text-h3">Ibu Sri Wahyuni</h3>
-                <p class="text-body-sm text-primary-600 font-semibold mt-1">Sekretaris</p>
+                <p class="text-body-sm text-tan font-semibold mt-1">Sekretaris</p>
                 <p class="text-caption text-ink-muted mt-1">Administrasi & Surat Menyurat</p>
               </div>
             </div>
@@ -51,7 +51,7 @@ export function renderStrukturKepengurusan() {
               </div>
               <div class="org-info">
                 <h3 class="text-h3">Bapak Joko Susilo</h3>
-                <p class="text-body-sm text-primary-600 font-semibold mt-1">Bendahara</p>
+                <p class="text-body-sm text-tan font-semibold mt-1">Bendahara</p>
                 <p class="text-caption text-ink-muted mt-1">Keuangan & Anggaran</p>
               </div>
             </div>
@@ -70,7 +70,7 @@ export function renderStrukturKepengurusan() {
               </div>
               <div class="org-info">
                 <h3 class="text-h4">Bapak Ahmad Fauzi</h3>
-                <p class="text-body-sm text-primary-600 font-semibold mt-1">Seksi Keamanan</p>
+                <p class="text-body-sm text-tan font-semibold mt-1">Seksi Keamanan</p>
                 <p class="text-caption text-ink-muted mt-1">Koordinator Ronda & Kamtibmas</p>
               </div>
             </div>
@@ -80,7 +80,7 @@ export function renderStrukturKepengurusan() {
               </div>
               <div class="org-info">
                 <h3 class="text-h4">Ibu Kartika Sari</h3>
-                <p class="text-body-sm text-primary-600 font-semibold mt-1">Seksi Kebersihan</p>
+                <p class="text-body-sm text-tan font-semibold mt-1">Seksi Kebersihan</p>
                 <p class="text-caption text-ink-muted mt-1">Pengelolaan Lingkungan & Sampah</p>
               </div>
             </div>
@@ -90,7 +90,7 @@ export function renderStrukturKepengurusan() {
               </div>
               <div class="org-info">
                 <h3 class="text-h4">Ibu Rahmawati</h3>
-                <p class="text-body-sm text-primary-600 font-semibold mt-1">Seksi Kesehatan</p>
+                <p class="text-body-sm text-tan font-semibold mt-1">Seksi Kesehatan</p>
                 <p class="text-caption text-ink-muted mt-1">Koordinator Posyandu & PMT</p>
               </div>
             </div>
@@ -100,7 +100,7 @@ export function renderStrukturKepengurusan() {
               </div>
               <div class="org-info">
                 <h3 class="text-h4">Bapak Budi Santoso</h3>
-                <p class="text-body-sm text-primary-600 font-semibold mt-1">Seksi Pembangunan</p>
+                <p class="text-body-sm text-tan font-semibold mt-1">Seksi Pembangunan</p>
                 <p class="text-caption text-ink-muted mt-1">Infrastruktur & Gotong Royong</p>
               </div>
             </div>
@@ -114,32 +114,32 @@ export function renderStrukturKepengurusan() {
           </div>
           <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
             <div class="card p-4 text-center card-hover" data-reveal>
-              <p class="text-h4 text-primary-600">RT 01</p>
+              <p class="text-h4 text-tan">RT 01</p>
               <p class="text-body-sm font-semibold mt-2">Bapak M. Yusuf</p>
               <p class="text-caption text-ink-muted mt-1">Ketua RT 01</p>
             </div>
             <div class="card p-4 text-center card-hover" data-reveal style="--reveal-delay: 60ms">
-              <p class="text-h4 text-primary-600">RT 02</p>
+              <p class="text-h4 text-tan">RT 02</p>
               <p class="text-body-sm font-semibold mt-2">Bapak H. Slamet</p>
               <p class="text-caption text-ink-muted mt-1">Ketua RT 02</p>
             </div>
             <div class="card p-4 text-center card-hover" data-reveal style="--reveal-delay: 120ms">
-              <p class="text-h4 text-primary-600">RT 03</p>
+              <p class="text-h4 text-tan">RT 03</p>
               <p class="text-body-sm font-semibold mt-2">Bapak Supardi</p>
               <p class="text-caption text-ink-muted mt-1">Ketua RT 03</p>
             </div>
             <div class="card p-4 text-center card-hover" data-reveal style="--reveal-delay: 180ms">
-              <p class="text-h4 text-primary-600">RT 04</p>
+              <p class="text-h4 text-tan">RT 04</p>
               <p class="text-body-sm font-semibold mt-2">Bapak Wawan</p>
               <p class="text-caption text-ink-muted mt-1">Ketua RT 04</p>
             </div>
             <div class="card p-4 text-center card-hover" data-reveal style="--reveal-delay: 240ms">
-              <p class="text-h4 text-primary-600">RT 05</p>
+              <p class="text-h4 text-tan">RT 05</p>
               <p class="text-body-sm font-semibold mt-2">Bapak Sugeng</p>
               <p class="text-caption text-ink-muted mt-1">Ketua RT 05</p>
             </div>
             <div class="card p-4 text-center card-hover" data-reveal style="--reveal-delay: 300ms">
-              <p class="text-h4 text-primary-600">RT 06</p>
+              <p class="text-h4 text-tan">RT 06</p>
               <p class="text-body-sm font-semibold mt-2">Bapak Edi S.</p>
               <p class="text-caption text-ink-muted mt-1">Ketua RT 06</p>
             </div>

@@ -79,7 +79,7 @@ export function umkmCardMarkup(item) {
               </div>
               <div class="umkm-meta-item">
                 <i class="ph ph-tag" aria-hidden="true"></i>
-                <span class="font-semibold text-primary-700">${item.price}</span>
+                <span class="font-semibold text-tan">${item.price}</span>
               </div>
             </div>
 

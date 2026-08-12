@@ -7,7 +7,7 @@ export function renderLembagaLinmas() {
     <section class="page-banner">
       <div class="container-site page-banner-inner">
         <div class="flex items-center gap-2 mb-2">
-          <a href="/lembaga" class="inline-flex items-center gap-1 text-body-sm text-accent-300 hover:text-white font-medium transition-colors">
+          <a href="/lembaga" class="inline-flex items-center gap-1 text-body-sm text-tan hover:text-bone font-medium transition-colors">
             <i class="ph ph-arrow-left" aria-hidden="true"></i> Lembaga Desa
           </a>
         </div>
@@ -25,22 +25,22 @@ export function renderLembagaLinmas() {
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
           <div class="stat-card" data-reveal>
             <div class="stat-label">Ketua Linmas</div>
-            <div class="stat-value text-h3 text-primary-700 mt-1">Bpk. Ahmad Fauzi</div>
+            <div class="stat-value text-h3 text-bone mt-1">Bpk. Ahmad Fauzi</div>
             <div class="stat-desc mt-1">Koordinator Keamanan</div>
           </div>
           <div class="stat-card" data-reveal style="--reveal-delay: 80ms">
             <div class="stat-label">Jadwal Ronda</div>
-            <div class="stat-value text-h3 text-primary-700 mt-1">Setiap Malam</div>
+            <div class="stat-value text-h3 text-bone mt-1">Setiap Malam</div>
             <div class="stat-desc mt-1">Sesuai Jadwal Piket RT</div>
           </div>
           <div class="stat-card" data-reveal style="--reveal-delay: 160ms">
             <div class="stat-label">Pos Kamling</div>
-            <div class="stat-value text-h3 text-primary-700 mt-1">6 Pos</div>
+            <div class="stat-value text-h3 text-bone mt-1">6 Pos</div>
             <div class="stat-desc mt-1">1 Pos per RT</div>
           </div>
           <div class="stat-card" data-reveal style="--reveal-delay: 240ms">
             <div class="stat-label">Jumlah Anggota</div>
-            <div class="stat-value text-h3 text-primary-700 mt-1">24 Personil</div>
+            <div class="stat-value text-h3 text-bone mt-1">24 Personil</div>
             <div class="stat-desc mt-1">4 Orang per RT</div>
           </div>
         </div>
@@ -62,10 +62,10 @@ export function renderLembagaLinmas() {
           <!-- Card Tugas Pokok -->
           <div class="card p-6 card-hover" data-reveal>
             <div class="flex items-center gap-3 mb-4">
-              <div class="w-10 h-10 rounded-lg bg-primary-100 text-primary-600 flex items-center justify-center text-xl font-bold">
+              <div class="w-10 h-10 rounded-lg bg-primary-800 text-tan flex items-center justify-center text-xl font-bold">
                 <i class="ph ph-clipboard-text" aria-hidden="true"></i>
               </div>
-              <h3 class="text-h3 text-primary-800">Tugas Pokok</h3>
+              <h3 class="text-h3 text-bone">Tugas Pokok</h3>
             </div>
             <ul class="lembaga-activity-list">
               <li>
@@ -90,10 +90,10 @@ export function renderLembagaLinmas() {
           <!-- Card Fungsi Utama -->
           <div class="card p-6 card-hover" data-reveal style="--reveal-delay: 100ms">
             <div class="flex items-center gap-3 mb-4">
-              <div class="w-10 h-10 rounded-lg bg-accent-100 text-accent-700 flex items-center justify-center text-xl font-bold">
+              <div class="w-10 h-10 rounded-lg bg-cafe-noir text-tan flex items-center justify-center text-xl font-bold">
                 <i class="ph ph-target" aria-hidden="true"></i>
               </div>
-              <h3 class="text-h3 text-primary-800">Fungsi Utama</h3>
+              <h3 class="text-h3 text-bone">Fungsi Utama</h3>
             </div>
             <ul class="lembaga-activity-list">
               <li>
@@ -120,46 +120,46 @@ export function renderLembagaLinmas() {
         <div class="mt-12">
           <div class="text-center mb-6" data-reveal>
             <span class="badge badge-neutral">Area Tanggung Jawab</span>
-            <h3 class="text-h3 text-primary-800 mt-2">Pos Kamling & Wilayah Ronda</h3>
+            <h3 class="text-h3 text-bone mt-2">Pos Kamling & Wilayah Ronda</h3>
           </div>
           <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
             <div class="card p-4 text-center card-hover" data-reveal>
-              <div class="w-10 h-10 mx-auto rounded-full bg-primary-50 text-primary-600 flex items-center justify-center text-lg mb-2">
+              <div class="w-10 h-10 mx-auto rounded-full bg-primary-800 text-tan flex items-center justify-center text-lg mb-2">
                 <i class="ph ph-shield-check" aria-hidden="true"></i>
               </div>
               <p class="text-body-sm font-semibold text-ink">RT 01</p>
               <p class="text-caption text-ink-muted mt-1">Pos Depan Masjid</p>
             </div>
             <div class="card p-4 text-center card-hover" data-reveal style="--reveal-delay: 60ms">
-              <div class="w-10 h-10 mx-auto rounded-full bg-primary-50 text-primary-600 flex items-center justify-center text-lg mb-2">
+              <div class="w-10 h-10 mx-auto rounded-full bg-primary-800 text-tan flex items-center justify-center text-lg mb-2">
                 <i class="ph ph-shield-check" aria-hidden="true"></i>
               </div>
               <p class="text-body-sm font-semibold text-ink">RT 02</p>
               <p class="text-caption text-ink-muted mt-1">Pos Samping Balai RW</p>
             </div>
             <div class="card p-4 text-center card-hover" data-reveal style="--reveal-delay: 120ms">
-              <div class="w-10 h-10 mx-auto rounded-full bg-primary-50 text-primary-600 flex items-center justify-center text-lg mb-2">
+              <div class="w-10 h-10 mx-auto rounded-full bg-primary-800 text-tan flex items-center justify-center text-lg mb-2">
                 <i class="ph ph-shield-check" aria-hidden="true"></i>
               </div>
               <p class="text-body-sm font-semibold text-ink">RT 03</p>
               <p class="text-caption text-ink-muted mt-1">Pos Gang Utama</p>
             </div>
             <div class="card p-4 text-center card-hover" data-reveal style="--reveal-delay: 180ms">
-              <div class="w-10 h-10 mx-auto rounded-full bg-primary-50 text-primary-600 flex items-center justify-center text-lg mb-2">
+              <div class="w-10 h-10 mx-auto rounded-full bg-primary-800 text-tan flex items-center justify-center text-lg mb-2">
                 <i class="ph ph-shield-check" aria-hidden="true"></i>
               </div>
               <p class="text-body-sm font-semibold text-ink">RT 04</p>
               <p class="text-caption text-ink-muted mt-1">Pos Persimpangan</p>
             </div>
             <div class="card p-4 text-center card-hover" data-reveal style="--reveal-delay: 240ms">
-              <div class="w-10 h-10 mx-auto rounded-full bg-primary-50 text-primary-600 flex items-center justify-center text-lg mb-2">
+              <div class="w-10 h-10 mx-auto rounded-full bg-primary-800 text-tan flex items-center justify-center text-lg mb-2">
                 <i class="ph ph-shield-check" aria-hidden="true"></i>
               </div>
               <p class="text-body-sm font-semibold text-ink">RT 05</p>
               <p class="text-caption text-ink-muted mt-1">Pos RW Setempat</p>
             </div>
             <div class="card p-4 text-center card-hover" data-reveal style="--reveal-delay: 300ms">
-              <div class="w-10 h-10 mx-auto rounded-full bg-primary-50 text-primary-600 flex items-center justify-center text-lg mb-2">
+              <div class="w-10 h-10 mx-auto rounded-full bg-primary-800 text-tan flex items-center justify-center text-lg mb-2">
                 <i class="ph ph-shield-check" aria-hidden="true"></i>
               </div>
               <p class="text-body-sm font-semibold text-ink">RT 06</p>
@@ -191,7 +191,7 @@ export function renderLembagaLinmas() {
                 </div>
                 <div class="org-info">
                   <h3 class="text-h3">Bapak Ahmad Fauzi</h3>
-                  <p class="text-body-sm text-primary-600 font-semibold mt-1">Ketua Linmas RW 03</p>
+                  <p class="text-body-sm text-tan font-semibold mt-1">Ketua Linmas RW 03</p>
                   <p class="text-caption text-ink-muted mt-1">Penanggung Jawab Keamanan</p>
                 </div>
               </div>
@@ -208,7 +208,7 @@ export function renderLembagaLinmas() {
               </div>
               <div class="org-info">
                 <h3 class="text-h4">Bapak Hendra Wijaya</h3>
-                <p class="text-body-sm text-primary-600 font-semibold mt-1">Wakil Ketua</p>
+                <p class="text-body-sm text-tan font-semibold mt-1">Wakil Ketua</p>
                 <p class="text-caption text-ink-muted mt-1">Koordinator Ronda & Patroli</p>
               </div>
             </div>
@@ -218,7 +218,7 @@ export function renderLembagaLinmas() {
               </div>
               <div class="org-info">
                 <h3 class="text-h4">Bapak Rudi Hartono</h3>
-                <p class="text-body-sm text-primary-600 font-semibold mt-1">Sekretaris</p>
+                <p class="text-body-sm text-tan font-semibold mt-1">Sekretaris</p>
                 <p class="text-caption text-ink-muted mt-1">Administrasi & Laporan</p>
               </div>
             </div>
@@ -228,7 +228,7 @@ export function renderLembagaLinmas() {
               </div>
               <div class="org-info">
                 <h3 class="text-h4">Bapak Sugeng Prasetyo</h3>
-                <p class="text-body-sm text-primary-600 font-semibold mt-1">Bendahara</p>
+                <p class="text-body-sm text-tan font-semibold mt-1">Bendahara</p>
                 <p class="text-caption text-ink-muted mt-1">Keuangan & Operasional</p>
               </div>
             </div>
@@ -242,42 +242,42 @@ export function renderLembagaLinmas() {
           </div>
           <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
             <div class="card p-4 text-center card-hover" data-reveal>
-              <div class="w-10 h-10 mx-auto rounded-full bg-primary-50 text-primary-600 flex items-center justify-center text-lg mb-2">
+              <div class="w-10 h-10 mx-auto rounded-full bg-primary-800 text-tan flex items-center justify-center text-lg mb-2">
                 <i class="ph ph-shield" aria-hidden="true"></i>
               </div>
               <p class="text-body-sm font-semibold text-ink">RT 01</p>
               <p class="text-caption text-ink-muted mt-1">Bpk. M. Yusuf</p>
             </div>
             <div class="card p-4 text-center card-hover" data-reveal style="--reveal-delay: 60ms">
-              <div class="w-10 h-10 mx-auto rounded-full bg-primary-50 text-primary-600 flex items-center justify-center text-lg mb-2">
+              <div class="w-10 h-10 mx-auto rounded-full bg-primary-800 text-tan flex items-center justify-center text-lg mb-2">
                 <i class="ph ph-shield" aria-hidden="true"></i>
               </div>
               <p class="text-body-sm font-semibold text-ink">RT 02</p>
               <p class="text-caption text-ink-muted mt-1">Bpk. H. Slamet</p>
             </div>
             <div class="card p-4 text-center card-hover" data-reveal style="--reveal-delay: 120ms">
-              <div class="w-10 h-10 mx-auto rounded-full bg-primary-50 text-primary-600 flex items-center justify-center text-lg mb-2">
+              <div class="w-10 h-10 mx-auto rounded-full bg-primary-800 text-tan flex items-center justify-center text-lg mb-2">
                 <i class="ph ph-shield" aria-hidden="true"></i>
               </div>
               <p class="text-body-sm font-semibold text-ink">RT 03</p>
               <p class="text-caption text-ink-muted mt-1">Bpk. Supardi</p>
             </div>
             <div class="card p-4 text-center card-hover" data-reveal style="--reveal-delay: 180ms">
-              <div class="w-10 h-10 mx-auto rounded-full bg-primary-50 text-primary-600 flex items-center justify-center text-lg mb-2">
+              <div class="w-10 h-10 mx-auto rounded-full bg-primary-800 text-tan flex items-center justify-center text-lg mb-2">
                 <i class="ph ph-shield" aria-hidden="true"></i>
               </div>
               <p class="text-body-sm font-semibold text-ink">RT 04</p>
               <p class="text-caption text-ink-muted mt-1">Bpk. Wawan</p>
             </div>
             <div class="card p-4 text-center card-hover" data-reveal style="--reveal-delay: 240ms">
-              <div class="w-10 h-10 mx-auto rounded-full bg-primary-50 text-primary-600 flex items-center justify-center text-lg mb-2">
+              <div class="w-10 h-10 mx-auto rounded-full bg-primary-800 text-tan flex items-center justify-center text-lg mb-2">
                 <i class="ph ph-shield" aria-hidden="true"></i>
               </div>
               <p class="text-body-sm font-semibold text-ink">RT 05</p>
               <p class="text-caption text-ink-muted mt-1">Bpk. Sugeng</p>
             </div>
             <div class="card p-4 text-center card-hover" data-reveal style="--reveal-delay: 300ms">
-              <div class="w-10 h-10 mx-auto rounded-full bg-primary-50 text-primary-600 flex items-center justify-center text-lg mb-2">
+              <div class="w-10 h-10 mx-auto rounded-full bg-primary-800 text-tan flex items-center justify-center text-lg mb-2">
                 <i class="ph ph-shield" aria-hidden="true"></i>
               </div>
               <p class="text-body-sm font-semibold text-ink">RT 06</p>
@@ -297,7 +297,7 @@ export function renderLembagaLinmas() {
               <i class="ph ph-calendar-check" aria-hidden="true"></i>
             </div>
             <div>
-              <h3 class="text-h3 text-primary-800">Agenda Keamanan RW 03</h3>
+              <h3 class="text-h3 text-bone">Agenda Keamanan RW 03</h3>
               <p class="text-body-sm text-ink-muted">Jadwal rutin dan program kerja Satuan Linmas Banjardowo</p>
             </div>
           </div>

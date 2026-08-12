@@ -7,7 +7,7 @@ export function renderLembagaPKK() {
     <section class="page-banner">
       <div class="container-site page-banner-inner">
         <div class="flex items-center gap-2 mb-2">
-          <a href="/lembaga" class="inline-flex items-center gap-1 text-body-sm text-accent-300 hover:text-white font-medium transition-colors">
+          <a href="/lembaga" class="inline-flex items-center gap-1 text-body-sm text-tan hover:text-bone font-medium transition-colors">
             <i class="ph ph-arrow-left" aria-hidden="true"></i> Lembaga Desa
           </a>
         </div>
@@ -25,22 +25,22 @@ export function renderLembagaPKK() {
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
           <div class="stat-card" data-reveal>
             <div class="stat-label">Ketua PKK</div>
-            <div class="stat-value text-h3 text-primary-700 mt-1">Ibu Sutrisno</div>
+            <div class="stat-value text-h3 text-bone mt-1">Ibu Sutrisno</div>
             <div class="stat-desc mt-1">Periode 2024–2029</div>
           </div>
           <div class="stat-card" data-reveal style="--reveal-delay: 80ms">
             <div class="stat-label">Jadwal Pertemuan</div>
-            <div class="stat-value text-h3 text-primary-700 mt-1">Minggu I</div>
+            <div class="stat-value text-h3 text-bone mt-1">Minggu I</div>
             <div class="stat-desc mt-1">Pukul 09.00 WIB / Bulan</div>
           </div>
           <div class="stat-card" data-reveal style="--reveal-delay: 160ms">
             <div class="stat-label">Kelompok Kerja</div>
-            <div class="stat-value text-h3 text-primary-700 mt-1">4 Pokja</div>
+            <div class="stat-value text-h3 text-bone mt-1">4 Pokja</div>
             <div class="stat-desc mt-1">Pokja I - Pokja IV</div>
           </div>
           <div class="stat-card" data-reveal style="--reveal-delay: 240ms">
             <div class="stat-label">Lokasi Kegiatan</div>
-            <div class="stat-value text-h3 text-primary-700 mt-1">Balai RW 03</div>
+            <div class="stat-value text-h3 text-bone mt-1">Balai RW 03</div>
             <div class="stat-desc mt-1">Banjardowo, Genuk</div>
           </div>
         </div>
@@ -62,10 +62,10 @@ export function renderLembagaPKK() {
           <!-- Card Tugas Pokok -->
           <div class="card p-6 card-hover" data-reveal>
             <div class="flex items-center gap-3 mb-4">
-              <div class="w-10 h-10 rounded-lg bg-primary-100 text-primary-600 flex items-center justify-center text-xl font-bold">
+              <div class="w-10 h-10 rounded-lg bg-primary-800 text-tan flex items-center justify-center text-xl font-bold">
                 <i class="ph ph-clipboard-text" aria-hidden="true"></i>
               </div>
-              <h3 class="text-h3 text-primary-800">Tugas Pokok</h3>
+              <h3 class="text-h3 text-bone">Tugas Pokok</h3>
             </div>
             <ul class="lembaga-activity-list">
               <li>
@@ -90,10 +90,10 @@ export function renderLembagaPKK() {
           <!-- Card Fungsi Utama -->
           <div class="card p-6 card-hover" data-reveal style="--reveal-delay: 100ms">
             <div class="flex items-center gap-3 mb-4">
-              <div class="w-10 h-10 rounded-lg bg-accent-100 text-accent-700 flex items-center justify-center text-xl font-bold">
+              <div class="w-10 h-10 rounded-lg bg-cafe-noir text-tan flex items-center justify-center text-xl font-bold">
                 <i class="ph ph-target" aria-hidden="true"></i>
               </div>
-              <h3 class="text-h3 text-primary-800">Fungsi Utama</h3>
+              <h3 class="text-h3 text-bone">Fungsi Utama</h3>
             </div>
             <ul class="lembaga-activity-list">
               <li>
@@ -120,74 +120,74 @@ export function renderLembagaPKK() {
         <div class="mt-12">
           <div class="text-center mb-6" data-reveal>
             <span class="badge badge-neutral">Program Kerja Dasar</span>
-            <h3 class="text-h3 text-primary-800 mt-2">10 Program Pokok PKK</h3>
+            <h3 class="text-h3 text-bone mt-2">10 Program Pokok PKK</h3>
           </div>
           <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
             <div class="card p-4 text-center card-hover" data-reveal>
-              <div class="w-10 h-10 mx-auto rounded-full bg-primary-50 text-primary-600 flex items-center justify-center text-lg mb-2">
+              <div class="w-10 h-10 mx-auto rounded-full bg-primary-800 text-tan flex items-center justify-center text-lg mb-2">
                 <i class="ph ph-heart" aria-hidden="true"></i>
               </div>
               <p class="text-caption text-ink-muted">1. Pengamalan</p>
               <p class="text-body-sm font-semibold text-ink mt-1">Pancasila</p>
             </div>
             <div class="card p-4 text-center card-hover" data-reveal style="--reveal-delay: 40ms">
-              <div class="w-10 h-10 mx-auto rounded-full bg-primary-50 text-primary-600 flex items-center justify-center text-lg mb-2">
+              <div class="w-10 h-10 mx-auto rounded-full bg-primary-800 text-tan flex items-center justify-center text-lg mb-2">
                 <i class="ph ph-hands-clasp" aria-hidden="true"></i>
               </div>
               <p class="text-caption text-ink-muted">2. Kerjasama</p>
               <p class="text-body-sm font-semibold text-ink mt-1">Gotong Royong</p>
             </div>
             <div class="card p-4 text-center card-hover" data-reveal style="--reveal-delay: 80ms">
-              <div class="w-10 h-10 mx-auto rounded-full bg-primary-50 text-primary-600 flex items-center justify-center text-lg mb-2">
+              <div class="w-10 h-10 mx-auto rounded-full bg-primary-800 text-tan flex items-center justify-center text-lg mb-2">
                 <i class="ph ph-bowl-food" aria-hidden="true"></i>
               </div>
               <p class="text-caption text-ink-muted">3. Pemenuhan</p>
               <p class="text-body-sm font-semibold text-ink mt-1">Pangan</p>
             </div>
             <div class="card p-4 text-center card-hover" data-reveal style="--reveal-delay: 120ms">
-              <div class="w-10 h-10 mx-auto rounded-full bg-primary-50 text-primary-600 flex items-center justify-center text-lg mb-2">
+              <div class="w-10 h-10 mx-auto rounded-full bg-primary-800 text-tan flex items-center justify-center text-lg mb-2">
                 <i class="ph ph-t-shirt" aria-hidden="true"></i>
               </div>
               <p class="text-caption text-ink-muted">4. Kelayakan</p>
               <p class="text-body-sm font-semibold text-ink mt-1">Sandang</p>
             </div>
             <div class="card p-4 text-center card-hover" data-reveal style="--reveal-delay: 160ms">
-              <div class="w-10 h-10 mx-auto rounded-full bg-primary-50 text-primary-600 flex items-center justify-center text-lg mb-2">
+              <div class="w-10 h-10 mx-auto rounded-full bg-primary-800 text-tan flex items-center justify-center text-lg mb-2">
                 <i class="ph ph-house-line" aria-hidden="true"></i>
               </div>
               <p class="text-caption text-ink-muted">5. Tatalaksana</p>
               <p class="text-body-sm font-semibold text-ink mt-1">Perumahan</p>
             </div>
             <div class="card p-4 text-center card-hover" data-reveal style="--reveal-delay: 200ms">
-              <div class="w-10 h-10 mx-auto rounded-full bg-primary-50 text-primary-600 flex items-center justify-center text-lg mb-2">
+              <div class="w-10 h-10 mx-auto rounded-full bg-primary-800 text-tan flex items-center justify-center text-lg mb-2">
                 <i class="ph ph-student" aria-hidden="true"></i>
               </div>
               <p class="text-caption text-ink-muted">6. Keterampilan</p>
               <p class="text-body-sm font-semibold text-ink mt-1">Pendidikan</p>
             </div>
             <div class="card p-4 text-center card-hover" data-reveal style="--reveal-delay: 240ms">
-              <div class="w-10 h-10 mx-auto rounded-full bg-primary-50 text-primary-600 flex items-center justify-center text-lg mb-2">
+              <div class="w-10 h-10 mx-auto rounded-full bg-primary-800 text-tan flex items-center justify-center text-lg mb-2">
                 <i class="ph ph-first-aid" aria-hidden="true"></i>
               </div>
               <p class="text-caption text-ink-muted">7. Pembinaan</p>
               <p class="text-body-sm font-semibold text-ink mt-1">Kesehatan</p>
             </div>
             <div class="card p-4 text-center card-hover" data-reveal style="--reveal-delay: 280ms">
-              <div class="w-10 h-10 mx-auto rounded-full bg-primary-50 text-primary-600 flex items-center justify-center text-lg mb-2">
+              <div class="w-10 h-10 mx-auto rounded-full bg-primary-800 text-tan flex items-center justify-center text-lg mb-2">
                 <i class="ph ph-storefront" aria-hidden="true"></i>
               </div>
               <p class="text-caption text-ink-muted">8. Penguatan</p>
               <p class="text-body-sm font-semibold text-ink mt-1">Koperasi</p>
             </div>
             <div class="card p-4 text-center card-hover" data-reveal style="--reveal-delay: 320ms">
-              <div class="w-10 h-10 mx-auto rounded-full bg-primary-50 text-primary-600 flex items-center justify-center text-lg mb-2">
+              <div class="w-10 h-10 mx-auto rounded-full bg-primary-800 text-tan flex items-center justify-center text-lg mb-2">
                 <i class="ph ph-tree-evergreen" aria-hidden="true"></i>
               </div>
               <p class="text-caption text-ink-muted">9. Kelestarian</p>
               <p class="text-body-sm font-semibold text-ink mt-1">Lingkungan</p>
             </div>
             <div class="card p-4 text-center card-hover" data-reveal style="--reveal-delay: 360ms">
-              <div class="w-10 h-10 mx-auto rounded-full bg-primary-50 text-primary-600 flex items-center justify-center text-lg mb-2">
+              <div class="w-10 h-10 mx-auto rounded-full bg-primary-800 text-tan flex items-center justify-center text-lg mb-2">
                 <i class="ph ph-chart-line-up" aria-hidden="true"></i>
               </div>
               <p class="text-caption text-ink-muted">10. Tata Kelola</p>
@@ -219,7 +219,7 @@ export function renderLembagaPKK() {
                 </div>
                 <div class="org-info">
                   <h3 class="text-h3">Ibu Sutrisno</h3>
-                  <p class="text-body-sm text-primary-600 font-semibold mt-1">Ketua TP PKK RW 03</p>
+                  <p class="text-body-sm text-tan font-semibold mt-1">Ketua TP PKK RW 03</p>
                   <p class="text-caption text-ink-muted mt-1">Penanggung Jawab Umum</p>
                 </div>
               </div>
@@ -236,7 +236,7 @@ export function renderLembagaPKK() {
               </div>
               <div class="org-info">
                 <h3 class="text-h4">Ibu Mulyani</h3>
-                <p class="text-body-sm text-primary-600 font-semibold mt-1">Wakil Ketua</p>
+                <p class="text-body-sm text-tan font-semibold mt-1">Wakil Ketua</p>
                 <p class="text-caption text-ink-muted mt-1">Koordinasi Antar Pokja</p>
               </div>
             </div>
@@ -246,7 +246,7 @@ export function renderLembagaPKK() {
               </div>
               <div class="org-info">
                 <h3 class="text-h4">Ibu Nur Hayati</h3>
-                <p class="text-body-sm text-primary-600 font-semibold mt-1">Sekretaris</p>
+                <p class="text-body-sm text-tan font-semibold mt-1">Sekretaris</p>
                 <p class="text-caption text-ink-muted mt-1">Administrasi & Notulensi</p>
               </div>
             </div>
@@ -256,7 +256,7 @@ export function renderLembagaPKK() {
               </div>
               <div class="org-info">
                 <h3 class="text-h4">Ibu Siti Aminah</h3>
-                <p class="text-body-sm text-primary-600 font-semibold mt-1">Bendahara</p>
+                <p class="text-body-sm text-tan font-semibold mt-1">Bendahara</p>
                 <p class="text-caption text-ink-muted mt-1">Keuangan & Kas Organisasi</p>
               </div>
             </div>
@@ -275,7 +275,7 @@ export function renderLembagaPKK() {
               </div>
               <div class="org-info">
                 <h3 class="text-h4">Ibu Wahyuni</h3>
-                <p class="text-body-sm text-primary-600 font-semibold mt-1">Ketua Pokja I</p>
+                <p class="text-body-sm text-tan font-semibold mt-1">Ketua Pokja I</p>
                 <p class="text-caption text-ink-muted mt-1">Pancasila & Gotong Royong</p>
               </div>
             </div>
@@ -285,7 +285,7 @@ export function renderLembagaPKK() {
               </div>
               <div class="org-info">
                 <h3 class="text-h4">Ibu Sri Supatmi</h3>
-                <p class="text-body-sm text-primary-600 font-semibold mt-1">Ketua Pokja II</p>
+                <p class="text-body-sm text-tan font-semibold mt-1">Ketua Pokja II</p>
                 <p class="text-caption text-ink-muted mt-1">Pendidikan & Koperasi</p>
               </div>
             </div>
@@ -295,7 +295,7 @@ export function renderLembagaPKK() {
               </div>
               <div class="org-info">
                 <h3 class="text-h4">Ibu Retno</h3>
-                <p class="text-body-sm text-primary-600 font-semibold mt-1">Ketua Pokja III</p>
+                <p class="text-body-sm text-tan font-semibold mt-1">Ketua Pokja III</p>
                 <p class="text-caption text-ink-muted mt-1">Pangan, Sandang, Perumahan</p>
               </div>
             </div>
@@ -305,7 +305,7 @@ export function renderLembagaPKK() {
               </div>
               <div class="org-info">
                 <h3 class="text-h4">Ibu Rahmawati</h3>
-                <p class="text-body-sm text-primary-600 font-semibold mt-1">Ketua Pokja IV</p>
+                <p class="text-body-sm text-tan font-semibold mt-1">Ketua Pokja IV</p>
                 <p class="text-caption text-ink-muted mt-1">Kesehatan & Lingkungan</p>
               </div>
             </div>
@@ -323,7 +323,7 @@ export function renderLembagaPKK() {
               <i class="ph ph-calendar-check" aria-hidden="true"></i>
             </div>
             <div>
-              <h3 class="text-h3 text-primary-800">Kegiatan Rutin PKK RW 03</h3>
+              <h3 class="text-h3 text-bone">Kegiatan Rutin PKK RW 03</h3>
               <p class="text-body-sm text-ink-muted">Program unggulan dan agenda berkala warga perempuan RW 03</p>
             </div>
           </div>

@@ -65,7 +65,7 @@ function heroSlideMarkup(slide, index) {
         <div class="hero-slide-overlay" aria-hidden="true"></div>
         <div class="container-site hero-slide-content">
           <div class="hero-slide-copy">
-            <h2 class="text-h1 text-white">${slide.title}</h2>
+            <h2 class="text-h1 text-bone">${slide.title}</h2>
             <p class="hero-slide-text">${slide.text}</p>
             <div class="hero-actions mt-8">
               ${slide.ctaPrimary ? `
@@ -74,7 +74,7 @@ function heroSlideMarkup(slide, index) {
                 ${slide.ctaPrimary.label}
               </a>` : ''}
               ${slide.ctaSecondary ? `
-              <a href="${slide.ctaSecondary.href}" class="btn btn-lg" style="background: rgb(246 238 223 / 0.1); color: #f6eedf; border: 1px solid rgb(207 187 153 / 0.28);">
+              <a href="${slide.ctaSecondary.href}" class="btn btn-outline btn-lg">
                 ${icon(slide.ctaSecondary)}
                 ${slide.ctaSecondary.label}
               </a>` : ''}
@@ -107,7 +107,7 @@ export function renderHome() {
     </section>
 
     <!-- Sambutan Ketua RW -->
-    <section class="section home-sambutan blur-gradient-bg">
+    <section class="section home-sambutan">
       <div class="container-site">
         <div class="sambutan-grid">
           <div class="sambutan-media" data-reveal="left">
@@ -248,12 +248,12 @@ export function renderHome() {
     </section>
 
     <!-- CTA Lihat Semua UMKM -->
-    <section class="cta-section text-white" data-reveal="scale">
+    <section class="cta-section text-bone" data-reveal="scale">
       <div class="container-site cta-container">
         <div class="cta-content text-center max-w-[36rem] mx-auto">
           <span class="cta-ornament" aria-hidden="true">✦</span>
-          <h2 class="text-h2 text-white">Dukung usaha warga RW 3 Banjardowo</h2>
-          <p class="text-body-lg mt-4" style="color: rgb(246 238 223 / 0.82);">
+          <h2 class="text-h2 text-bone">Dukung usaha warga RW 3 Banjardowo</h2>
+          <p class="text-body-lg mt-4" style="color: rgb(243 234 217 / 0.82);">
             Temukan kuliner, kerajinan, jasa, dan sembako dari pelaku usaha warga RW 3.
           </p>
           <div class="mt-8">

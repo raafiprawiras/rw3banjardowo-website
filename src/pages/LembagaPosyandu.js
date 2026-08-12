@@ -7,7 +7,7 @@ export function renderLembagaPosyandu() {
     <section class="page-banner">
       <div class="container-site page-banner-inner">
         <div class="flex items-center gap-2 mb-2">
-          <a href="/lembaga" class="inline-flex items-center gap-1 text-body-sm text-accent-300 hover:text-white font-medium transition-colors">
+          <a href="/lembaga" class="inline-flex items-center gap-1 text-body-sm text-tan hover:text-bone font-medium transition-colors">
             <i class="ph ph-arrow-left" aria-hidden="true"></i> Lembaga Desa
           </a>
         </div>
@@ -25,22 +25,22 @@ export function renderLembagaPosyandu() {
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
           <div class="stat-card" data-reveal>
             <div class="stat-label">Ketua Posyandu</div>
-            <div class="stat-value text-h3 text-primary-700 mt-1">Ibu Rahmawati</div>
+            <div class="stat-value text-h3 text-bone mt-1">Ibu Rahmawati</div>
             <div class="stat-desc mt-1">Kader Kesehatan RW 03</div>
           </div>
           <div class="stat-card" data-reveal style="--reveal-delay: 80ms">
             <div class="stat-label">Jadwal Rutin</div>
-            <div class="stat-value text-h3 text-primary-700 mt-1">Tanggal 15</div>
+            <div class="stat-value text-h3 text-bone mt-1">Tanggal 15</div>
             <div class="stat-desc mt-1">Setiap Bulan / Pkl 08.00–11.00</div>
           </div>
           <div class="stat-card" data-reveal style="--reveal-delay: 160ms">
             <div class="stat-label">Jumlah Kader</div>
-            <div class="stat-value text-h3 text-primary-700 mt-1">12 Orang</div>
+            <div class="stat-value text-h3 text-bone mt-1">12 Orang</div>
             <div class="stat-desc mt-1">Dari RT 01–06</div>
           </div>
           <div class="stat-card" data-reveal style="--reveal-delay: 240ms">
             <div class="stat-label">Lokasi</div>
-            <div class="stat-value text-h3 text-primary-700 mt-1">Halaman Balai RW</div>
+            <div class="stat-value text-h3 text-bone mt-1">Halaman Balai RW</div>
             <div class="stat-desc mt-1">Banjardowo, Genuk</div>
           </div>
         </div>
@@ -62,10 +62,10 @@ export function renderLembagaPosyandu() {
           <!-- Card Tugas Pokok -->
           <div class="card p-6 card-hover" data-reveal>
             <div class="flex items-center gap-3 mb-4">
-              <div class="w-10 h-10 rounded-lg bg-primary-100 text-primary-600 flex items-center justify-center text-xl font-bold">
+              <div class="w-10 h-10 rounded-lg bg-primary-800 text-tan flex items-center justify-center text-xl font-bold">
                 <i class="ph ph-clipboard-text" aria-hidden="true"></i>
               </div>
-              <h3 class="text-h3 text-primary-800">Tugas Pokok</h3>
+              <h3 class="text-h3 text-bone">Tugas Pokok</h3>
             </div>
             <ul class="lembaga-activity-list">
               <li>
@@ -90,10 +90,10 @@ export function renderLembagaPosyandu() {
           <!-- Card Fungsi Utama -->
           <div class="card p-6 card-hover" data-reveal style="--reveal-delay: 100ms">
             <div class="flex items-center gap-3 mb-4">
-              <div class="w-10 h-10 rounded-lg bg-accent-100 text-accent-700 flex items-center justify-center text-xl font-bold">
+              <div class="w-10 h-10 rounded-lg bg-cafe-noir text-tan flex items-center justify-center text-xl font-bold">
                 <i class="ph ph-target" aria-hidden="true"></i>
               </div>
-              <h3 class="text-h3 text-primary-800">Fungsi Utama</h3>
+              <h3 class="text-h3 text-bone">Fungsi Utama</h3>
             </div>
             <ul class="lembaga-activity-list">
               <li>
@@ -120,39 +120,39 @@ export function renderLembagaPosyandu() {
         <div class="mt-12">
           <div class="text-center mb-6" data-reveal>
             <span class="badge badge-neutral">Sistem Pelayanan</span>
-            <h3 class="text-h3 text-primary-800 mt-2">5 Meja Layanan Posyandu</h3>
+            <h3 class="text-h3 text-bone mt-2">5 Meja Layanan Posyandu</h3>
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4">
             <div class="card p-5 text-center card-hover" data-reveal>
-              <div class="w-12 h-12 mx-auto rounded-full bg-primary-50 text-primary-600 flex items-center justify-center text-2xl mb-3">
+              <div class="w-12 h-12 mx-auto rounded-full bg-primary-800 text-tan flex items-center justify-center text-2xl mb-3">
                 <i class="ph ph-clipboard" aria-hidden="true"></i>
               </div>
               <h4 class="text-body-sm font-semibold text-ink">Meja 1</h4>
               <p class="text-caption text-ink-muted mt-1">Pendaftaran & Pengisian KIA</p>
             </div>
             <div class="card p-5 text-center card-hover" data-reveal style="--reveal-delay: 60ms">
-              <div class="w-12 h-12 mx-auto rounded-full bg-primary-50 text-primary-600 flex items-center justify-center text-2xl mb-3">
+              <div class="w-12 h-12 mx-auto rounded-full bg-primary-800 text-tan flex items-center justify-center text-2xl mb-3">
                 <i class="ph ph-scale" aria-hidden="true"></i>
               </div>
               <h4 class="text-body-sm font-semibold text-ink">Meja 2</h4>
               <p class="text-caption text-ink-muted mt-1">Penimbangan & Pengukuran</p>
             </div>
             <div class="card p-5 text-center card-hover" data-reveal style="--reveal-delay: 120ms">
-              <div class="w-12 h-12 mx-auto rounded-full bg-primary-50 text-primary-600 flex items-center justify-center text-2xl mb-3">
+              <div class="w-12 h-12 mx-auto rounded-full bg-primary-800 text-tan flex items-center justify-center text-2xl mb-3">
                 <i class="ph ph-chart-bar" aria-hidden="true"></i>
               </div>
               <h4 class="text-body-sm font-semibold text-ink">Meja 3</h4>
               <p class="text-caption text-ink-muted mt-1">Pencatatan & Pengisian KMS</p>
             </div>
             <div class="card p-5 text-center card-hover" data-reveal style="--reveal-delay: 180ms">
-              <div class="w-12 h-12 mx-auto rounded-full bg-primary-50 text-primary-600 flex items-center justify-center text-2xl mb-3">
+              <div class="w-12 h-12 mx-auto rounded-full bg-primary-800 text-tan flex items-center justify-center text-2xl mb-3">
                 <i class="ph ph-chalkboard-teacher" aria-hidden="true"></i>
               </div>
               <h4 class="text-body-sm font-semibold text-ink">Meja 4</h4>
               <p class="text-caption text-ink-muted mt-1">Penyuluhan Gizi & Kesehatan</p>
             </div>
             <div class="card p-5 text-center card-hover" data-reveal style="--reveal-delay: 240ms">
-              <div class="w-12 h-12 mx-auto rounded-full bg-primary-50 text-primary-600 flex items-center justify-center text-2xl mb-3">
+              <div class="w-12 h-12 mx-auto rounded-full bg-primary-800 text-tan flex items-center justify-center text-2xl mb-3">
                 <i class="ph ph-first-aid-kit" aria-hidden="true"></i>
               </div>
               <h4 class="text-body-sm font-semibold text-ink">Meja 5</h4>
@@ -184,7 +184,7 @@ export function renderLembagaPosyandu() {
                 </div>
                 <div class="org-info">
                   <h3 class="text-h3">Ibu Rahmawati</h3>
-                  <p class="text-body-sm text-primary-600 font-semibold mt-1">Ketua Pengurus Posyandu</p>
+                  <p class="text-body-sm text-tan font-semibold mt-1">Ketua Pengurus Posyandu</p>
                   <p class="text-caption text-ink-muted mt-1">Penanggung Jawab Kegiatan</p>
                 </div>
               </div>
@@ -201,7 +201,7 @@ export function renderLembagaPosyandu() {
               </div>
               <div class="org-info">
                 <h3 class="text-h4">Ibu Dewi Lestari</h3>
-                <p class="text-body-sm text-primary-600 font-semibold mt-1">Wakil Ketua</p>
+                <p class="text-body-sm text-tan font-semibold mt-1">Wakil Ketua</p>
                 <p class="text-caption text-ink-muted mt-1">Koordinasi Kader</p>
               </div>
             </div>
@@ -211,7 +211,7 @@ export function renderLembagaPosyandu() {
               </div>
               <div class="org-info">
                 <h3 class="text-h4">Ibu Ratna Sari</h3>
-                <p class="text-body-sm text-primary-600 font-semibold mt-1">Sekretaris</p>
+                <p class="text-body-sm text-tan font-semibold mt-1">Sekretaris</p>
                 <p class="text-caption text-ink-muted mt-1">Administrasi & Data Balita</p>
               </div>
             </div>
@@ -221,7 +221,7 @@ export function renderLembagaPosyandu() {
               </div>
               <div class="org-info">
                 <h3 class="text-h4">Ibu Endang S.</h3>
-                <p class="text-body-sm text-primary-600 font-semibold mt-1">Bendahara</p>
+                <p class="text-body-sm text-tan font-semibold mt-1">Bendahara</p>
                 <p class="text-caption text-ink-muted mt-1">Keuangan & Bantuan Sosial</p>
               </div>
             </div>
@@ -240,7 +240,7 @@ export function renderLembagaPosyandu() {
               </div>
               <div class="org-info">
                 <h3 class="text-h4">Ibu Lina</h3>
-                <p class="text-body-sm text-primary-600 font-semibold mt-1">Kader Penimbangan</p>
+                <p class="text-body-sm text-tan font-semibold mt-1">Kader Penimbangan</p>
                 <p class="text-caption text-ink-muted mt-1">Penanganan Meja 2</p>
               </div>
             </div>
@@ -250,7 +250,7 @@ export function renderLembagaPosyandu() {
               </div>
               <div class="org-info">
                 <h3 class="text-h4">Ibu Putri</h3>
-                <p class="text-body-sm text-primary-600 font-semibold mt-1">Kader Imunisasi</p>
+                <p class="text-body-sm text-tan font-semibold mt-1">Kader Imunisasi</p>
                 <p class="text-caption text-ink-muted mt-1">Penanganan Meja 5</p>
               </div>
             </div>
@@ -260,7 +260,7 @@ export function renderLembagaPosyandu() {
               </div>
               <div class="org-info">
                 <h3 class="text-h4">Ibu Wati</h3>
-                <p class="text-body-sm text-primary-600 font-semibold mt-1">Kader Gizi & PMT</p>
+                <p class="text-body-sm text-tan font-semibold mt-1">Kader Gizi & PMT</p>
                 <p class="text-caption text-ink-muted mt-1">Penyuluhan & Distribusi PMT</p>
               </div>
             </div>
@@ -270,7 +270,7 @@ export function renderLembagaPosyandu() {
               </div>
               <div class="org-info">
                 <h3 class="text-h4">Ibu Sari</h3>
-                <p class="text-body-sm text-primary-600 font-semibold mt-1">Kader Penyuluhan</p>
+                <p class="text-body-sm text-tan font-semibold mt-1">Kader Penyuluhan</p>
                 <p class="text-caption text-ink-muted mt-1">Penanganan Meja 4</p>
               </div>
             </div>
@@ -288,7 +288,7 @@ export function renderLembagaPosyandu() {
               <i class="ph ph-calendar-check" aria-hidden="true"></i>
             </div>
             <div>
-              <h3 class="text-h3 text-primary-800">Kegiatan Rutin Posyandu Melati</h3>
+              <h3 class="text-h3 text-bone">Kegiatan Rutin Posyandu Melati</h3>
               <p class="text-body-sm text-ink-muted">Jadwal pelayanan kesehatan masyarakat RW 03 Banjardowo</p>
             </div>
           </div>
