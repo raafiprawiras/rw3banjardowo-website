@@ -3,9 +3,9 @@ export function renderStrukturKKN() {
     <section class="page-banner">
       <div class="container-site page-banner-inner">
         <span class="badge">Kolaborasi</span>
-        <h1 class="text-h1 page-title mt-4">Struktur Tim KKN UNDIP</h1>
+        <h1 class="text-h1 page-title mt-4">Struktur Tim KKN Unissula Kelompok 36</h1>
         <p class="page-desc mt-4 max-w-2xl">
-          Tim Kuliah Kerja Nyata (KKN) Universitas Diponegoro yang berkontribusi dalam pengembangan portal warga RW 3 Banjardowo.
+          Tim Kuliah Kerja Nyata (KKN) Universitas Islam Sultan Agung (Unissula) Kelompok 36 yang berkontribusi dalam pengembangan portal warga RW 3 Banjardowo.
         </p>
       </div>
     </section>

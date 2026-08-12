@@ -84,7 +84,7 @@ export function createFooter() {
 
       <div class="footer-bottom">
         <p class="footer-copyright">
-          &copy; 2026 RW 3 Banjardowo. Kelurahan Banjardowo, Kecamatan Genuk, Kota Semarang. Dikembangkan bersama Tim KKN UNDIP.
+          &copy; 2026 RW 3 Banjardowo. Kelurahan Banjardowo, Kecamatan Genuk, Kota Semarang. Dikembangkan bersama KKN Unissula Kelompok 36 Banjardowo.
         </p>
       </div>
     </div>
