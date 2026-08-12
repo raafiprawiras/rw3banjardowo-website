@@ -105,14 +105,7 @@ body {
     margin: 0;
     font-family: var(--font-sans);
     color: var(--color-ink);
-    background-color: var(--color-canvas);
-    background-image: linear-gradient(180deg,
-            #1b2214 0%,
-            #232d19 20%,
-            #2b3822 38%,
-            #232c19 56%,
-            #2b2517 76%,
-            #1b2214 100%);
+    background-color: #16251a;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
@@ -120,7 +113,9 @@ body {
     overflow-x: hidden;
 }
 
-/* Ambient fixed canvas — warm moss + café drift, one surface. */
+/* Global fixed canvas — the green artwork covered by a soft warm
+   dark-green scrim. Fixed = stays behind the whole document while
+   scrolling, so every page reads as one continuous canvas. */
 body::before {
     content: "";
     position: fixed;
@@ -128,9 +123,12 @@ body::before {
     z-index: -1;
     pointer-events: none;
     background:
-        radial-gradient(120% 70% at 88% -12%, rgb(136 144 99 / 0.06) 0%, transparent 52%),
-        radial-gradient(110% 80% at 0% 92%, rgb(76 61 25 / 0.1) 0%, transparent 55%),
-        radial-gradient(80% 60% at 12% 18%, rgb(53 64 36 / 0.08) 0%, transparent 50%);
+        linear-gradient(180deg,
+            rgb(17 26 15 / 0.52) 0%,
+            rgb(20 30 18 / 0.4) 30%,
+            rgb(19 28 17 / 0.45) 62%,
+            rgb(15 23 14 / 0.58) 100%),
+        url('/assets/landingpage/background-landingpage.jpg') center / cover no-repeat;
 }
 
 /* Subtle grain to break digital flatness */
@@ -273,21 +271,21 @@ p {
 /* ── Layout primitives ──────────────────────────────────────── */
 .container-site {
     width: 100%;
-    max-width: 80rem;
+    max-width: 90rem;
     margin-inline: auto;
     padding-inline: var(--spacing-container);
 }
 
 @media (min-width: 1280px) {
     .container-site {
-        max-width: 96rem;
+        max-width: 95rem;
         padding-inline: 3rem;
     }
 }
 
 @media (min-width: 1536px) {
     .container-site {
-        max-width: 108rem;
+        max-width: 100rem;
         padding-inline: 4rem;
     }
 }
@@ -423,19 +421,20 @@ p {
 
 /* Card */
 .card {
-    background-color: var(--color-surface-elev);
+    background-color: rgb(32 41 24 / 0.78);
     border: 1px solid var(--color-line);
     border-radius: var(--radius-card);
     box-shadow: var(--shadow-card);
 }
 
 .card-hover {
-    transition: box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+    transition: box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, background-color 0.3s ease;
 }
 
 .card-hover:hover {
     box-shadow: var(--shadow-card-hover);
     border-color: rgb(136 144 99 / 0.4);
+    background-color: rgb(39 49 30 / 0.86);
     transform: translateY(-3px);
 }
 
@@ -624,17 +623,11 @@ p {
     color: rgb(243 234 217 / 0.78);
 }
 
-/* Stat band — dark café band that flows out of the banner (no hard divider) */
+/* Stat band — flows out of the banner onto the green canvas */
 .stat-band {
     padding-block: clamp(2.5rem, 5vw, 3.5rem) clamp(2.5rem, 5vw, 3.5rem);
     position: relative;
-    background-image:
-        linear-gradient(to bottom,
-            transparent 0%,
-            rgb(76 61 25 / 0.5) 18%,
-            rgb(72 80 52 / 0.42) 50%,
-            rgb(76 61 25 / 0.5) 82%,
-            transparent 100%);
+    background-image: none;
 }
 
 .stat-band .stat-label {
@@ -977,8 +970,9 @@ p {
 
 .site-footer {
     position: relative;
-    background-color: var(--color-kombu-green);
+    background-color: rgb(44 56 31 / 0.94);
     background-image:
+        linear-gradient(to bottom, rgb(16 26 15 / 0.6) 0%, transparent 3.5rem),
         radial-gradient(120% 90% at 85% -20%, rgb(207 187 153 / 0.07) 0%, transparent 55%),
         radial-gradient(100% 80% at 5% 120%, rgb(136 144 99 / 0.07) 0%, transparent 55%);
     color: rgb(229 215 196 / 0.8);
@@ -1510,29 +1504,13 @@ p {
 /* ── Sambutan Ketua RW ─────────────────────────────────────────── */
 .home-sambutan {
     position: relative;
-    background-color: var(--color-primary-900);
-    background-image:
-        linear-gradient(172deg,
-            rgb(31 42 26 / 0.92) 0%,
-            rgb(43 56 34 / 0.86) 30%,
-            rgb(76 61 25 / 0.78) 62%,
-            rgb(31 42 26 / 0.92) 100%),
-        url('/assets/rumput-bg.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: rgb(229 215 196 / 0.86);
+    background-color: transparent;
+    background-image: none;
+    color: rgb(229 215 196 / 0.9);
 }
 
 .home-sambutan::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 8rem;
-    background: linear-gradient(to bottom, var(--color-primary-900) 0%, transparent 100%);
-    pointer-events: none;
+    display: none;
 }
 
 .home-sambutan .sambutan-signature {
@@ -1662,13 +1640,7 @@ p {
 .news-section {
     position: relative;
     padding-block: clamp(4rem, 7vw, 7rem);
-    background-image:
-        radial-gradient(120% 70% at 90% -10%, rgb(207 187 153 / 0.12) 0%, transparent 55%),
-        linear-gradient(to bottom,
-            transparent 0%,
-            rgb(43 56 34 / 0.9) 7rem,
-            rgb(34 43 24 / 0.95) calc(100% - 7rem),
-            transparent 100%);
+    background-image: none;
 }
 
 .news-section .section-title {
@@ -1687,7 +1659,7 @@ p {
 }
 
 .news-section .news-card:hover {
-    background-color: var(--color-primary-800);
+    background-color: rgb(39 49 30 / 0.86);
     border-color: rgb(136 144 99 / 0.45);
     transform: translateY(-3px);
 }
@@ -1742,14 +1714,7 @@ p {
 /* ── Peta Wilayah preview ──────────────────────────────────────── */
 .home-map-section {
     position: relative;
-    background-image:
-        radial-gradient(90% 60% at 8% 0%, rgb(136 144 99 / 0.12) 0%, transparent 55%),
-        radial-gradient(80% 60% at 95% 100%, rgb(207 187 153 / 0.1) 0%, transparent 55%),
-        linear-gradient(to bottom,
-            transparent 0%,
-            rgb(72 80 52 / 0.5) 8rem,
-            rgb(34 43 24 / 0.92) calc(100% - 8rem),
-            transparent 100%);
+    background-image: none;
 }
 
 .home-map-section .section-title {
@@ -1811,13 +1776,7 @@ p {
 /* ── UMKM preview ──────────────────────────────────────────────── */
 .home-umkm-section {
     position: relative;
-    background-image:
-        radial-gradient(100% 70% at 50% 0%, rgb(76 61 25 / 0.16) 0%, transparent 55%),
-        linear-gradient(to bottom,
-            transparent 0%,
-            rgb(43 56 34 / 0.85) 7rem,
-            rgb(34 43 24 / 0.95) calc(100% - 7rem),
-            transparent 100%);
+    background-image: none;
 }
 
 .home-umkm-section .section-title {
@@ -1845,14 +1804,7 @@ p {
     position: relative;
     overflow: hidden;
     padding-block: clamp(4.5rem, 8vw, 8rem);
-    background-image:
-        radial-gradient(70% 90% at 85% 0%, rgb(207 187 153 / 0.14) 0%, transparent 55%),
-        radial-gradient(60% 80% at 5% 100%, rgb(136 144 99 / 0.12) 0%, transparent 55%),
-        linear-gradient(to bottom,
-            transparent 0%,
-            rgb(76 61 25 / 0.85) 4rem,
-            rgb(38 49 31 / 0.9) calc(100% - 4rem),
-            transparent 100%);
+    background-image: none;
 }
 
 .cta-container {
@@ -2024,12 +1976,7 @@ p {
 
 .data-page {
     position: relative;
-    background-image:
-        linear-gradient(to bottom,
-            rgb(53 64 36 / 0.5) 0%,
-            rgb(34 43 24 / 0.9) 8rem,
-            rgb(34 43 24 / 0.92) calc(100% - 6rem),
-            transparent 100%);
+    background-image: none;
 }
 
 .data-header {
@@ -2308,12 +2255,7 @@ p {
 
 .map-page {
     position: relative;
-    background-image:
-        linear-gradient(to bottom,
-            rgb(53 64 36 / 0.5) 0%,
-            rgb(34 43 24 / 0.9) 8rem,
-            rgb(34 43 24 / 0.92) calc(100% - 6rem),
-            transparent 100%);
+    background-image: none;
 }
 
 .map-header {
@@ -2596,12 +2538,7 @@ p {
 
 .umkm-page {
     position: relative;
-    background-image:
-        linear-gradient(to bottom,
-            rgb(53 64 36 / 0.5) 0%,
-            rgb(34 43 24 / 0.9) 8rem,
-            rgb(34 43 24 / 0.92) calc(100% - 6rem),
-            transparent 100%);
+    background-image: none;
 }
 
 .umkm-header {
@@ -2764,12 +2701,7 @@ p {
 
 .lembaga-page {
     position: relative;
-    background-image:
-        linear-gradient(to bottom,
-            rgb(53 64 36 / 0.5) 0%,
-            rgb(34 43 24 / 0.9) 8rem,
-            rgb(34 43 24 / 0.92) calc(100% - 6rem),
-            transparent 100%);
+    background-image: none;
 }
 
 .lembaga-header {
@@ -2926,12 +2858,7 @@ p {
 
 .gallery-page {
     position: relative;
-    background-image:
-        linear-gradient(to bottom,
-            rgb(53 64 36 / 0.5) 0%,
-            rgb(34 43 24 / 0.9) 8rem,
-            rgb(34 43 24 / 0.92) calc(100% - 6rem),
-            transparent 100%);
+    background-image: none;
 }
 
 .gallery-header {
@@ -3258,11 +3185,7 @@ p {
 
 .bg-surface {
     background-color: transparent;
-    background-image: linear-gradient(to bottom,
-            transparent 0%,
-            rgb(34 43 24 / 0.88) 6rem,
-            rgb(34 43 24 / 0.92) calc(100% - 6rem),
-            transparent 100%);
+    background-image: none;
 }
 
 /* ── Text Color Utilities ──────────────────────────────────────── */
@@ -3366,93 +3289,23 @@ p {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   LANDING PAGE — GLOBAL GREEN BACKGROUND
-   One continuous canvas behind the whole Beranda page.
-   Active only on the landing route (body.is-home).
+   GLOBAL GREEN BACKGROUND — MOBILE
+   The fixed green canvas is defined at the top of this file (body).
+   Here we bias the artwork slightly upward and strengthen the scrim
+   so body text stays readable on small, tall viewports.
    ═══════════════════════════════════════════════════════════════ */
-
-/* Fixed full-viewport canvas: the uploaded green artwork covered
-   by a soft dark-green readability scrim. Because it is fixed it
-   stays behind the whole document while scrolling — the page never
-   splits into per-section backgrounds. */
-body.is-home {
-    background-image: none;
-    background-color: #16251a;
-}
-
-body.is-home::before {
-    background:
-        linear-gradient(180deg,
-            rgb(16 26 15 / 0.5) 0%,
-            rgb(19 30 18 / 0.34) 32%,
-            rgb(18 28 17 / 0.4) 62%,
-            rgb(14 22 14 / 0.56) 100%),
-        url('/assets/landingpage/background-landingpage.jpg') center / cover no-repeat;
-}
-
-/* Wider landing container on desktop (≈1440–1600px) */
-body.is-home .container-site {
-    max-width: 90rem;
-}
-
-@media (min-width: 1536px) {
-    body.is-home .container-site {
-        max-width: 100rem;
-    }
-}
-
-/* Let the canvas read through — sections become transparent */
-body.is-home .home-sambutan,
-body.is-home .news-section,
-body.is-home .home-map-section,
-body.is-home .home-umkm-section,
-body.is-home .cta-section {
-    background-image: none;
-}
-
-body.is-home .home-sambutan {
-    background-color: transparent;
-}
-
-body.is-home .home-sambutan::after {
-    display: none;
-}
-
-/* Cards float on the canvas with a soft dark-green surface so
-   content stays readable without covering the artwork. */
-body.is-home .card {
-    background-color: rgb(32 41 24 / 0.78);
-}
-
-body.is-home .card-hover:hover,
-body.is-home .news-section .news-card:hover {
-    background-color: rgb(39 49 30 / 0.86);
-}
-
-/* Footer sits on the canvas — soft kombu veil with a smooth top
-   transition, never a detached block. */
-body.is-home .site-footer {
-    background-color: rgb(44 56 31 / 0.94);
-    background-image:
-        linear-gradient(to bottom, rgb(16 26 15 / 0.6) 0%, transparent 3.5rem),
-        radial-gradient(120% 90% at 85% -20%, rgb(207 187 153 / 0.07) 0%, transparent 55%),
-        radial-gradient(100% 80% at 5% 120%, rgb(136 144 99 / 0.07) 0%, transparent 55%);
-}
-
-/* Mobile: keep the artwork centered with a slightly stronger scrim
-   so body text stays readable on small, tall viewports. */
 @media (max-width: 767px) {
-    body.is-home::before {
+    body::before {
         background:
             linear-gradient(180deg,
-                rgb(16 26 15 / 0.56) 0%,
-                rgb(19 30 18 / 0.42) 34%,
-                rgb(18 28 17 / 0.46) 62%,
-                rgb(14 22 14 / 0.6) 100%),
+                rgb(17 26 15 / 0.56) 0%,
+                rgb(20 30 18 / 0.42) 34%,
+                rgb(19 28 17 / 0.46) 62%,
+                rgb(15 23 14 / 0.6) 100%),
             url('/assets/landingpage/background-landingpage.jpg') 50% 38% / cover no-repeat;
     }
 
-    body.is-home .card {
+    .card {
         background-color: rgb(32 41 24 / 0.85);
     }
 }
