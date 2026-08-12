@@ -51,6 +51,7 @@ function navigate(path) {
 function resolveRoute() {
     const path = window.location.pathname;
     const route = routes[path] || routes['/'];
+    document.body.classList.toggle('is-home', route === routes['/']);
     if (route.cleanup) {
         route.cleanup();
     }

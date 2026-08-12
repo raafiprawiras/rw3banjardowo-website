@@ -1202,8 +1202,8 @@ p {
     z-index: 2;
 }
 
-/* Bottom fade: melts the Hero into the section below so the two
-   read as one continuous surface. */
+/* Bottom fade: melts the photo Hero into the global green canvas
+   below so the two read as one continuous surface. */
 .hero-slide::after {
     content: "";
     position: absolute;
@@ -1211,9 +1211,9 @@ p {
     z-index: 2;
     pointer-events: none;
     background: linear-gradient(to top,
-            var(--color-primary-900) 0%,
-            var(--color-primary-900) 9%,
-            transparent 62%);
+            rgb(19 29 17 / 0.9) 0%,
+            rgb(19 29 17 / 0.5) 12%,
+            transparent 58%);
 }
 
 .hero-slide-bg {
@@ -3362,5 +3362,97 @@ p {
     .hero-slide-copy h1,
     .hero-slide-copy h2 {
         font-size: clamp(1.5rem, 5vw, 2rem);
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   LANDING PAGE — GLOBAL GREEN BACKGROUND
+   One continuous canvas behind the whole Beranda page.
+   Active only on the landing route (body.is-home).
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Fixed full-viewport canvas: the uploaded green artwork covered
+   by a soft dark-green readability scrim. Because it is fixed it
+   stays behind the whole document while scrolling — the page never
+   splits into per-section backgrounds. */
+body.is-home {
+    background-image: none;
+    background-color: #16251a;
+}
+
+body.is-home::before {
+    background:
+        linear-gradient(180deg,
+            rgb(16 26 15 / 0.5) 0%,
+            rgb(19 30 18 / 0.34) 32%,
+            rgb(18 28 17 / 0.4) 62%,
+            rgb(14 22 14 / 0.56) 100%),
+        url('/assets/landingpage/background-landingpage.jpg') center / cover no-repeat;
+}
+
+/* Wider landing container on desktop (≈1440–1600px) */
+body.is-home .container-site {
+    max-width: 90rem;
+}
+
+@media (min-width: 1536px) {
+    body.is-home .container-site {
+        max-width: 100rem;
+    }
+}
+
+/* Let the canvas read through — sections become transparent */
+body.is-home .home-sambutan,
+body.is-home .news-section,
+body.is-home .home-map-section,
+body.is-home .home-umkm-section,
+body.is-home .cta-section {
+    background-image: none;
+}
+
+body.is-home .home-sambutan {
+    background-color: transparent;
+}
+
+body.is-home .home-sambutan::after {
+    display: none;
+}
+
+/* Cards float on the canvas with a soft dark-green surface so
+   content stays readable without covering the artwork. */
+body.is-home .card {
+    background-color: rgb(32 41 24 / 0.78);
+}
+
+body.is-home .card-hover:hover,
+body.is-home .news-section .news-card:hover {
+    background-color: rgb(39 49 30 / 0.86);
+}
+
+/* Footer sits on the canvas — soft kombu veil with a smooth top
+   transition, never a detached block. */
+body.is-home .site-footer {
+    background-color: rgb(44 56 31 / 0.94);
+    background-image:
+        linear-gradient(to bottom, rgb(16 26 15 / 0.6) 0%, transparent 3.5rem),
+        radial-gradient(120% 90% at 85% -20%, rgb(207 187 153 / 0.07) 0%, transparent 55%),
+        radial-gradient(100% 80% at 5% 120%, rgb(136 144 99 / 0.07) 0%, transparent 55%);
+}
+
+/* Mobile: keep the artwork centered with a slightly stronger scrim
+   so body text stays readable on small, tall viewports. */
+@media (max-width: 767px) {
+    body.is-home::before {
+        background:
+            linear-gradient(180deg,
+                rgb(16 26 15 / 0.56) 0%,
+                rgb(19 30 18 / 0.42) 34%,
+                rgb(18 28 17 / 0.46) 62%,
+                rgb(14 22 14 / 0.6) 100%),
+            url('/assets/landingpage/background-landingpage.jpg') 50% 38% / cover no-repeat;
+    }
+
+    body.is-home .card {
+        background-color: rgb(32 41 24 / 0.85);
     }
 }
