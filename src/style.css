@@ -47,7 +47,7 @@
     --color-error: #dc2626;
 
     --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
-    --font-display: 'Fraunces', 'Plus Jakarta Sans', Georgia, serif;
+    --font-display: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
 
     --spacing-section: clamp(4rem, 6vw, 7rem);
     --spacing-container: clamp(1.25rem, 3vw, 3rem);
