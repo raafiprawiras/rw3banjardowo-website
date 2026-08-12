@@ -20,7 +20,7 @@ export function renderLembagaLinmas() {
     </section>
 
     <!-- Stat Summary Bar -->
-    <section class="section pt-8 pb-4 bg-surface border-b border-line">
+    <section class="stat-band">
       <div class="container-site">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
           <div class="stat-card" data-reveal>

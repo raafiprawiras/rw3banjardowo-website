@@ -168,10 +168,10 @@ function createMap(mapEl, options = {}) {
 function createGeoJsonLayer(geojson) {
     return L.geoJSON(geojson, {
         style: () => ({
-            color: '#1f4b2c',
+            color: '#354024',
             weight: 2.5,
-            fillColor: '#91eaaf',
-            fillOpacity: 0.22,
+            fillColor: '#889063',
+            fillOpacity: 0.28,
         }),
         onEachFeature: (feature, layer) => {
             const name = feature?.properties?.name || 'RW 3';

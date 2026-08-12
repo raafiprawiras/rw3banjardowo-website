@@ -74,7 +74,7 @@ function heroSlideMarkup(slide, index) {
                 ${slide.ctaPrimary.label}
               </a>` : ''}
               ${slide.ctaSecondary ? `
-              <a href="${slide.ctaSecondary.href}" class="btn btn-lg" style="background: rgb(255 255 255 / 0.1); color: #fff; border: 1px solid rgb(255 255 255 / 0.2);">
+              <a href="${slide.ctaSecondary.href}" class="btn btn-lg" style="background: rgb(246 238 223 / 0.1); color: #f6eedf; border: 1px solid rgb(207 187 153 / 0.28);">
                 ${icon(slide.ctaSecondary)}
                 ${slide.ctaSecondary.label}
               </a>` : ''}
@@ -251,8 +251,9 @@ export function renderHome() {
     <section class="cta-section text-white" data-reveal="scale">
       <div class="container-site cta-container">
         <div class="cta-content text-center max-w-[36rem] mx-auto">
+          <span class="cta-ornament" aria-hidden="true">✦</span>
           <h2 class="text-h2 text-white">Dukung usaha warga RW 3 Banjardowo</h2>
-          <p class="text-body-lg mt-4" style="color: rgb(226 247 241 / 0.8);">
+          <p class="text-body-lg mt-4" style="color: rgb(246 238 223 / 0.82);">
             Temukan kuliner, kerajinan, jasa, dan sembako dari pelaku usaha warga RW 3.
           </p>
           <div class="mt-8">
