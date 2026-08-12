@@ -49,8 +49,8 @@
     --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
     --font-display: 'Fraunces', 'Plus Jakarta Sans', Georgia, serif;
 
-    --spacing-section: 6rem;
-    --spacing-container: 2rem;
+    --spacing-section: clamp(4rem, 6vw, 7rem);
+    --spacing-container: clamp(1.25rem, 3vw, 3rem);
 
     --radius-card: 0.875rem;
     --radius-control: 0.5rem;
@@ -202,20 +202,20 @@ p {
 
 @media (min-width: 1280px) {
     .container-site {
-        max-width: 90rem;
+        max-width: 96rem;
         padding-inline: 3rem;
     }
 }
 
 @media (min-width: 1536px) {
     .container-site {
-        max-width: 96rem;
+        max-width: 108rem;
         padding-inline: 4rem;
     }
 }
 
 .section {
-    padding-block: var(--spacing-section);
+    padding-block: clamp(3.5rem, 6vw, 7rem);
 }
 
 /* ── Component foundation ───────────────────────────────────── */
@@ -403,8 +403,8 @@ p {
 
 /* Section header */
 .section-header {
-    max-width: 40rem;
-    margin-bottom: 3rem;
+    max-width: 42rem;
+    margin-bottom: clamp(2rem, 4vw, 3.5rem);
 }
 
 .section-header .section-title {
@@ -524,11 +524,11 @@ p {
     position: sticky;
     top: 0;
     z-index: 40;
-    background-color: rgb(244 255 252 / 0.85);
-    border-bottom: 1px solid var(--color-line);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    box-shadow: 0 1px 0 rgb(31 75 44 / 0.03);
+    background-color: rgb(244 255 252 / 0.88);
+    border-bottom: 1px solid rgb(11 28 16 / 0.06);
+    backdrop-filter: blur(16px) saturate(1.4);
+    -webkit-backdrop-filter: blur(16px) saturate(1.4);
+    box-shadow: 0 1px 0 rgb(31 75 44 / 0.04);
 }
 
 .navbar-inner {
@@ -779,7 +779,7 @@ p {
     background-color: var(--color-primary-800);
     background-image: linear-gradient(to bottom, var(--color-primary-800) 0%, var(--color-primary-900) 100%);
     color: rgb(226 247 241 / 0.8);
-    padding-top: 4rem;
+    padding-top: clamp(3rem, 5vw, 5rem);
     padding-bottom: 0;
     position: relative;
 }
@@ -927,8 +927,8 @@ p {
 
 /* Bottom bar */
 .footer-divider {
-    border-color: rgb(226 247 241 / 0.06);
-    margin-top: 3rem;
+    border-color: rgb(226 247 241 / 0.08);
+    margin-top: clamp(2rem, 3vw, 3rem);
     margin-bottom: 0;
 }
 
@@ -950,7 +950,7 @@ p {
 .hero-carousel {
     position: relative;
     min-height: 28rem;
-    height: 70dvh;
+    height: clamp(60dvh, 65dvh, 70dvh);
     max-height: 40rem;
     overflow: hidden;
     background-color: var(--color-primary-900);
@@ -960,7 +960,7 @@ p {
 @media (min-width: 768px) {
     .hero-carousel {
         min-height: 30rem;
-        height: 72dvh;
+        height: clamp(62dvh, 68dvh, 72dvh);
         max-height: 42rem;
     }
 }
@@ -968,7 +968,7 @@ p {
 @media (min-width: 1024px) {
     .hero-carousel {
         min-height: 32rem;
-        height: 75dvh;
+        height: clamp(60dvh, 65dvh, 70dvh);
         max-height: 44rem;
     }
 }
@@ -1338,8 +1338,8 @@ p {
 
 @media (min-width: 1024px) {
     .sambutan-grid {
-        grid-template-columns: 0.75fr 1.25fr;
-        gap: 4rem;
+        grid-template-columns: 0.72fr 1.28fr;
+        gap: clamp(3rem, 5vw, 5rem);
     }
 }
 
@@ -1358,7 +1358,7 @@ p {
 
 @media (min-width: 1024px) {
     .sambutan-media {
-        max-width: 24rem;
+        max-width: clamp(22rem, 28vw, 28rem);
     }
 }
 
@@ -1423,7 +1423,7 @@ p {
 
 /* ── Pengumuman & Agenda ───────────────────────────────────────── */
 .news-section {
-    padding-block: 5rem;
+    padding-block: clamp(4rem, 7vw, 7rem);
     background-color: var(--color-primary-900);
     position: relative;
 }
@@ -1434,7 +1434,7 @@ p {
     top: 0;
     left: 0;
     right: 0;
-    height: 5rem;
+    height: clamp(4rem, 6vw, 6rem);
     background: linear-gradient(to bottom, var(--color-primary-900), transparent);
     pointer-events: none;
 }
@@ -1491,7 +1491,7 @@ p {
 }
 
 .news-card {
-    padding: 1.5rem;
+    padding: clamp(1.25rem, 2vw, 1.75rem);
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -1506,7 +1506,7 @@ p {
 
 .news-footer {
     margin-top: auto;
-    padding-top: 1.5rem;
+    padding-top: clamp(1rem, 1.5vw, 1.5rem);
 }
 
 /* ── Peta Wilayah preview ──────────────────────────────────────── */
@@ -1521,7 +1521,7 @@ p {
     top: 0;
     left: 0;
     right: 0;
-    height: 5rem;
+    height: clamp(4rem, 6vw, 6rem);
     background: linear-gradient(to bottom, var(--color-primary-900), transparent);
     pointer-events: none;
 }
@@ -1551,13 +1551,13 @@ p {
 
 @media (min-width: 768px) {
     .home-map-shell {
-        height: clamp(300px, 50vw, 420px);
+        height: clamp(320px, 50vw, 450px);
     }
 }
 
 @media (min-width: 1024px) {
     .home-map-shell {
-        height: clamp(320px, 45vw, 440px);
+        height: clamp(380px, 48vw, 520px);
     }
 }
 
@@ -1566,8 +1566,9 @@ p {
     flex-direction: column;
     align-items: flex-start;
     gap: 1.25rem;
-    padding: 1.5rem;
-    border-top: 1px solid rgb(244 255 252 / 0.1);
+    padding: clamp(1.25rem, 2vw, 2rem);
+    padding-top: clamp(1.5rem, 2.5vw, 2.5rem);
+    background: linear-gradient(to top, rgb(11 28 16 / 0.3) 0%, transparent 100%);
 }
 
 .home-map-footer .text-ink-muted {
@@ -1594,7 +1595,7 @@ p {
     top: 0;
     left: 0;
     right: 0;
-    height: 5rem;
+    height: clamp(4rem, 6vw, 6rem);
     background: linear-gradient(to bottom, var(--color-primary-950), transparent);
     pointer-events: none;
 }
@@ -1621,7 +1622,7 @@ p {
 
 /* ── CTA ───────────────────────────────────────────────────────── */
 .cta-section {
-    padding-block: 5rem;
+    padding-block: clamp(4rem, 7vw, 7rem);
     position: relative;
     overflow: hidden;
     background: linear-gradient(135deg, var(--color-primary-800) 0%, var(--color-primary-600) 100%);
