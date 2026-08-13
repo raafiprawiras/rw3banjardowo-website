@@ -11,6 +11,7 @@ import { renderPetaDesa, initPetaDesa } from './pages/PetaDesa.js';
 import { renderUMKM, initUMKM } from './pages/UMKM.js';
 import { renderLembaga, initLembaga } from './pages/Lembaga.js';
 import { renderGaleri, initGaleri } from './pages/Galeri.js';
+import { initUmkmGallery, closeUmkmModal } from './utils/umkmModal.js';
 
 const app = document.getElementById('app');
 
@@ -51,6 +52,7 @@ function navigate(path) {
 function resolveRoute() {
     const path = window.location.pathname;
     const route = routes[path] || routes['/'];
+    closeUmkmModal();
     if (route.cleanup) {
         route.cleanup();
     }
@@ -93,6 +95,9 @@ document.body.addEventListener('click', (e) => {
 
 // Handle back/forward navigation
 window.addEventListener('popstate', resolveRoute);
+
+// UMKM gallery delegation (card carousel + detail modal)
+initUmkmGallery();
 
 // Initial route resolution
 resolveRoute();
