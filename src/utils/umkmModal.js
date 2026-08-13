@@ -3,7 +3,7 @@
    (UMKM page search/filter) and both entry points (Home + UMKM page).
    Honors prefers-reduced-motion via CSS transitions. */
 
-import { UMKM_DATA } from '../pages/UMKM.js';
+import { UMKM_DATA, umkmCardInner } from '../pages/UMKM.js';
 
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -14,10 +14,6 @@ let lastFocused = null;
 let onKeydown = null;
 let touchStart = null;
 let lastSwipeAt = 0;
-
-function imagesOf(item) {
-  return item.images && item.images.length ? item.images : [item.image];
-}
 
 function findItem(id) {
   return UMKM_DATA.find((d) => d.id === id);
@@ -146,7 +142,7 @@ function handleDocumentClick(e) {
   const card = e.target.closest('[data-umkm-id]');
   if (card && !e.target.closest('a')) {
     e.preventDefault();
-    openUmkmModal(card.getAttribute('data-umkm-id'));
+    openUmkmModal(card.getAttribute('data-umkm-id'), card);
   }
 }
 
@@ -166,17 +162,11 @@ export function cleanupUmkmGallery() {
 }
 
 /* ── Modal ─────────────────────────────────────────────────────── */
-function openUmkmModal(id) {
+function openUmkmModal(id, sourceCard) {
   const item = findItem(id);
   if (!item || modalOpen) return;
 
-  const images = imagesOf(item);
-  const slides = images.map((src, i) => `
-        <img src="${src}" alt="Foto ${i + 1} ${item.name}" class="umkm-img" loading="lazy" />
-      `).join('');
-  const dots = images.map((_, i) => `
-        <button type="button" class="umkm-carousel-dot${i === 0 ? ' is-active' : ''}" data-umkm-dot="${i}" aria-label="Foto ${i + 1}"></button>
-      `).join('');
+  const cardWidth = sourceCard ? sourceCard.offsetWidth : 0;
 
   lastFocused = document.activeElement;
 
@@ -191,52 +181,22 @@ function openUmkmModal(id) {
         <button type="button" class="umkm-modal-close" data-umkm-close aria-label="Tutup">
           <i class="ph ph-x" aria-hidden="true"></i>
         </button>
-        <div class="umkm-modal-media" data-umkm-carousel data-current="0">
-          <div class="umkm-carousel-track">
-            ${slides}
-          </div>
-          ${images.length > 1 ? `
-          <button type="button" class="umkm-carousel-arrow umkm-carousel-prev" data-umkm-prev aria-label="Foto sebelumnya">
-            <i class="ph ph-caret-left" aria-hidden="true"></i>
-          </button>
-          <button type="button" class="umkm-carousel-arrow umkm-carousel-next" data-umkm-next aria-label="Foto berikutnya">
-            <i class="ph ph-caret-right" aria-hidden="true"></i>
-          </button>
-          <span class="umkm-carousel-count">1 / ${images.length}</span>
-          <div class="umkm-carousel-dots">${dots}</div>` : ''}
-        </div>
-        <div class="umkm-modal-body">
-          <span class="badge umkm-modal-badge">${item.category}</span>
-          <h3 class="text-h2 umkm-modal-title">${item.name}</h3>
-          <p class="text-body-lg text-ink-muted umkm-modal-desc">${item.desc}</p>
-          <div class="umkm-modal-meta">
-            <div class="umkm-meta-item">
-              <i class="ph ph-user" aria-hidden="true"></i>
-              <span>${item.owner}</span>
-            </div>
-            <div class="umkm-meta-item">
-              <i class="ph ph-map-pin" aria-hidden="true"></i>
-              <span>${item.location}</span>
-            </div>
-            <div class="umkm-meta-item">
-              <i class="ph ph-tag" aria-hidden="true"></i>
-              <span class="font-semibold text-tan">${item.price}</span>
-            </div>
-          </div>
-          <a href="https://wa.me/${item.phone}?text=Halo%20${encodeURIComponent(item.name)}%2C%20saya%20ingin%20menanyakan%20produk%2Fjasa%20Anda." class="btn btn-primary w-full" target="_blank" rel="noopener noreferrer">
-            <i class="ph ph-whatsapp-logo" aria-hidden="true"></i>
-            Hubungi Penjual
-          </a>
-        </div>
+        <article class="card card-hover umkm-card">
+          ${umkmCardInner(item)}
+        </article>
       </div>
     `;
+
+  if (cardWidth > 0) {
+    modal.style.setProperty('--umkm-modal-width', `${cardWidth}px`);
+  }
 
   document.body.appendChild(modal);
   modalOpen = true;
   document.body.classList.add('modal-open');
 
   modal.addEventListener('click', (e) => {
-    const media = modal.querySelector('.umkm-modal-media');
+    const media = modal.querySelector('[data-umkm-carousel]');
     const prev = e.target.closest('[data-umkm-prev]');
     const next = e.target.closest('[data-umkm-next]');
     const dot = e.target.closest('[data-umkm-dot]');
@@ -261,7 +221,7 @@ function openUmkmModal(id) {
       return;
     }
     if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
-      const media = modal.querySelector('.umkm-modal-media');
+      const media = modal.querySelector('[data-umkm-carousel]');
       const dots = media.querySelectorAll('.umkm-carousel-dot');
       if (dots.length <= 1) return;
       media.dataset.lastInteract = Date.now();

@@ -19,35 +19,36 @@ const UMKM_DATA = [
     ],
   },
   {
-    id: 'kerajinan-bambu-joko',
-    name: 'Kerajinan Bambu Pak Joko',
-    category: 'Kerajinan',
-    owner: 'Bapak Joko Susilo',
-    location: 'RT 01',
-    desc: 'Memproduksi aneka anyaman bambu tradisional seperti tampah, keranjang belanja, dan hiasan dinding berkualitas tinggi.',
-    price: 'Mulai Rp 15.000',
-    phone: '6281234567891',
-    image: 'https://picsum.photos/seed/bamboo-craft/600/400',
+    id: 'umkm-tahu',
+    name: 'Produksi Tahu "Pak Sukron Jamil"',
+    category: 'Kuliner',
+    owner: 'Bapak Sukron Jamil',
+    location: 'RT 02',
+    desc: 'Memproduksi tahu putih dan tahu goreng segar setiap hari dari kedelai pilihan, tanpa pengawet, dengan tekstur lembut dan harga terjangkau.',
+    price: 'Harga Hubungi Penjual',
+    phone: '62895422569076',
+    image: '/assets/umkm/umkm-tahu1.jpg',
     images: [
-      'https://picsum.photos/seed/bamboo-craft/1200/800',
-      'https://picsum.photos/seed/bamboo-craft-baskets/1200/800',
-      'https://picsum.photos/seed/bamboo-craft-workshop/1200/800',
+      '/assets/umkm/umkm-tahu1.jpg',
+      '/assets/umkm/umkm-tahu1.jpg',
+      '/assets/umkm/umkm-tahu1.jpg',
+      '/assets/umkm/umkm-tahu1.jpg',
     ],
   },
   {
-    id: 'jasa-jahit-sri',
-    name: 'Jasa Jahit Rapi Ibu Sri',
-    category: 'Jasa',
-    owner: 'Ibu Sri Wahyuni',
+    id: 'budidaya-jamur',
+    name: 'Omah Jamur Sany',
+    category: 'Budidaya',
+    owner: 'Bapak Sany',
     location: 'RT 02',
-    desc: 'Melayani pembuatan pakaian pria/wanita, seragam sekolah, kebaya, serta permak pakaian dengan jahitan rapi dan cepat.',
-    price: 'Harga menyesuaikan',
-    phone: '6281234567892',
-    image: 'https://picsum.photos/seed/sewing-service/600/400',
+    desc: 'Membudidayakan aneka jamur segar seperti jamur tiram dengan kualitas pilihan, dirawat secara higienis, dan dipanen setiap hari untuk kebutuhan dapur maupun industri.',
+    price: 'Harga Hubungi Penjual',
+    phone: '6289675277757',
+    image: '/assets/umkm/umkm-jamur1.jpg',
     images: [
-      'https://picsum.photos/seed/sewing-service/1200/800',
-      'https://picsum.photos/seed/sewing-fabric/1200/800',
-      'https://picsum.photos/seed/sewing-machine/1200/800',
+      '/assets/umkm/umkm-jamur1.jpg',
+      '/assets/umkm/umkm-jamur2.jpg',
+      '/assets/umkm/umkm-jamur3.jpg',
     ],
   },
   {
@@ -68,28 +69,42 @@ const UMKM_DATA = [
     ],
   },
   {
-    id: 'bakso-mie-melati',
-    name: 'Bakso & Mie Ayam Melati',
-    category: 'Kuliner',
-    owner: 'Ibu Rahmawati',
-    location: 'RT 02',
-    desc: 'Menyajikan bakso urat sapi asli dan mie ayam ceker dengan kuah kaldu gurih tanpa bahan pengawet.',
-    price: 'Mulai Rp 12.000',
-    phone: '6281234567894',
-    image: 'https://picsum.photos/seed/meatball-noodles/600/400',
+    id: 'shevariz-craft',
+    name: 'Shevariz Craft',
+    category: 'Kerajinan',
+    owner: 'Ibu Sumiati',
+    location: 'RT 04',
+    desc: 'Kerajinan kreatif dari sterofoam, mulai dari miniatur, hiasan dinding, hingga dekorasi acara dengan detail halus dan harga bersahabat.',
+    price: 'Harga Hubungi Penjual',
+    phone: '6285865390547',
+    image: '/assets/umkm/umkm-sterofoam1.jpg',
     images: [
-      'https://picsum.photos/seed/meatball-noodles/1200/800',
-      'https://picsum.photos/seed/meatball-bowl/1200/800',
-      'https://picsum.photos/seed/meatball-soup/1200/800',
+      '/assets/umkm/umkm-sterofoam1.jpg',
+      '/assets/umkm/umkm-sterofoam2.jpg',
+      '/assets/umkm/umkm-sterofoam3.jpg',
+    ],
+  },
+  {
+    id: 'budidaya-rosellaqu',
+    name: 'Budidaya RosellaQu',
+    category: 'Budidaya',
+    owner: 'Ibu Las',
+    location: 'RT 01',
+    desc: 'Membudidayakan bunga rosella dan telang kering berkualitas, kaya antioksidan dan alami, siap diolah menjadi teh kesehatan yang menyegarkan.',
+    price: 'Harga Hubungi Penjual',
+    phone: '6285712144689',
+    image: '/assets/umkm/umkm-rosella1.jpg',
+    images: [
+      '/assets/umkm/umkm-rosella1.jpg',
     ],
   },
 ];
 
-const CATEGORIES = ['Semua', 'Kuliner', 'Kerajinan', 'Jasa', 'Sembako'];
+const CATEGORIES = ['Semua', 'Kuliner', 'Kerajinan', 'Budidaya'];
 
 export { UMKM_DATA, CATEGORIES };
 
-export function umkmCardMarkup(item) {
+export function umkmCardInner(item) {
   const images = item.images && item.images.length ? item.images : [item.image];
   const slides = images.map((src, i) => `
             <img src="${src}" alt="Foto ${i + 1} ${item.name}" class="umkm-img" loading="lazy" />
@@ -99,7 +114,6 @@ export function umkmCardMarkup(item) {
           `).join('');
 
   return `
-        <article class="card card-hover umkm-card" data-umkm-id="${item.id}" data-reveal>
           <div class="umkm-img-wrap" data-umkm-carousel>
             <div class="umkm-carousel-track">
               ${slides}
@@ -141,6 +155,13 @@ export function umkmCardMarkup(item) {
               </a>
             </div>
           </div>
+      `;
+}
+
+export function umkmCardMarkup(item) {
+  return `
+        <article class="card card-hover umkm-card" data-umkm-id="${item.id}" data-reveal>
+          ${umkmCardInner(item)}
         </article>
       `;
 }

@@ -2851,15 +2851,6 @@ body.modal-open {
     .umkm-modal {
         padding: 1.5rem;
     }
-    .umkm-modal-panel {
-        width: min(30rem, 100%);
-    }
-}
-
-@media (min-width: 1024px) {
-    .umkm-modal-panel {
-        width: min(26rem, 100%);
-    }
 }
 
 .umkm-modal-backdrop {
@@ -2879,14 +2870,13 @@ body.modal-open {
 .umkm-modal-panel {
     position: relative;
     z-index: 1;
-    width: min(26rem, 100%);
+    width: min(var(--umkm-modal-width, 26rem), 100%);
     max-height: min(calc(100dvh - 2rem), 46rem);
     display: flex;
     flex-direction: column;
-    background-color: var(--color-surface-elev);
-    border: 1px solid rgb(229 215 196 / 0.16);
-    border-radius: var(--radius-card);
-    box-shadow: 0 24px 60px rgb(5 8 3 / 0.6), inset 0 1px 0 rgb(229 215 196 / 0.08);
+    background: transparent;
+    border: none;
+    box-shadow: none;
     overflow: hidden;
     opacity: 0;
     transform: translateY(1.25rem) scale(0.97);
@@ -2898,11 +2888,31 @@ body.modal-open {
     transform: none;
 }
 
+.umkm-modal-panel .umkm-card {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    height: auto;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.umkm-modal-panel .umkm-img-wrap {
+    flex: 0 0 auto;
+}
+
+.umkm-modal-panel .umkm-card-body {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+}
+
 .umkm-modal-close {
     position: absolute;
     top: 0.75rem;
     right: 0.75rem;
-    z-index: 4;
+    z-index: 5;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2931,45 +2941,6 @@ body.modal-open {
 
 .umkm-modal-close:focus-visible {
     outline-color: var(--color-tan);
-}
-
-.umkm-modal-media {
-    position: relative;
-    flex: 0 0 auto;
-    aspect-ratio: 4 / 3;
-    background-color: var(--color-surface-muted);
-    overflow: hidden;
-}
-
-.umkm-modal-body {
-    flex: 1 1 auto;
-    min-height: 0;
-    padding: 1.5rem 1.75rem 1.75rem;
-    overflow-y: auto;
-    overscroll-behavior: contain;
-}
-
-.umkm-modal-badge {
-    margin-bottom: 0.75rem;
-}
-
-.umkm-modal-title {
-    color: var(--color-bone);
-    margin-bottom: 0.5rem;
-}
-
-.umkm-modal-desc {
-    max-width: 60ch;
-    margin-bottom: 1.25rem;
-}
-
-.umkm-modal-meta {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    padding-top: 1rem;
-    border-top: 1px solid var(--color-line);
-    margin-bottom: 1.5rem;
 }
 
 @media (prefers-reduced-motion: reduce) {
