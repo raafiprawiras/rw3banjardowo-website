@@ -2541,6 +2541,32 @@ p {
     white-space: nowrap;
 }
 
+.map-umkm-marker {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-kombu-green);
+    border: 2px solid var(--color-tan);
+    border-radius: var(--radius-pill);
+    box-shadow: var(--shadow-control);
+    color: var(--color-bone);
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.map-umkm-marker i {
+    pointer-events: none;
+}
+
+.map-umkm-section {
+    border-top: 1px solid var(--color-line);
+    padding-top: 1.5rem;
+}
+
+.umkm-loc-btn {
+    cursor: pointer;
+}
+
 /* ═══════════════════════════════════════════════════════════════
    UMKM DIRECTORY PAGE
    ═══════════════════════════════════════════════════════════════ */

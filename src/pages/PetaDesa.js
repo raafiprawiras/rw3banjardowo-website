@@ -6,7 +6,7 @@ let geoJsonCache = null;
 let initialBounds = null;
 let resizeHandlerAttached = false;
 
-const GEOJSON_URL = '/assets/rw3.geojson';
+const GEOJSON_URL = '/assets/rw3-new.geojson';
 
 export function renderPetaDesa() {
     return `
@@ -64,8 +64,13 @@ export function renderPetaDesa() {
                 </span>
               </div>
             </div>
+            <div class="map-umkm-section mt-6">
+              <h3 class="text-h4 mb-3">Lokasi UMKM</h3>
+              <div id="map-umkm-list" class="map-location-list" aria-label="Daftar lokasi UMKM RW 3"></div>
+              <p id="map-umkm-empty" class="text-body-sm text-ink-muted hidden">Belum ada data UMKM.</p>
+            </div>
             <p class="text-body-sm text-ink-muted mt-6">
-              Boundary wilayah ditampilkan dari file GeoJSON RW 3 yang tersedia pada project. Peta dapat digeser, diperbesar, dan dikembalikan ke tampilan awal.
+              Boundary wilayah dan titik lokasi UMKM ditampilkan dari file GeoJSON RW 3 yang tersedia pada project. Klik salah satu UMKM untuk memperbesar peta, atau Reset View untuk kembali ke tampilan awal.
             </p>
           </aside>
         </div>
@@ -79,6 +84,8 @@ export async function initPetaDesa() {
     const loadingEl = document.getElementById('map-loading');
     const errorEl = document.getElementById('map-error');
     const resetBtn = document.querySelector('.map-reset-btn');
+    const umkmListEl = document.getElementById('map-umkm-list');
+    const umkmEmptyEl = document.getElementById('map-umkm-empty');
 
     if (!mapEl) return;
 
@@ -99,8 +106,16 @@ export async function initPetaDesa() {
         initialBounds = geoJsonLayer.getBounds();
         mapInstance.fitBounds(initialBounds, { padding: [24, 24] });
 
-        // Add polygon center label
-        addRw3PolygonLabel(mapInstance, initialBounds);
+        // Add polygon center label (centered on the RW 3 polygon, not the points)
+        const polygonLayer = findPolygonLayer(geoJsonLayer);
+        if (polygonLayer) {
+            addRw3PolygonLabel(mapInstance, polygonLayer.getBounds());
+        } else {
+            addRw3PolygonLabel(mapInstance, initialBounds);
+        }
+
+        // Populate UMKM location list from GeoJSON points
+        populateUmkmList(geojson, umkmListEl, umkmEmptyEl);
 
         window.requestAnimationFrame(() => mapInstance.invalidateSize());
 
@@ -173,9 +188,24 @@ function createGeoJsonLayer(geojson) {
             fillColor: '#889063',
             fillOpacity: 0.28,
         }),
+        pointToLayer: (feature, latlng) => {
+            return L.marker(latlng, {
+                icon: L.divIcon({
+                    className: 'map-umkm-marker',
+                    html: '<i class="ph ph-storefront" aria-hidden="true"></i>',
+                    iconSize: [30, 30],
+                    iconAnchor: [15, 15],
+                    popupAnchor: [0, -16],
+                }),
+                title: feature?.properties?.name || 'UMKM RW 3',
+            });
+        },
         onEachFeature: (feature, layer) => {
             const name = feature?.properties?.name || 'RW 3';
-            const description = feature?.properties?.description || 'RW 3 Kelurahan Banjardowo';
+            const isPoint = feature?.geometry?.type === 'Point';
+            const description = isPoint
+                ? 'UMKM warga RW 3 Kelurahan Banjardowo'
+                : (feature?.properties?.description || 'RW 3 Kelurahan Banjardowo');
 
             layer.bindPopup(`
                 <div class="map-popup-content">
@@ -185,21 +215,65 @@ function createGeoJsonLayer(geojson) {
                 </div>
             `);
 
-            layer.on({
-                mouseover: () => {
-                    layer.setStyle({
-                        weight: 3.5,
-                        fillOpacity: 0.32,
-                    });
-                },
-                mouseout: () => {
-                    layer.setStyle({
-                        weight: 2.5,
-                        fillOpacity: 0.22,
-                    });
-                },
-            });
+            if (!isPoint) {
+                layer.on({
+                    mouseover: () => {
+                        layer.setStyle({
+                            weight: 3.5,
+                            fillOpacity: 0.32,
+                        });
+                    },
+                    mouseout: () => {
+                        layer.setStyle({
+                            weight: 2.5,
+                            fillOpacity: 0.22,
+                        });
+                    },
+                });
+            }
         },
+    });
+}
+
+function populateUmkmList(geojson, listEl, emptyEl) {
+    if (!listEl) return;
+
+    const points = (geojson?.features || []).filter(
+        (f) => f?.geometry?.type === 'Point' && f?.properties?.name
+    );
+
+    if (!points.length) {
+        if (emptyEl) emptyEl.classList.remove('hidden');
+        return;
+    }
+
+    listEl.innerHTML = points.map((feature) => {
+        const name = feature.properties.name;
+        return `
+            <button type="button" class="map-location-btn umkm-loc-btn" data-map-fly="${feature.properties.name}" aria-label="Lihat lokasi ${name}">
+                <span class="map-loc-icon-wrap">
+                    <i class="ph ph-storefront" aria-hidden="true"></i>
+                </span>
+                <span class="map-loc-text">
+                    <span class="map-loc-name">${name}</span>
+                    <span class="map-loc-desc">UMKM warga RW 3</span>
+                </span>
+            </button>
+        `;
+    }).join('');
+
+    listEl.querySelectorAll('[data-map-fly]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+            if (!mapInstance || !geoJsonLayer) return;
+            const target = btn.getAttribute('data-map-fly');
+            geoJsonLayer.eachLayer((layer) => {
+                const props = layer.feature?.properties;
+                if (props && props.name === target) {
+                    mapInstance.flyTo(layer.getLatLng(), Math.max(mapInstance.getZoom(), 16), { duration: 0.6 });
+                    layer.openPopup();
+                }
+            });
+        });
     });
 }
 
@@ -223,5 +297,15 @@ function addRw3PolygonLabel(map, bounds) {
     }).addTo(map);
 }
 
-export { loadRw3GeoJson, createMap, createGeoJsonLayer, addRw3PolygonLabel, GEOJSON_URL };
+function findPolygonLayer(layerGroup) {
+    let found = null;
+    layerGroup.eachLayer((layer) => {
+        if (!found && layer.feature && layer.feature.geometry && layer.feature.geometry.type === 'Polygon') {
+            found = layer;
+        }
+    });
+    return found;
+}
+
+export { loadRw3GeoJson, createMap, createGeoJsonLayer, addRw3PolygonLabel, populateUmkmList, GEOJSON_URL };
 
