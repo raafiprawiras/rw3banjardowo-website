@@ -1,7 +1,8 @@
 node_modules
 dist
+.git
+*.log
 .env
 .env.*
-.DS_Store
 *.local
-.vercel
+.DS_Store
