@@ -8,6 +8,15 @@ let resizeHandlerAttached = false;
 
 const GEOJSON_URL = '/assets/rw3-new.geojson';
 
+const MAPS_LINKS = {
+    'Dipal Donuts': 'https://maps.app.goo.gl/6n1DCwqavx53HsH8A',
+    'Produksi Tahu \u201cpak Sukron Jamil\u201d': 'https://maps.app.goo.gl/KEQLRe1u6URKbgAb9',
+    'Shevariz': 'https://maps.app.goo.gl/nGCaiF2gJRyjW41i9',
+    'Jejamuran Ati Becik Banjardowo Genuk': 'https://maps.app.goo.gl/Ne2AYKS6w1gRyuP56',
+    'Symphonie Busa \u201cPak Agus\u201d': 'https://maps.app.goo.gl/6fE1fwQkZXrpwEGW8',
+    'RosellaQU': 'https://maps.app.goo.gl/22G8xEnsbUdTnorZ7',
+};
+
 export function renderPetaDesa() {
     return `
     <section class="section map-page">
@@ -52,7 +61,7 @@ export function renderPetaDesa() {
           </div>
 
           <aside class="map-sidebar card" data-reveal style="--reveal-delay: 120ms">
-            <h2 class="text-h3 mb-4">Informasi Wilayah</h2>
+            <h2 class="map-sidebar-title">Informasi Wilayah</h2>
             <div class="map-location-list">
               <div class="map-location-btn no-pointer">
                 <span class="map-loc-icon-wrap">
@@ -64,13 +73,13 @@ export function renderPetaDesa() {
                 </span>
               </div>
             </div>
-            <div class="map-umkm-section mt-6">
-              <h3 class="text-h4 mb-3">Lokasi UMKM</h3>
+            <div class="map-umkm-section">
+              <h3 class="map-umkm-heading">Lokasi UMKM</h3>
               <div id="map-umkm-list" class="map-location-list" aria-label="Daftar lokasi UMKM RW 3"></div>
               <p id="map-umkm-empty" class="text-body-sm text-ink-muted hidden">Belum ada data UMKM.</p>
             </div>
-            <p class="text-body-sm text-ink-muted mt-6">
-              Boundary wilayah dan titik lokasi UMKM ditampilkan dari file GeoJSON RW 3 yang tersedia pada project. Klik salah satu UMKM untuk memperbesar peta, atau Reset View untuk kembali ke tampilan awal.
+            <p class="map-sidebar-note">
+              Boundary wilayah dan titik lokasi UMKM ditampilkan dari file GeoJSON RW 3. Klik salah satu UMKM untuk memperbesar peta, atau Reset View untuk kembali ke tampilan awal.
             </p>
           </aside>
         </div>
@@ -206,12 +215,18 @@ function createGeoJsonLayer(geojson) {
             const description = isPoint
                 ? 'UMKM warga RW 3 Kelurahan Banjardowo'
                 : (feature?.properties?.description || 'RW 3 Kelurahan Banjardowo');
+            const mapsUrl = MAPS_LINKS[name];
 
             layer.bindPopup(`
                 <div class="map-popup-content">
                     <h3 class="text-h4">${name}</h3>
                     <p class="text-body-sm text-ink-muted mt-2">${description}</p>
                     <p class="text-caption text-ink-muted mt-2">Kecamatan Genuk, Kota Semarang</p>
+                    ${mapsUrl ? `
+                    <a class="map-popup-link" href="${mapsUrl}" target="_blank" rel="noopener noreferrer">
+                        <i class="ph ph-map-pin" aria-hidden="true"></i>
+                        Lihat di Google Maps
+                    </a>` : ''}
                 </div>
             `);
 
@@ -290,8 +305,8 @@ function addRw3PolygonLabel(map, bounds) {
         icon: L.divIcon({
             className: 'map-polygon-label',
             html: '<span class="map-label-name">RW 3 Banjardowo</span>',
-            iconSize: [160, 30],
-            iconAnchor: [80, 15],
+            iconSize: [136, 26],
+            iconAnchor: [68, 13],
         }),
         interactive: false,
     }).addTo(map);

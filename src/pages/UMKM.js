@@ -30,9 +30,7 @@ const UMKM_DATA = [
     image: '/assets/umkm/umkm-tahu1.jpg',
     images: [
       '/assets/umkm/umkm-tahu1.jpg',
-      '/assets/umkm/umkm-tahu1.jpg',
-      '/assets/umkm/umkm-tahu1.jpg',
-      '/assets/umkm/umkm-tahu1.jpg',
+      '/assets/umkm/umkm-tahu2.jpg',
     ],
   },
   {
@@ -96,6 +94,8 @@ const UMKM_DATA = [
     image: '/assets/umkm/umkm-rosella1.jpg',
     images: [
       '/assets/umkm/umkm-rosella1.jpg',
+      '/assets/umkm/umkm-rosella2.jpg',
+      '/assets/umkm/umkm-rosella3.jpg',
     ],
   },
 ];
@@ -107,7 +107,7 @@ export { UMKM_DATA, CATEGORIES };
 export function umkmCardInner(item) {
   const images = item.images && item.images.length ? item.images : [item.image];
   const slides = images.map((src, i) => `
-            <img src="${src}" alt="Foto ${i + 1} ${item.name}" class="umkm-img" loading="lazy" />
+            <img src="${src}" alt="Foto ${i + 1} ${item.name}" class="umkm-img${i === 0 ? ' is-active' : ''}" loading="lazy" />
           `).join('');
   const dots = images.map((_, i) => `
             <button type="button" class="umkm-carousel-dot${i === 0 ? ' is-active' : ''}" data-umkm-dot="${i}" aria-label="Foto ${i + 1}"></button>

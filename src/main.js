@@ -5,7 +5,7 @@ import { createFooter } from './components/Footer.js';
 import { renderHome, initHome, cleanupHome } from './pages/Home.js';
 import { renderVisiMisi } from './pages/VisiMisi.js';
 import { renderStrukturKepengurusan } from './pages/StrukturKepengurusan.js';
-import { renderStrukturKKN } from './pages/StrukturKKN.js';
+import { renderStrukturKKN, initStrukturKKN, cleanupStrukturKKN } from './pages/StrukturKKN.js';
 import { renderDataDesa } from './pages/DataDesa.js';
 import { renderPetaDesa, initPetaDesa } from './pages/PetaDesa.js';
 import { renderUMKM, initUMKM } from './pages/UMKM.js';
@@ -33,8 +33,8 @@ const routes = {
     '/visi-misi': { render: renderVisiMisi },
     '/profil/struktur': { render: renderStrukturKepengurusan },
     '/struktur-kepengurusan': { render: renderStrukturKepengurusan },
-    '/profil/kkn': { render: renderStrukturKKN },
-    '/struktur-kkn': { render: renderStrukturKKN },
+    '/profil/kkn': { render: renderStrukturKKN, init: initStrukturKKN, cleanup: cleanupStrukturKKN },
+    '/struktur-kkn': { render: renderStrukturKKN, init: initStrukturKKN, cleanup: cleanupStrukturKKN },
     '/data': { render: renderDataDesa },
     '/data-desa': { render: renderDataDesa },
     '/peta': { render: renderPetaDesa, init: initPetaDesa },

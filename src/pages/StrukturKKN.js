@@ -1,73 +1,96 @@
+import { initKKNMotion, cleanupKKNMotion } from '../utils/kknMotion.js';
+
+const ORG_DPL = {
+    img: '/assets/struktur-kkn/dpl-klp36.jpg',
+    role: 'DPL',
+    desc: 'Dosen Pembimbing Lapangan',
+};
+
+const ORG_KETUA = {
+    img: '/assets/struktur-kkn/ketua-klp36.jpg',
+    role: 'Ketua Tim',
+    desc: 'Koordinator Utama KKN',
+};
+
+const ORG_DUO = [
+    { img: '/assets/struktur-kkn/bendahara-klp36.jpg', role: 'Bendahara', desc: 'Pengelola Keuangan Tim' },
+    { img: '/assets/struktur-kkn/sekre-klp36.jpg', role: 'Sekretaris', desc: 'Administrasi & Notulensi' },
+];
+
+const ORG_SIE = [
+    { img: '/assets/struktur-kkn/acara-klp36.jpg', role: 'Seksi Acara', desc: 'Program & Kegiatan' },
+    { img: '/assets/struktur-kkn/perkap-klp36.jpg', role: 'Seksi Perkap', desc: 'Perlengkapan & Logistik' },
+    { img: '/assets/struktur-kkn/humas-klp36.jpg', role: 'Seksi Humas', desc: 'Publikasi & Hubungan Warga' },
+    { img: '/assets/struktur-kkn/pdd-klp36.jpg', role: 'Seksi PDD', desc: 'Pendataan & Dokumentasi' },
+];
+
+function photoCard(member, extraClass = '') {
+    return `
+      <div class="kkn-photo-card ${extraClass}">
+        <div class="kkn-photo-frame">
+          <img src="${member.img}" alt="Foto ${member.role} Tim KKN Unissula Kelompok 36" class="kkn-photo-img" loading="lazy" />
+        </div>
+        <div class="kkn-photo-info">
+          <h3 class="kkn-photo-role">${member.role}</h3>
+          <p class="kkn-photo-desc">${member.desc}</p>
+        </div>
+      </div>
+    `;
+}
+
 export function renderStrukturKKN() {
     return `
-    <section class="page-banner">
-      <div class="container-site page-banner-inner">
-        <span class="badge">Kolaborasi</span>
-        <h1 class="text-h1 page-title mt-4">Struktur Tim KKN Unissula Kelompok 36</h1>
-        <p class="page-desc mt-4 max-w-2xl">
-          Tim Kuliah Kerja Nyata (KKN) Universitas Islam Sultan Agung (Unissula) Kelompok 36 yang berkontribusi dalam pengembangan portal warga RW 3 Banjardowo.
-        </p>
+    <section class="kkn-hero-section">
+      <div class="container-site">
+        <div class="kkn-hero">
+          <img src="/assets/struktur-kkn/all-kelompok36.jpg" alt="Foto bersama Tim KKN Unissula Kelompok 36" class="kkn-hero-img" fetchpriority="high" />
+        </div>
       </div>
     </section>
 
-    <section class="section bg-surface">
+    <section class="section">
       <div class="container-site">
+        <div class="section-header">
+          <h2 class="text-h2 section-title">Struktur Organisasi</h2>
+          <p class="section-desc">
+            Susunan kepengurusan Tim KKN Unissula Kelompok 36 Banjardowo.
+          </p>
+        </div>
 
-        <!-- KKN Team Layout -->
-        <div class="kkn-container mt-4">
-          <!-- Leader: Kormades -->
-          <div class="text-center mb-12" data-reveal>
-            <span class="badge badge-accent mb-4">Koordinator Mahasiswa Desa</span>
-            <div class="card p-5 max-w-sm mx-auto text-center card-hover">
-              <div class="kkn-avatar mx-auto">
-                <i class="ph ph-student" aria-hidden="true"></i>
-              </div>
-              <h3 class="text-h3 mt-4">Muhammad Alif</h3>
-              <p class="text-body-sm text-tan font-semibold mt-1">S1 Teknik Elektro</p>
-              <p class="text-caption text-ink-muted mt-1">Koordinator Utama Tim KKN</p>
-            </div>
+        <div class="kkn-org">
+
+          <div class="kkn-org-level">
+            ${photoCard(ORG_DPL, 'kkn-photo-card--dpl')}
           </div>
 
-          <!-- Members Grid -->
-          <div class="text-center mb-8">
-            <span class="badge badge-neutral">Anggota Tim KKN</span>
+          <div class="kkn-org-link" aria-hidden="true"></div>
+
+          <div class="kkn-org-level">
+            ${photoCard(ORG_KETUA, 'kkn-photo-card--ketua')}
           </div>
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            <div class="card p-5 text-center card-hover" data-reveal>
-              <div class="kkn-avatar mx-auto">
-                <i class="ph ph-student" aria-hidden="true"></i>
-              </div>
-              <h3 class="text-h4 mt-4">Sarah Amelia</h3>
-              <p class="text-body-sm text-tan font-semibold mt-1">S1 Kedokteran</p>
-              <p class="text-caption text-ink-muted mt-1">Program Kesehatan & Posyandu</p>
-            </div>
-            <div class="card p-5 text-center card-hover" data-reveal style="--reveal-delay: 90ms">
-              <div class="kkn-avatar mx-auto">
-                <i class="ph ph-student" aria-hidden="true"></i>
-              </div>
-              <h3 class="text-h4 mt-4">Rian Hidayat</h3>
-              <p class="text-body-sm text-tan font-semibold mt-1">S1 Informatika</p>
-              <p class="text-caption text-ink-muted mt-1">Pengembangan Website & Sistem</p>
-            </div>
-            <div class="card p-5 text-center card-hover" data-reveal style="--reveal-delay: 180ms">
-              <div class="kkn-avatar mx-auto">
-                <i class="ph ph-student" aria-hidden="true"></i>
-              </div>
-              <h3 class="text-h4 mt-4">Nabila Putri</h3>
-              <p class="text-body-sm text-tan font-semibold mt-1">S1 Ilmu Komunikasi</p>
-              <p class="text-caption text-ink-muted mt-1">Publikasi & Hubungan Warga</p>
-            </div>
-            <div class="card p-5 text-center card-hover" data-reveal style="--reveal-delay: 270ms">
-              <div class="kkn-avatar mx-auto">
-                <i class="ph ph-student" aria-hidden="true"></i>
-              </div>
-              <h3 class="text-h4 mt-4">Fajar Ramadhan</h3>
-              <p class="text-body-sm text-tan font-semibold mt-1">S1 Arsitektur</p>
-              <p class="text-caption text-ink-muted mt-1">Pemetaan Wilayah & Infrastruktur</p>
-            </div>
+
+          <div class="kkn-org-link" aria-hidden="true"></div>
+
+          <div class="kkn-org-level kkn-org-level--duo">
+            ${ORG_DUO.map((m) => photoCard(m)).join('')}
           </div>
+
+          <div class="kkn-org-link" aria-hidden="true"></div>
+
+          <div class="kkn-org-level kkn-org-level--sie">
+            ${ORG_SIE.map((m) => photoCard(m)).join('')}
+          </div>
+
         </div>
       </div>
     </section>
   `;
+}
+
+export function initStrukturKKN() {
+    initKKNMotion();
+}
+
+export function cleanupStrukturKKN() {
+    cleanupKKNMotion();
 }

@@ -64,11 +64,12 @@ function heroSlideMarkup(slide, index) {
       <div class="hero-slide" role="group" aria-roledescription="slide" aria-label="${slideLabel}" aria-hidden="true">
         <img src="${slide.image}" alt="${slide.alt}" class="hero-slide-bg" ${index === 0 ? 'fetchpriority="high"' : 'loading="lazy"'} />
         <div class="hero-slide-overlay" aria-hidden="true"></div>
-        <div class="container-site hero-slide-content">
+        <div class="hero-slide-content">
           <div class="hero-slide-copy">
+            ${slide.badge ? `<span class="badge hero-slide-badge">${slide.badge}</span>` : ''}
             <h2 class="text-h1 text-bone">${slide.title}</h2>
             <p class="hero-slide-text">${slide.text}</p>
-            <div class="hero-actions mt-8">
+            <div class="hero-actions">
               ${slide.ctaPrimary ? `
               <a href="${slide.ctaPrimary.href}" class="btn btn-primary btn-lg">
                 ${icon(slide.ctaPrimary)}
@@ -89,21 +90,25 @@ function heroSlideMarkup(slide, index) {
 export function renderHome() {
   return `
     <!-- Hero Carousel -->
-    <section class="hero-carousel" id="home-hero" aria-roledescription="carousel" aria-label="Sorotan utama RW 3 Banjardowo">
-      <h1 class="sr-only">RW 3 Banjardowo - Portal Warga</h1>
-      <div class="hero-carousel-track">
-        ${HERO_SLIDES.map(heroSlideMarkup).join('')}
-      </div>
-      <button type="button" class="hero-carousel-arrow hero-carousel-prev" aria-label="Slide sebelumnya">
-        <i class="ph ph-caret-left" aria-hidden="true"></i>
-      </button>
-      <button type="button" class="hero-carousel-arrow hero-carousel-next" aria-label="Slide berikutnya">
-        <i class="ph ph-caret-right" aria-hidden="true"></i>
-      </button>
-      <div class="hero-carousel-dots" aria-label="Pilih slide">
-        ${HERO_SLIDES.map((_, i) => `
-          <button type="button" class="hero-carousel-dot" data-hero-dot="${i}" aria-label="Ke slide ${i + 1} dari ${HERO_SLIDES.length}"></button>
-        `).join('')}
+    <section class="hero-section" aria-label="Sorotan utama RW 3 Banjardowo">
+      <div class="container-site">
+        <div class="hero-carousel" id="home-hero" aria-roledescription="carousel" aria-label="Sorotan utama RW 3 Banjardowo">
+          <h1 class="sr-only">RW 3 Banjardowo - Portal Warga</h1>
+          <div class="hero-carousel-track">
+            ${HERO_SLIDES.map(heroSlideMarkup).join('')}
+          </div>
+          <button type="button" class="hero-carousel-arrow hero-carousel-prev" aria-label="Slide sebelumnya">
+            <i class="ph ph-caret-left" aria-hidden="true"></i>
+          </button>
+          <button type="button" class="hero-carousel-arrow hero-carousel-next" aria-label="Slide berikutnya">
+            <i class="ph ph-caret-right" aria-hidden="true"></i>
+          </button>
+          <div class="hero-carousel-dots" aria-label="Pilih slide">
+            ${HERO_SLIDES.map((_, i) => `
+              <button type="button" class="hero-carousel-dot" data-hero-dot="${i}" aria-label="Ke slide ${i + 1} dari ${HERO_SLIDES.length}"></button>
+            `).join('')}
+          </div>
+        </div>
       </div>
     </section>
 
@@ -111,7 +116,7 @@ export function renderHome() {
     <section class="section home-sambutan">
       <div class="container-site">
         <div class="sambutan-grid">
-          <div class="sambutan-media" data-reveal="left">
+          <div class="sambutan-media">
             <figure class="hero-card">
               <img src="https://banjar-connect.lovable.app/assets/ketua-rw-C_cHXzzT.jpg" alt="Potret Bapak Sutrisno, S.Sos., Ketua RW 3 Banjardowo" class="hero-img" loading="lazy" />
               <figcaption class="hero-card-badge">
@@ -120,7 +125,7 @@ export function renderHome() {
               </figcaption>
             </figure>
           </div>
-          <div class="sambutan-text" data-reveal style="--reveal-delay: 100ms">
+          <div class="sambutan-text">
             <h2 class="text-h2">Sambutan Ketua RW</h2>
             <p class="sambutan-signature">Bapak Sutrisno, S.Sos.</p>
             <p class="sambutan-role">Ketua RW 3 Banjardowo (2024-2029)</p>
@@ -141,7 +146,7 @@ export function renderHome() {
     <!-- Pengumuman & Agenda -->
     <section class="news-section">
       <div class="container-site" style="position: relative; z-index: 1;">
-        <div class="section-header" data-reveal>
+        <div class="section-header">
           <h2 class="text-h2 section-title">Informasi Terbaru Warga</h2>
           <p class="section-desc">
             Kabar kegiatan, jadwal posyandu, dan pengumuman keamanan lingkungan di wilayah RW 3 Banjardowo.
@@ -194,13 +199,13 @@ export function renderHome() {
     <!-- Peta Wilayah RW 3 -->
     <section class="section home-map-section blur-gradient-bg">
       <div class="container-site" style="position: relative; z-index: 1;">
-        <div class="section-header" data-reveal>
+        <div class="section-header">
           <h2 class="text-h2 section-title">Wilayah RW 3 Kelurahan Banjardowo</h2>
           <p class="section-desc">
             Jelajahi batas wilayah RW 3 di Kecamatan Genuk, Kota Semarang, melalui peta interaktif berikut.
           </p>
         </div>
-        <div class="home-map-card card" id="home-map-card" data-reveal style="--reveal-delay: 80ms">
+        <div class="home-map-card card" id="home-map-card">
           <div class="home-map-shell" id="home-map-shell">
             <div id="home-map-loading" class="map-state" role="status" aria-live="polite">
               <div class="map-state-icon">
@@ -232,15 +237,15 @@ export function renderHome() {
     <!-- UMKM RW 3 -->
     <section class="section home-umkm-section">
       <div class="container-site" style="position: relative; z-index: 1;">
-        <div class="section-header" data-reveal>
+        <div class="section-header">
           <h2 class="text-h2 section-title">UMKM RW 3</h2>
           <p class="section-desc">
             Dukung perekonomian lokal dengan berbelanja di usaha mikro, kecil, dan menengah milik warga RW 3 Banjardowo.
           </p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
-          ${UMKM_DATA.slice(0, 3).map((item, i) => `
-            <div class="h-full" data-reveal style="--reveal-delay: ${i * 80}ms">
+          ${UMKM_DATA.slice(0, 3).map((item) => `
+            <div class="h-full">
               ${umkmCardMarkup(item)}
             </div>
           `).join('')}

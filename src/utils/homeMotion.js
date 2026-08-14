@@ -1,9 +1,13 @@
 /* Beranda page motion — GSAP + ScrollTrigger.
-   Composes a few atomic patterns from the hyperframes-animation skill:
-   - spring-pop entrances (news cards, CTA) — power3.out settle, no overshoot
-   - scroll-scrubbed hero fade/dim (hero melts into the canvas below)
-   - bounded idle (portrait float, ornament sway) at the LOW end of amplitude
-   Wired into Home.js init/cleanup lifecycle; honors prefers-reduced-motion.
+   Premium scroll experience with intentional, varied reveals:
+   - Hero: scroll-scrubbed dim + gentle lift as it exits
+   - Sambutan: directional portrait reveal + text fade/blur-to-sharp
+   - News: spring-pop stagger (cards arrive one beat apart)
+   - Map: soft rise reveal (no scale — keeps Leaflet raster crisp)
+   - UMKM: fade-up stagger with light scale, handed back to CSS hover
+   - CTA: spring-pop settle + gentle ornament sway
+   - Navbar: smooth scrolled-state transition (background + shadow)
+   Honors prefers-reduced-motion: no scroll animation at all.
 */
 
 import gsap from 'gsap';
@@ -12,6 +16,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 let motionCtx = null;
+let navScrollHandler = null;
 
 export function initHomeMotion() {
   cleanupHomeMotion();
@@ -21,15 +26,25 @@ export function initHomeMotion() {
 
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  /* Navbar scroll state — smooth, transitioned in CSS. Works only on Beranda. */
+  const navbar = document.querySelector('.navbar');
+  if (navbar) {
+    const updateNav = () => navbar.classList.toggle('is-scrolled', window.scrollY > 8);
+    updateNav();
+    navScrollHandler = updateNav;
+    window.addEventListener('scroll', updateNav, { passive: true });
+  }
+
+  if (reducedMotion) return;
+
   motionCtx = gsap.context(() => {
-    /* Hero — dim + fade as it scrolls out, blending into the green canvas.
-       Transform-free (opacity + filter only) so it never fights the Ken Burns
-       zoom or the text-entry transitions owned by the carousel. */
+    /* ── Hero: dim + fade + gentle lift as it scrolls out ─────────── */
     const hero = document.querySelector('.hero-carousel');
-    if (hero && !reducedMotion) {
+    if (hero) {
       gsap.to(hero, {
-        opacity: 0.35,
-        filter: 'brightness(0.7)',
+        opacity: 0.4,
+        filter: 'brightness(0.72)',
+        yPercent: 6,
         ease: 'none',
         scrollTrigger: {
           trigger: hero,
@@ -40,18 +55,44 @@ export function initHomeMotion() {
       });
     }
 
-    /* News cards — spring-pop stagger, one arriving beat (3 × 0.1 = 0.3s).
-       clearProps hands the transform back to CSS after landing so the
-       card-hover lift still works. */
+    /* ── Sambutan: portrait image reveal (directional, no final shift) ── */
+    const portrait = document.querySelector('.sambutan-media .hero-card');
+    if (portrait) {
+      gsap.fromTo(portrait,
+        { x: -48, scale: 1.05, opacity: 0 },
+        {
+          x: 0, scale: 1, opacity: 1,
+          duration: 0.9,
+          ease: 'power3.out',
+          clearProps: 'transform',
+          scrollTrigger: { trigger: '.sambutan-media', start: 'top 78%', toggleActions: 'play none none none' },
+        },
+      );
+    }
+
+    /* ── Sambutan: text fade + soft blur-to-sharp ─────────────────── */
+    const sambutanText = document.querySelector('.sambutan-text');
+    if (sambutanText) {
+      gsap.fromTo(sambutanText,
+        { y: 32, opacity: 0, filter: 'blur(6px)' },
+        {
+          y: 0, opacity: 1, filter: 'blur(0px)',
+          duration: 0.8,
+          ease: 'power3.out',
+          clearProps: 'all',
+          scrollTrigger: { trigger: sambutanText, start: 'top 82%', toggleActions: 'play none none none' },
+        },
+      );
+    }
+
+    /* ── News cards — spring-pop stagger (one arriving beat) ──────── */
     const newsItems = gsap.utils.toArray('.home-news-item');
-    if (newsItems.length && !reducedMotion) {
+    if (newsItems.length) {
       gsap.fromTo(
         newsItems,
         { y: 36, scale: 0.96, opacity: 0 },
         {
-          y: 0,
-          scale: 1,
-          opacity: 1,
+          y: 0, scale: 1, opacity: 1,
           duration: 0.7,
           ease: 'power3.out',
           stagger: 0.1,
@@ -65,45 +106,90 @@ export function initHomeMotion() {
       );
     }
 
-    /* CTA — spring-pop settle, smooth long tail, no bounce. */
-    const ctaContent = document.querySelector('.cta-section .cta-content');
-    if (ctaContent && !reducedMotion) {
-      gsap.fromTo(
-        ctaContent,
-        { y: 28, scale: 0.97, opacity: 0 },
+    /* ── Section headers (news / map / umkm): fade-up + blur-to-sharp ── */
+    const headers = gsap.utils.toArray('.news-section .section-header, .home-map-section .section-header, .home-umkm-section .section-header');
+    if (headers.length) {
+      headers.forEach((h, i) => {
+        gsap.fromTo(h,
+          { y: 24, opacity: 0, filter: 'blur(4px)' },
+          {
+            y: 0, opacity: 1, filter: 'blur(0px)',
+            duration: 0.7,
+            ease: 'power3.out',
+            delay: i * 0.05,
+            clearProps: 'all',
+            scrollTrigger: { trigger: h, start: 'top 85%', toggleActions: 'play none none none' },
+          },
+        );
+      });
+    }
+
+    /* ── Map card: soft rise (opacity + y only, keeps raster crisp) ── */
+    const mapCard = document.querySelector('.home-map-card');
+    if (mapCard) {
+      gsap.fromTo(mapCard,
+        { y: 44, opacity: 0 },
         {
-          y: 0,
-          scale: 1,
-          opacity: 1,
-          duration: 0.8,
+          y: 0, opacity: 1,
+          duration: 0.9,
           ease: 'power3.out',
           clearProps: 'transform',
+          scrollTrigger: { trigger: mapCard, start: 'top 84%', toggleActions: 'play none none none' },
+        },
+      );
+    }
+
+    /* ── UMKM cards: fade-up stagger, hands transform back to hover ── */
+    const umkmCards = gsap.utils.toArray('.home-umkm-section .umkm-card');
+    if (umkmCards.length) {
+      gsap.fromTo(
+        umkmCards,
+        { y: 40, scale: 0.97, opacity: 0 },
+        {
+          y: 0, scale: 1, opacity: 1,
+          duration: 0.75,
+          ease: 'power3.out',
+          stagger: 0.08,
+          clearProps: 'transform',
           scrollTrigger: {
-            trigger: document.querySelector('.cta-section') || ctaContent,
-            start: 'top 85%',
+            trigger: document.querySelector('.home-umkm-section .grid') || umkmCards[0],
+            start: 'top 82%',
             toggleActions: 'play none none none',
           },
         },
       );
     }
 
-    /* Portrait — subtle bounded float (low-end amplitude), starts where the
-       CSS reveal settles. Idle only, never a full breathing loop. */
-    const portrait = document.querySelector('.sambutan-media .hero-card');
-    if (portrait && !reducedMotion) {
+    /* ── CTA: spring-pop settle, smooth long tail, no bounce ──────── */
+    const ctaContent = document.querySelector('.cta-section .cta-content');
+    if (ctaContent) {
+      gsap.fromTo(
+        ctaContent,
+        { y: 28, scale: 0.97, opacity: 0 },
+        {
+          y: 0, scale: 1, opacity: 1,
+          duration: 0.8,
+          ease: 'power3.out',
+          clearProps: 'transform',
+          scrollTrigger: { trigger: '.cta-section', start: 'top 85%', toggleActions: 'play none none none' },
+        },
+      );
+    }
+
+    /* ── Portrait float + ornament sway — bounded idle, low amplitude ── */
+    if (portrait) {
       gsap.to(portrait, {
         y: -4,
         duration: 1.6,
         ease: 'sine.inOut',
         yoyo: true,
         repeat: -1,
-        delay: 0.6,
+        delay: 0.9,
       });
     }
 
-    /* Ornament — gentle sway, accent scale, not a spinner. */
     const ornament = document.querySelector('.cta-ornament');
-    if (ornament && !reducedMotion) {
+    if (ornament) {
       gsap.to(ornament, {
         rotation: 6,
         duration: 2.6,
@@ -112,14 +198,18 @@ export function initHomeMotion() {
         repeat: -1,
       });
     }
-  }, root);
 
-  if (!reducedMotion) {
     ScrollTrigger.refresh();
-  }
+  }, root);
 }
 
 export function cleanupHomeMotion() {
+  if (navScrollHandler) {
+    window.removeEventListener('scroll', navScrollHandler);
+    navScrollHandler = null;
+    const navbar = document.querySelector('.navbar');
+    if (navbar) navbar.classList.remove('is-scrolled');
+  }
   if (motionCtx) {
     motionCtx.revert();
     motionCtx = null;

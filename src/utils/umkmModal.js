@@ -27,8 +27,12 @@ function slideTo(carousel, index) {
   if (!total) return;
   const next = ((index % total) + total) % total;
 
-  track.style.transform = `translateX(-${next * 100}%)`;
   carousel.dataset.current = String(next);
+
+  slides.forEach((slide, i) => {
+    slide.classList.toggle('is-active', i === next);
+    slide.setAttribute('aria-hidden', i === next ? 'false' : 'true');
+  });
 
   const dots = Array.from(carousel.querySelectorAll('.umkm-carousel-dot'));
   dots.forEach((dot, i) => {
@@ -38,10 +42,6 @@ function slideTo(carousel, index) {
 
   const count = carousel.querySelector('.umkm-carousel-count');
   if (count) count.textContent = `${next + 1} / ${total}`;
-
-  slides.forEach((slide, i) => {
-    slide.setAttribute('aria-hidden', i === next ? 'false' : 'true');
-  });
 }
 
 function nextSlide(carousel, delta) {
