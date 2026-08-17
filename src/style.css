@@ -560,7 +560,7 @@ p {
 
 .section-header .section-title {
     margin-top: 0.75rem;
-    color: var(--color-gold);
+    color: var(--color-bone);
 }
 
 .section-header .section-desc {
@@ -620,7 +620,7 @@ p {
 }
 
 .page-banner .page-title {
-    color: var(--color-ink-strong);
+    color: var(--color-bone);
 }
 
 .page-banner .page-desc {
@@ -1706,7 +1706,7 @@ p {
 }
 
 .news-section .section-title {
-    color: var(--color-gold);
+    color: var(--color-bone);
 }
 
 .news-section .section-desc {
@@ -1780,7 +1780,7 @@ p {
 }
 
 .home-map-section .section-title {
-    color: var(--color-gold);
+    color: var(--color-bone);
 }
 
 .home-map-section .section-desc {
@@ -1842,7 +1842,7 @@ p {
 }
 
 .home-umkm-section .section-title {
-    color: var(--color-gold);
+    color: var(--color-bone);
 }
 
 .home-umkm-section .section-desc {
@@ -1890,7 +1890,7 @@ p {
 }
 
 .cta-content .text-h2 {
-    color: var(--color-gold);
+    color: var(--color-bone);
 }
 
 /* ═══════════════════════════════════════════════════════════════
