@@ -192,7 +192,7 @@ function createMap(mapEl, options = {}) {
 function createGeoJsonLayer(geojson) {
     return L.geoJSON(geojson, {
         style: () => ({
-            color: '#354024',
+            color: '#122620',
             weight: 2.5,
             fillColor: '#889063',
             fillOpacity: 0.28,

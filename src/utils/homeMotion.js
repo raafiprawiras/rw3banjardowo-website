@@ -1,6 +1,6 @@
 /* Beranda page motion — GSAP + ScrollTrigger.
    Premium scroll experience with intentional, varied reveals:
-   - Hero: scroll-scrubbed dim + gentle lift as it exits
+   - Hero: static (no scroll effect — remains in normal document flow)
    - Sambutan: directional portrait reveal + text fade/blur-to-sharp
    - News: spring-pop stagger (cards arrive one beat apart)
    - Map: soft rise reveal (no scale — keeps Leaflet raster crisp)
@@ -38,23 +38,6 @@ export function initHomeMotion() {
   if (reducedMotion) return;
 
   motionCtx = gsap.context(() => {
-    /* ── Hero: dim + fade + gentle lift as it scrolls out ─────────── */
-    const hero = document.querySelector('.hero-carousel');
-    if (hero) {
-      gsap.to(hero, {
-        opacity: 0.4,
-        filter: 'brightness(0.72)',
-        yPercent: 6,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: hero,
-          start: 'top top',
-          end: 'bottom top',
-          scrub: true,
-        },
-      });
-    }
-
     /* ── Sambutan: portrait image reveal (directional, no final shift) ── */
     const portrait = document.querySelector('.sambutan-media .hero-card');
     if (portrait) {
