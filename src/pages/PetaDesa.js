@@ -21,12 +21,14 @@ export function renderPetaDesa() {
     return `
     <section class="section map-page">
       <div class="container-site">
-        <div class="section-header map-header">
-          <span class="badge">Peta Wilayah</span>
-          <h1 class="text-h1 section-title">RW 3 Kelurahan Banjardowo</h1>
-          <p class="section-desc">
-            Kecamatan Genuk, Kota Semarang, Jawa Tengah.
-          </p>
+        <div class="map-header page-title-hero">
+          <div class="map-hero-copy">
+            <span class="badge">Peta Wilayah</span>
+            <h1 class="text-h1 section-title">RW 3 Kelurahan Banjardowo</h1>
+            <p class="section-desc">
+              Kecamatan Genuk, Kota Semarang, Jawa Tengah.
+            </p>
+          </div>
         </div>
 
         <div class="map-layout mt-12">

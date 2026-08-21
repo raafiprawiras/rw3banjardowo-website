@@ -57,7 +57,7 @@ export function renderGaleri() {
     return `
     <section class="section gallery-page">
       <div class="container-site">
-        <div class="section-header gallery-header">
+        <div class="section-header gallery-header page-title-hero">
           <span class="badge">Dokumentasi</span>
           <h1 class="text-h1 section-title">Galeri Kegiatan</h1>
           <p class="section-desc">

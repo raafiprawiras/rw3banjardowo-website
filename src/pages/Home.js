@@ -8,15 +8,14 @@ import { initHomeMotion, cleanupHomeMotion } from '../utils/homeMotion.js';
 const HERO_SLIDES = [
   {
     variant: 'photo',
-    image: '/assets/beranda/asset_beranda1.jpg',
+    image: '/assets/beranda/Section Awal Beranda.jpg',
     alt: 'Suasana lingkungan RW 3 Banjardowo',
-    badge: 'Portal Resmi Warga',
     title: 'Selamat Datang di Website Resmi RW 3',
     text: 'Portal informasi resmi warga RW 3 Kelurahan Banjardowo, Kecamatan Genuk, Kota Semarang.',
     ctaPrimary: {
-      label: 'Layanan Surat WA',
-      href: 'https://wa.me/6281234567890?text=Halo%20Pengurus%20RW%203%20Banjardowo%2C%20saya%20ingin%20mengajukan%20layanan%20surat.%20Nama%3A%20%0ANIK%3A%20%0AAlamat%2FRT%3A%20%0AJenis%20surat%3A%20',
-      icon: 'ph-whatsapp-logo',
+      label: 'Struktur Kepengurusan RW',
+      href: '/profil/struktur',
+      icon: 'ph-users-three',
     },
     ctaSecondary: {
       label: 'Jelajahi Peta',
@@ -28,7 +27,6 @@ const HERO_SLIDES = [
     variant: 'photo',
     image: '/assets/beranda/asset_beranda2.jpg',
     alt: 'Kegiatan warga RW 3 Banjardowo',
-    badge: 'Kegiatan Warga',
     title: 'Kegiatan & Kabar Warga RW 3',
     text: 'Dari posyandu, kerja bakti, hingga agenda bersama, semua informasi warga terpusat di sini.',
     ctaPrimary: {
@@ -42,7 +40,6 @@ const HERO_SLIDES = [
     variant: 'photo',
     image: '/assets/beranda/asset_beranda3.jpg',
     alt: 'Wilayah RW 3 Banjardowo',
-    badge: 'Peta Wilayah',
     title: 'Kenali Wilayah RW 3',
     text: 'Jelajahi batas wilayah RW 3 Kelurahan Banjardowo pada peta interaktif.',
     ctaPrimary: {
@@ -115,28 +112,55 @@ export function renderHome() {
     <!-- Sambutan Ketua RW -->
     <section class="section home-sambutan">
       <div class="container-site">
-        <div class="sambutan-grid">
-          <div class="sambutan-media">
+        <div class="sambutan-grid" data-sambutan-section>
+          <div class="sambutan-media" data-sambutan-reveal="photo">
             <figure class="hero-card">
-              <img src="https://banjar-connect.lovable.app/assets/ketua-rw-C_cHXzzT.jpg" alt="Potret Bapak Sutrisno, S.Sos., Ketua RW 3 Banjardowo" class="hero-img" loading="lazy" />
+              <img src="/assets/beranda/profil_ketua_rw03.jpeg" alt="Potret Muhamad Nastain SH Mkn, Ketua RW 03 Banjardowo" class="hero-img" loading="lazy" />
               <figcaption class="hero-card-badge">
-                <p class="hero-card-title">Bapak Sutrisno, S.Sos.</p>
-                <p class="hero-card-subtitle">Ketua RW 3 Banjardowo (2024-2029)</p>
+                <p class="hero-card-title">Muhamad Nastain, SH., M.Kn.</p>
+                <p class="hero-card-subtitle">Ketua RW 03 Banjardowo</p>
               </figcaption>
             </figure>
           </div>
           <div class="sambutan-text">
-            <h2 class="text-h2">Sambutan Ketua RW</h2>
-            <p class="sambutan-signature">Bapak Sutrisno, S.Sos.</p>
-            <p class="sambutan-role">Ketua RW 3 Banjardowo (2024-2029)</p>
-            <p class="text-body-lg text-ink-muted sambutan-body">
-              Assalamu'alaikum warahmatullahi wabarakatuh. Selamat datang di portal resmi RW 3 Banjardowo. Website ini kami hadirkan sebagai jembatan informasi antara pengurus dan warga, mulai dari data kependudukan, layanan surat, katalog UMKM, hingga agenda kegiatan. Mari bersama menjaga guyub rukun dan membangun lingkungan yang aman, sehat, dan mandiri.
-            </p>
-            <div class="hero-actions mt-8">
-              <a href="/profil/struktur" class="btn btn-secondary btn-lg">
-                <i class="ph ph-users-three" aria-hidden="true"></i>
-                Struktur Kepengurusan
-              </a>
+            <div data-sambutan-reveal="heading">
+              <h2 class="text-h2">Sambutan Ketua RW 03</h2>
+            </div>
+            <div class="sambutan-scroll-card" aria-label="Isi lengkap sambutan Ketua RW 03" data-sambutan-reveal="body">
+              <p class="text-body-lg text-ink-muted sambutan-body">
+                Assalamu'alaikum Warahmatullahi Wabarakatuh.
+              </p>
+              <p class="text-body-lg text-ink-muted sambutan-body">
+                Puji syukur kehadirat Allah SWT atas segala rahmat dan karunia-Nya, sehingga Website Resmi RW 03 Kelurahan Banjardowo, Kecamatan Genuk, Kota Semarang dapat hadir sebagai sarana informasi, komunikasi, dan pelayanan bagi seluruh warga.
+              </p>
+              <p class="text-body-lg text-ink-muted sambutan-body">
+                Website ini kami hadirkan sebagai bagian dari upaya membangun RW 03 yang Maju, Terbuka, dan Berdaya. Kami ingin menjadikan website ini sebagai ruang bersama untuk menyampaikan informasi kegiatan, program kerja, pelayanan masyarakat, transparansi kegiatan, potensi wilayah, serta berbagai informasi yang bermanfaat bagi warga.
+              </p>
+              <p class="text-body-lg text-ink-muted sambutan-body">
+                Kami menyadari bahwa kemajuan sebuah lingkungan bukan hanya tanggung jawab pengurus RW, tetapi merupakan hasil dari kebersamaan, kepedulian, dan partisipasi seluruh warga. Oleh karena itu, kami mengajak seluruh warga RW 03 untuk terus menjaga semangat guyub rukun, gotong royong, saling peduli, dan bersama-sama membangun lingkungan yang aman, nyaman, bersih, dan sejahtera.
+              </p>
+              <p class="text-body-lg text-ink-muted sambutan-body">
+                Kami juga berkomitmen untuk mendorong pemberdayaan ekonomi masyarakat, khususnya pengembangan UMKM warga RW 03. Potensi usaha warga akan terus kami dorong melalui pendataan, promosi, pengembangan jaringan, peningkatan kapasitas, serta pemanfaatan teknologi dan media digital.
+              </p>
+              <p class="text-body-lg text-ink-muted sambutan-body">
+                Website ini juga kami harapkan menjadi jembatan komunikasi antara pengurus dengan masyarakat. Keterbukaan informasi, pelayanan yang baik, dan keterlibatan warga akan menjadi bagian penting dalam menjalankan kepengurusan RW 03.
+              </p>
+              <p class="text-body-lg text-ink-muted sambutan-body">
+                Mari kita jadikan RW 03 bukan hanya sebagai tempat tinggal, tetapi sebagai rumah bersama yang terus tumbuh, berkembang, dan memberikan manfaat bagi seluruh warganya.
+              </p>
+              <p class="text-body-lg text-ink-muted sambutan-body">
+                <strong>MAJU &bull; TERBUKA &bull; BERDAYA</strong>
+              </p>
+              <p class="text-body-lg text-ink-muted sambutan-body">
+                Bersama kita bangun RW 03 yang lebih baik, lebih kompak, dan lebih sejahtera.
+              </p>
+              <p class="text-body-lg text-ink-muted sambutan-body">
+                Wassalamu'alaikum Warahmatullahi Wabarakatuh.
+              </p>
+            </div>
+            <div class="sambutan-signature-wrap" data-sambutan-reveal="signature">
+              <p class="sambutan-signature">Muhamad Nastain, SH., M.Kn.</p>
+              <p class="sambutan-role">Ketua RW 03 Banjardowo</p>
             </div>
           </div>
         </div>

@@ -16,7 +16,7 @@ const LEMBAGA_DATA = [
         ],
         schedule: 'Hari Minggu pertama setiap bulan, pukul 09.00 WIB',
         icon: 'ph-users-three',
-        href: '/lembaga/pkk',
+        href: '/lembaga-desa/pkk',
     },
     {
         id: 'karang-taruna',
@@ -31,7 +31,7 @@ const LEMBAGA_DATA = [
         ],
         schedule: 'Hari Sabtu malam minggu kedua, pukul 19.30 WIB',
         icon: 'ph-soccer-ball',
-        href: '/lembaga/karang-taruna',
+        href: '/lembaga-desa/karang-taruna',
     },
     {
         id: 'posyandu',
@@ -46,29 +46,14 @@ const LEMBAGA_DATA = [
         ],
         schedule: 'Tanggal 15 setiap bulan, pukul 08.00 - 11.00 WIB',
         icon: 'ph-heart-beat',
-        href: '/lembaga/posyandu',
-    },
-    {
-        id: 'linmas',
-        name: 'Linmas (Perlindungan Masyarakat)',
-        leader: 'Bapak Ahmad Fauzi',
-        desc: 'Satuan perlindungan masyarakat yang bertugas menjaga keamanan, ketertiban, dan penanggulangan bencana di wilayah.',
-        activities: [
-            'Koordinasi jadwal ronda malam warga di pos kamling',
-            'Pengamanan acara keagamaan dan hajatan warga',
-            'Kesiapsiagaan penanganan banjir dan darurat wilayah',
-            'Patroli keliling berkala di lingkungan RT 01-06',
-        ],
-        schedule: 'Setiap malam sesuai jadwal piket ronda RT',
-        icon: 'ph-shield',
-        href: '/lembaga/linmas',
+        href: '/lembaga-desa/posyandu',
     },
 ];
 
 export function renderLembaga() {
     return `
     <section class="page-banner">
-      <div class="container-site page-banner-inner">
+      <div class="container-site page-banner-inner page-title-hero">
         <span class="badge">Lembaga Kemasyarakatan</span>
         <h1 class="text-h1 page-title mt-3">Lembaga Desa RW 03</h1>
         <p class="page-desc mt-3 max-w-2xl">

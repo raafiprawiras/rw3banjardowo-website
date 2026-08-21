@@ -10,6 +10,9 @@ import { renderDataDesa } from './pages/DataDesa.js';
 import { renderPetaDesa, initPetaDesa } from './pages/PetaDesa.js';
 import { renderUMKM, initUMKM } from './pages/UMKM.js';
 import { renderLembaga, initLembaga } from './pages/Lembaga.js';
+import { renderLembagaPKK } from './pages/LembagaPKK.js';
+import { renderLembagaKarangTaruna } from './pages/LembagaKarangTaruna.js';
+import { renderLembagaPosyandu } from './pages/LembagaPosyandu.js';
 import { renderGaleri, initGaleri } from './pages/Galeri.js';
 import { initUmkmGallery, closeUmkmModal } from './utils/umkmModal.js';
 
@@ -41,6 +44,9 @@ const routes = {
     '/peta-desa': { render: renderPetaDesa, init: initPetaDesa },
     '/umkm': { render: renderUMKM, init: initUMKM },
     '/lembaga': { render: renderLembaga, init: initLembaga },
+    '/lembaga-desa/pkk': { render: renderLembagaPKK },
+    '/lembaga-desa/karang-taruna': { render: renderLembagaKarangTaruna },
+    '/lembaga-desa/posyandu': { render: renderLembagaPosyandu },
     '/galeri': { render: renderGaleri, init: initGaleri },
 };
 

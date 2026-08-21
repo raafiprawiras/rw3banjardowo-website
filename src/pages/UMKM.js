@@ -170,7 +170,7 @@ export function renderUMKM() {
   return `
     <section class="section umkm-page">
       <div class="container-site">
-        <div class="section-header umkm-header">
+        <div class="section-header umkm-header page-title-hero">
           <span class="badge">Katalog Usaha</span>
           <h1 class="text-h1 section-title">UMKM Desa RW 3</h1>
           <p class="section-desc">

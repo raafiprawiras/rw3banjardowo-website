@@ -1,17 +1,14 @@
 export function renderVisiMisi() {
     return `
-    <section class="page-banner">
-      <div class="container-site page-banner-inner">
-        <span class="badge">Profil Wilayah</span>
-        <h1 class="text-h1 page-title mt-4">Visi & Misi RW 3 Banjardowo</h1>
-        <p class="page-desc mt-4 max-w-2xl">
-          Arah dan komitmen bersama dalam membangun lingkungan rukun, mandiri, dan sejahtera.
-        </p>
-      </div>
-    </section>
-
     <section class="section bg-surface">
       <div class="container-site">
+        <div class="section-header visi-header visi-hero-glass page-title-hero">
+          <span class="badge">Profil Wilayah</span>
+          <h1 class="text-h1 section-title">Visi & Misi</h1>
+          <p class="section-desc">
+            Arah dan komitmen bersama dalam membangun lingkungan rukun, mandiri, dan sejahtera.
+          </p>
+        </div>
 
         <!-- Visi Section (Focal Point) -->
         <div class="visi-container mt-4">

@@ -1,7 +1,7 @@
 export function renderStrukturKepengurusan() {
     return `
     <section class="page-banner">
-      <div class="container-site page-banner-inner">
+      <div class="container-site page-banner-inner page-title-hero">
         <span class="badge">Kepengurusan</span>
         <h1 class="text-h1 page-title mt-4">Struktur Kepengurusan RW 3</h1>
         <p class="page-desc mt-4 max-w-2xl">

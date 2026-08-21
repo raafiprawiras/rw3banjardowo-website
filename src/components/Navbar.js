@@ -20,10 +20,9 @@ const NAV_ITEMS = [
     {
         label: 'Lembaga Desa',
         children: [
-            { label: 'PKK', href: '/lembaga/pkk' },
-            { label: 'Karang Taruna', href: '/lembaga/karang-taruna' },
-            { label: 'Posyandu', href: '/lembaga/posyandu' },
-            { label: 'Linmas', href: '/lembaga/linmas' },
+            { label: 'PKK', href: '/lembaga-desa/pkk' },
+            { label: 'Karang Taruna', href: '/lembaga-desa/karang-taruna' },
+            { label: 'Posyandu', href: '/lembaga-desa/posyandu' },
         ],
     },
     { label: 'Galeri', href: '/galeri' },

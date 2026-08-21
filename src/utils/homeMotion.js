@@ -1,7 +1,7 @@
-/* Beranda page motion — GSAP + ScrollTrigger.
+/* Beranda page motion — GSAP + ScrollTrigger, plus lightweight IO for Sambutan.
    Premium scroll experience with intentional, varied reveals:
    - Hero: static (no scroll effect — remains in normal document flow)
-   - Sambutan: directional portrait reveal + text fade/blur-to-sharp
+   - Sambutan: one-time IntersectionObserver reveal, then static
    - News: spring-pop stagger (cards arrive one beat apart)
    - Map: soft rise reveal (no scale — keeps Leaflet raster crisp)
    - UMKM: fade-up stagger with light scale, handed back to CSS hover
@@ -17,6 +17,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 let motionCtx = null;
 let navScrollHandler = null;
+let sambutanObserver = null;
 
 export function initHomeMotion() {
   cleanupHomeMotion();
@@ -35,39 +36,11 @@ export function initHomeMotion() {
     window.addEventListener('scroll', updateNav, { passive: true });
   }
 
+  initSambutanReveal(reducedMotion);
+
   if (reducedMotion) return;
 
   motionCtx = gsap.context(() => {
-    /* ── Sambutan: portrait image reveal (directional, no final shift) ── */
-    const portrait = document.querySelector('.sambutan-media .hero-card');
-    if (portrait) {
-      gsap.fromTo(portrait,
-        { x: -48, scale: 1.05, opacity: 0 },
-        {
-          x: 0, scale: 1, opacity: 1,
-          duration: 0.9,
-          ease: 'power3.out',
-          clearProps: 'transform',
-          scrollTrigger: { trigger: '.sambutan-media', start: 'top 78%', toggleActions: 'play none none none' },
-        },
-      );
-    }
-
-    /* ── Sambutan: text fade + soft blur-to-sharp ─────────────────── */
-    const sambutanText = document.querySelector('.sambutan-text');
-    if (sambutanText) {
-      gsap.fromTo(sambutanText,
-        { y: 32, opacity: 0, filter: 'blur(6px)' },
-        {
-          y: 0, opacity: 1, filter: 'blur(0px)',
-          duration: 0.8,
-          ease: 'power3.out',
-          clearProps: 'all',
-          scrollTrigger: { trigger: sambutanText, start: 'top 82%', toggleActions: 'play none none none' },
-        },
-      );
-    }
-
     /* ── News cards — spring-pop stagger (one arriving beat) ──────── */
     const newsItems = gsap.utils.toArray('.home-news-item');
     if (newsItems.length) {
@@ -159,18 +132,6 @@ export function initHomeMotion() {
       );
     }
 
-    /* ── Portrait float + ornament sway — bounded idle, low amplitude ── */
-    if (portrait) {
-      gsap.to(portrait, {
-        y: -4,
-        duration: 1.6,
-        ease: 'sine.inOut',
-        yoyo: true,
-        repeat: -1,
-        delay: 0.9,
-      });
-    }
-
     const ornament = document.querySelector('.cta-ornament');
     if (ornament) {
       gsap.to(ornament, {
@@ -186,7 +147,40 @@ export function initHomeMotion() {
   }, root);
 }
 
+function initSambutanReveal(reducedMotion) {
+  const section = document.querySelector('[data-sambutan-section]');
+  if (!section) return;
+
+  section.classList.add('sambutan-motion-ready');
+
+  if (reducedMotion || !('IntersectionObserver' in window)) {
+    section.classList.add('is-visible');
+    return;
+  }
+
+  sambutanObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      section.classList.add('is-visible');
+      observer.unobserve(entry.target);
+      sambutanObserver = null;
+    });
+  }, { threshold: 0.28, rootMargin: '0px 0px -8% 0px' });
+
+  sambutanObserver.observe(section);
+}
+
 export function cleanupHomeMotion() {
+  if (sambutanObserver) {
+    sambutanObserver.disconnect();
+    sambutanObserver = null;
+  }
+
+  const sambutanSection = document.querySelector('[data-sambutan-section]');
+  if (sambutanSection) {
+    sambutanSection.classList.remove('sambutan-motion-ready', 'is-visible');
+  }
+
   if (navScrollHandler) {
     window.removeEventListener('scroll', navScrollHandler);
     navScrollHandler = null;
